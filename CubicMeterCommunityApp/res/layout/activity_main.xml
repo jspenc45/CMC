@@ -1,16 +1,87 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/LinearLayout1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".MainActivity" >
+    android:background="@string/activity_background_color"
+    
+    tools:context=".MainActivity" >    
 
-    <TextView
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+         android:layout_marginTop="@dimen/layout_marging_top"
+         android:gravity="center"
+        android:orientation="vertical" >
+
+        <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello Group!" />
+        android:text="Do Activities and collect data" 
+        android:textAppearance="?android:attr/textAppearanceLarge"/>        
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@string/activity_btn_bcolor"
+            android:layout_marginTop="@dimen/button_marging_top"
+            android:textSize="@dimen/button_text_size"
+            android:text="ACTIVITIES" />
+        
+        	
+    </LinearLayout>
+     <LinearLayout
+       android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+         android:layout_marginTop="@dimen/layout_marging_top"
+         android:gravity="center"
+        android:orientation="vertical" >        
+         <TextView
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+        android:text="Review Past Activities" 
+        android:textAppearance="?android:attr/textAppearanceLarge"/>
 
-</RelativeLayout>
+         <Button
+             android:id="@+id/button2"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:layout_marginTop="@dimen/button_marging_top"
+             android:background="@string/activity_btn_bcolor"
+             android:textSize="@dimen/button_text_size"
+             android:text="REVIEW" />
+        
+       
+    </LinearLayout>
+     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+         android:layout_marginTop="@dimen/layout_marging_top"
+         android:gravity="center"
+        android:orientation="vertical" >
+
+          	<TextView
+        android:layout_width="wrap_content"        
+        android:layout_height="wrap_content"
+        android:text="View data in the form of Charts" 
+        android:gravity="center"
+        android:textAppearance="?android:attr/textAppearanceLarge"/>
+         
+         <Button
+             android:id="@+id/button3"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:textSize="@dimen/button_text_size"
+             android:layout_marginTop="@dimen/button_marging_top"
+             android:background="@string/activity_btn_bcolor"
+             android:text="CHARTS" />       
+        
+        
+    </LinearLayout>
+
+</LinearLayout>

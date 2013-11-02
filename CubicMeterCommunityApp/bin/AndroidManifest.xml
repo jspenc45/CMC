@@ -22,6 +22,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="com.example.cubicmetercommunityapp.Meteorologist"
+            android:label="@string/title_activity_meteorologist" >
+        </activity>
+        <activity
+            android:name="com.example.cubicmetercommunityapp.Soil_Scientist"
+            android:label="@string/title_activity_soil__scientist" >
+        </activity>
+        <activity
+            android:name="com.example.cubicmetercommunityapp.Naturalist"
+            android:label="@string/title_activity_naturalist" >
+        </activity>
     </application>
 
 </manifest>

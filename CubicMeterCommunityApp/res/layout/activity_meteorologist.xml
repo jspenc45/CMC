@@ -1,0 +1,116 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/LinearLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@string/activity_background_color" 
+    android:gravity="center_vertical"
+    tools:context=".Meteorologist" >
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_margin="@dimen/layoutdefault_marging"
+        android:layout_height="wrap_content"   
+        android:gravity="center"
+        android:orientation="vertical" >        
+         <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/main_heading"
+        android:gravity="center"
+        android:text="@string/title_activity_meteorologist"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+        
+         </LinearLayout>
+         
+       <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_margin="@dimen/layoutdefault_marging"
+        android:layout_height="wrap_content"   
+        android:gravity="center"
+        android:orientation="vertical" >        
+         <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/prompt_heading"
+        android:gravity="center"
+        android:text="@string/activity_prompt"
+        android:textAppearance="?android:attr/textAppearanceLarge"  />
+        
+         </LinearLayout>
+         
+       <LinearLayout
+        android:layout_width="match_parent"
+		android:layout_marginTop="@dimen/layout_marging_top"
+        android:layout_height="wrap_content"   
+        android:gravity="center"
+        android:orientation="vertical" >
+
+           <Button
+               android:id="@+id/btn_canopycover"
+               android:layout_width="@dimen/activity_button_width"
+               android:layout_height="@dimen/activity_button_height"
+               android:text="Canopy Cover" 
+               android:background="@string/activity_btn_bcolor"
+               android:textAppearance="?android:attr/textAppearanceLarge" />
+        
+         </LinearLayout>
+         
+        <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/layout_marging_top"
+        android:layout_height="wrap_content"   
+        android:gravity="center"
+        android:orientation="vertical" >
+
+           <Button
+               android:id="@+id/btn_temperature"
+                android:layout_width="@dimen/activity_button_width"
+               android:layout_height="@dimen/activity_button_height"
+               android:text="Temperature" 
+               android:background="@string/activity_btn_bcolor"             
+               android:textAppearance="?android:attr/textAppearanceLarge" />
+        
+         </LinearLayout>
+         
+             <LinearLayout
+        android:layout_width="match_parent"        
+        android:layout_marginTop="@dimen/layout_marging_top"
+        android:layout_height="wrap_content"   
+        android:gravity="center"
+        android:orientation="vertical" >
+
+           <Button
+               android:id="@+id/btn_airpressure"
+               android:layout_width="@dimen/activity_button_width"
+               android:layout_height="@dimen/activity_button_height"
+               android:text="Air Pressure" 
+               android:background="@string/activity_btn_bcolor"
+               android:textAppearance="?android:attr/textAppearanceLarge" />
+        
+         </LinearLayout>
+         
+                   <LinearLayout
+        android:layout_width="match_parent"        
+        android:layout_marginTop="@dimen/layout_marging_top"
+        android:layout_height="wrap_content"  
+        android:gravity="left"
+        android:orientation="vertical" >
+
+           <Button
+               android:id="@+id/btn_meteo_back"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="Previous" 
+               android:textAppearance="?android:attr/textAppearanceLarge" />
+        
+         </LinearLayout>
+
+   
+
+</LinearLayout>
