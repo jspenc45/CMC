@@ -45,7 +45,7 @@
         <LinearLayout
             android:id="@+id/activityList"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical" >
 
         </LinearLayout>
@@ -61,6 +61,7 @@
         android:layout_below="@+id/imageView1"
         android:gravity="center_horizontal"
         android:textStyle="bold"
+        android:textIsSelectable="false"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
 </RelativeLayout>

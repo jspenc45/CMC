@@ -1,4 +1,6 @@
-package com.example.cubicmetercommunityapp;
+package com.example.cubicmetercommunity.app;
+
+import com.example.cubicmetercommunityapp.R;
 
 import android.app.Activity;
 import android.content.Intent;

@@ -1,4 +1,4 @@
-package com.example.cubicmetercommunityapp;
+package com.example.cubicmetercommunity.app;
 
 import android.support.v4.app.Fragment;
 

@@ -1,4 +1,6 @@
-package com.example.cubicmetercommunityapp;
+package com.example.cubicmetercommunity.app;
+
+import com.example.cubicmetercommunityapp.R;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
