@@ -24,7 +24,7 @@
         android:src="@drawable/cmc_label_small" />
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/biodiversitylabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/role"
@@ -40,7 +40,7 @@
         android:layout_above="@+id/sa_back"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
-        android:layout_below="@+id/textView1" >
+        android:layout_below="@+id/biodiversitylabel" >
 
         <LinearLayout
             android:id="@+id/activityList"

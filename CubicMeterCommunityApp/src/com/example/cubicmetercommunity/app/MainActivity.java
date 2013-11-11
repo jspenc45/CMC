@@ -16,13 +16,13 @@ public class MainActivity extends Activity implements OnClickListener {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		
-		((Button) findViewById(R.id.button1)).setOnClickListener(this);
+		((Button) findViewById(R.id.soilcolorbackbutton)).setOnClickListener(this);
 	}
 
 	@Override
 	public void onClick(View v) {
 		switch (v.getId()) {
-		case R.id.button1:
+		case R.id.soilcolorbackbutton:
 			Intent i = new Intent(getBaseContext(), RoleActivity.class);
 			startActivity(i);
 			break;

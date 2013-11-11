@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <ImageButton
+        android:id="@+id/brown"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/darkred"
+        android:layout_below="@+id/black"
+        android:adjustViewBounds="true"
+        android:src="@drawable/brown" />
+
+    <ImageButton
+        android:id="@+id/darkred"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/brown"
+        android:layout_marginLeft="44dp"
+        android:src="@drawable/darkred" />
+
+    <TextView
+        android:id="@+id/biodiversitylabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:text="@string/soil_color_title"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <ImageButton
+        android:id="@+id/black"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/brown"
+        android:layout_below="@+id/biodiversitylabel"
+        android:layout_marginTop="23dp"
+        android:src="@drawable/black" />
+
+    <ImageButton
+        android:id="@+id/brownorange"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/brown"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/brownorange" />
+
+    <ImageButton
+        android:id="@+id/sienna"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/darkred"
+        android:layout_alignLeft="@+id/brownorange"
+        android:src="@drawable/orange" />
+
+    <ImageButton
+        android:id="@+id/orange"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/sienna"
+        android:layout_alignTop="@+id/darkred"
+        android:src="@drawable/darkorange" />
+
+    <ImageButton
+        android:id="@+id/brightorange"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/sienna"
+        android:layout_toRightOf="@+id/brownorange"
+        android:src="@drawable/brightorange" />
+
+    <ImageButton
+        android:id="@+id/paleorange"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/orange"
+        android:layout_alignRight="@+id/brightorange"
+        android:src="@drawable/paleorange" />
+
+    <ImageButton
+        android:id="@+id/pinkorange"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/paleorange"
+        android:layout_below="@+id/paleorange"
+        android:src="@drawable/palebrownorange" />
+
+    <ImageButton
+        android:id="@+id/red"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/darkred"
+        android:layout_below="@+id/darkred"
+        android:src="@drawable/red" />
+
+    <ImageButton
+        android:id="@+id/darkyellow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/orange"
+        android:layout_toLeftOf="@+id/pinkorange"
+        android:src="@drawable/darkyellow" />
+
+    <ImageButton
+        android:id="@+id/gray"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/pinkorange"
+        android:layout_alignTop="@+id/darkyellow"
+        android:src="@drawable/gray" />
+
+    <Button
+        android:id="@+id/soilcolorbackbutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/biodiversitylabel"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="44dp"
+        android:text="@string/backbuttonsoilcolor" />
+
+</RelativeLayout>

@@ -9,7 +9,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/textView1" />
+        android:layout_below="@+id/biodiversitylabel" />
 
     <TextView
         android:id="@+id/textView2"
@@ -75,7 +75,7 @@
         android:src="@drawable/cmc_label_small" />
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/biodiversitylabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
