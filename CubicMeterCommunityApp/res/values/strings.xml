@@ -70,4 +70,13 @@
         <string name="biodiversityInstructions">Count the number of each organism and record it on the line under the picture of the organism</string>
         <string name="AntLabel">Ants</string>
         <string name="earwigLabel">Earwigs</string>
+        <string name="BeetleLabel">Beetles</string>
+        <string name="Wormlabel">Worms</string>
+        <string name="numOrganisms">total number of organisms:</string>
+        <string name="numTypes">total types of organisms</string>
+        <string name="typeCount">total organism types:</string>
+        <string name="biodiversityinstructions">Count the number of each organism</string>
+        <string name="biodiversityFinishButton">Finish</string>
+        <string name="bioInstructions">Count the number of each organism</string>
+        <string name="cloudTitle">Look at the sky, and then press the picture of the cloud type that you see</string>
 </resources>
