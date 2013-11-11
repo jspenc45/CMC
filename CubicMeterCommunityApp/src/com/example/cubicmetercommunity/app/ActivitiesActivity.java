@@ -46,4 +46,10 @@ public class ActivitiesActivity extends FragmentActivity implements
 		fragmentTransaction.commit();
 	}
 
+	@Override
+	public void popStack(Fragment fragment) {
+		FragmentManager fm = getSupportFragmentManager();
+        fm.popBackStack (fragment.getTag(), FragmentManager.POP_BACK_STACK_INCLUSIVE);
+		
+	}
 }
