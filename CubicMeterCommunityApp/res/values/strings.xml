@@ -55,6 +55,26 @@
         <item>Soil Moisture</item>
         <item>Soul Odor</item>
     </string-array>
+    <string-array name="meteorologistFragments">
+        <item>activity_role</item>
+        <item>activity_role</item>
+        <item>activity_role</item>
+        <item>activity_role</item>
+        <item>activity_role</item>
+        <item>rainfall_activity</item>
+        <item>activity_role</item>
+    </string-array>
+    <string-array name="naturalistFragments">
+        <item>activity_role</item>
+    </string-array>
+    <string-array name="soilScientistFragments">
+        <item>soil_color_activity</item>
+        <item>activity_role</item>
+        <item>activity_role</item>
+        <item>activity_role</item>
+        <item>activity_role</item>
+        <item>activity_role</item>
+    </string-array>
         <string name="soil_color_title">Select the color of your soil below:</string>
         <string name="backbuttonsoilcolor">&lt;back to activities</string>
         <string name="rainfalltitle">"Record the rainfall amount that is in your rain gauge: "</string>

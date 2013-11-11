@@ -33,6 +33,10 @@
             android:name="com.example.cubicmetercommunity.app.ActivitiesActivity"
             android:theme="@android:style/Theme.Holo.Light.NoActionBar" >
         </activity>
+        <activity
+            android:name="com.example.cubicmetercommunity.app.IndividualActivity"
+            android:theme="@android:style/Theme.Holo.Light.NoActionBar" >
+        </activity>
     </application>
 
 </manifest>
