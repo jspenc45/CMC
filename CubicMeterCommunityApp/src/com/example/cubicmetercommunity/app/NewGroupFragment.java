@@ -46,7 +46,7 @@ public class NewGroupFragment extends Fragment implements OnClickListener {
 		return inflater.inflate(R.layout.fragment_new_group, container, false);
 	}
 	public boolean createGroup() {
-		EditText txt = (EditText) getActivity().findViewById(R.id.editText5);
+		EditText txt = (EditText) getActivity().findViewById(R.id.numBeetles);
 		String groupName = txt.getText().toString();
 		
 		if (!groupName.equals("")) {

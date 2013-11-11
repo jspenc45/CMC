@@ -46,7 +46,7 @@
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <EditText
-        android:id="@+id/editText1"
+        android:id="@+id/numDragonflies"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
@@ -59,37 +59,37 @@
     </EditText>
 
     <EditText
-        android:id="@+id/editText3"
+        android:id="@+id/numWasps"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/editText2"
-        android:layout_below="@+id/editText2"
+        android:layout_alignLeft="@+id/numFlies"
+        android:layout_below="@+id/numFlies"
         android:ems="10"
         android:hint="Firstname Lastname"
         android:inputType="textPersonName" />
 
     <EditText
-        android:id="@+id/editText4"
+        android:id="@+id/numEarwigs"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/editText3"
-        android:layout_below="@+id/editText3"
+        android:layout_alignLeft="@+id/numWasps"
+        android:layout_below="@+id/numWasps"
         android:ems="10"
         android:hint="Firstname Lastname"
         android:inputType="textPersonName" />
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/numFlies"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/editText1"
-        android:layout_below="@+id/editText1"
+        android:layout_alignLeft="@+id/numDragonflies"
+        android:layout_below="@+id/numDragonflies"
         android:ems="10"
         android:hint="Firstname Lastname"
         android:inputType="textPersonName" />
 
     <EditText
-        android:id="@+id/editText5"
+        android:id="@+id/numBeetles"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/textView1"
@@ -101,8 +101,8 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/editText1"
-        android:layout_below="@+id/editText5"
+        android:layout_alignLeft="@+id/numDragonflies"
+        android:layout_below="@+id/numBeetles"
         android:layout_marginTop="15dp"
         android:text="Enter the people in your group:"
         android:textAppearance="?android:attr/textAppearanceMedium" />

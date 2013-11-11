@@ -62,10 +62,10 @@
         <item>activity_role</item>
         <item>activity_role</item>
         <item>rainfall_activity</item>
-        <item>activity_role</item>
+        <item>cloud_activity</item>
     </string-array>
     <string-array name="naturalistFragments">
-        <item>activity_role</item>
+        <item>biodiversity_activity</item>
     </string-array>
     <string-array name="soilScientistFragments">
         <item>soil_color_activity</item>
@@ -99,4 +99,10 @@
         <string name="biodiversityFinishButton">Finish</string>
         <string name="bioInstructions">Count the number of each organism</string>
         <string name="cloudTitle">Look at the sky, and then press the picture of the cloud type that you see</string>
+        <string name="cumulonimbusCloudLabel">Cumulonimbus</string>
+        <string name="stratusLabel">Stratus</string>
+        <string name="cirrusLabel">Cirrus</string>
+        <string name="cumulusLabel">Cumulus</string>
+        <string name="backButtonClouds">Back To Meteorlogist Activities</string>
+        <string name="finishClouds">Finish</string>
 </resources>
