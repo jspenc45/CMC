@@ -36,11 +36,13 @@ public class DBUtil {
 			String where) {
 		RestRequest request = null;
 		String str = "";
+		int x = 0;
 		for (String s : fields.keySet()) {
-			str += s + " ";
+			str += (x==0?"":", ") + s;
+			x++;
 		}
-		String query = "select " + str + "from " + table
-				+ (where != null ? "where " + where : "");
+		String query = "select " + str + " from " + table
+				+ (where != null ? " where " + where : "");
 		try {
 			request = RestRequest.getRequestForQuery(apiVersion, query);
 		} catch (UnsupportedEncodingException e) {

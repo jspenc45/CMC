@@ -1,5 +1,7 @@
 package com.example.cubicmetercommunity.app;
 
+import com.example.cubicmetercommunity.classes.Group;
+import com.example.cubicmetercommunity.classes.Session;
 import com.example.cubicmetercommunityapp.R;
 
 import android.os.Bundle;
@@ -10,7 +12,8 @@ import android.support.v4.app.FragmentTransaction;
 
 public class RoleActivity extends FragmentActivity implements
 		OnButtonClick {
-
+	Group group;
+	Session session;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -45,5 +48,19 @@ public class RoleActivity extends FragmentActivity implements
 		fragmentTransaction.addToBackStack(null);
 		fragmentTransaction.commit();
 	}
-
+	
+	@Override
+	public void popStack(Fragment fragment) {
+		FragmentManager fm = getSupportFragmentManager();
+        fm.popBackStack (fragment.getTag(), FragmentManager.POP_BACK_STACK_INCLUSIVE);	
+	}
+	public void setGroup(Group group){
+		this.group = group;
+	}
+	public void setSession(Session session){
+		this.session = session;
+	}
+	public Group getGroup(){
+		return group;
+	}
 }
