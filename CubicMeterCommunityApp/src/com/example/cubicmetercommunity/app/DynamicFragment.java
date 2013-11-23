@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 public class DynamicFragment extends Fragment {
 	OnButtonClick buttonClick;
 
-	int resource;
+	int resource;//change
 	@SuppressLint("ValidFragment")
 	public DynamicFragment(int resource){
 		this.resource = resource;
