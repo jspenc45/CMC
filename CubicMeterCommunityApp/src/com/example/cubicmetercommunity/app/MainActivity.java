@@ -21,13 +21,22 @@ public class MainActivity extends Activity implements OnClickListener {
 
 	@Override
 	public void onClick(View v) {
+		Intent i;
 		switch (v.getId()) {
 		case R.id.soilcolorbackbutton:
-			Intent i = new Intent(getBaseContext(), RoleActivity.class);
+			i = new Intent(getBaseContext(), RoleActivity.class);
+			startActivity(i);
+			break;
+			
+		case R.id.btn_reviewData:
+			i = new Intent(getBaseContext(), ReviewdataActivity.class);
+			startActivity(i);
+			break;
+			
+		case R.id.btn_createCharts:
+			i = new Intent(getBaseContext(), CreatechartActivity.class);
 			startActivity(i);
 			break;
 		}
-
 	}
-
 }

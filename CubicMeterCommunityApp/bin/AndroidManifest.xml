@@ -7,8 +7,9 @@
     <uses-sdk
         android:minSdkVersion="13"
         android:targetSdkVersion="17" />
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -36,6 +37,14 @@
         <activity
             android:name="com.example.cubicmetercommunity.app.IndividualActivity"
             android:theme="@android:style/Theme.Holo.Light.NoActionBar" >
+        </activity>
+        <activity
+            android:name="com.example.cubicmetercommunity.app.ReviewdataActivity"
+            android:label="@string/title_activity_reviewdata" >
+        </activity>
+        <activity
+            android:name="com.example.cubicmetercommunity.app.CreatechartActivity"
+            android:label="@string/title_activity_createchart" >
         </activity>
     </application>
 
