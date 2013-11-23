@@ -110,6 +110,9 @@
         <string name="temperatureButton">Submit</string>
         <string name="FarenheitTextField">Farenheit</string>
         <string name="farenheightLabel">Farenheit:</string>
+        <string name="label_cc1">Select Group:</string>
+        <string name="label_cc2">Select Chart Type:</string>
+        <string name="label_cc3">Farenheit:</string>
         <string name="celsiusLabel">Celsius:</string>
         <string name="finishTempActivity">Finish</string>
         <string name="rainfallInches">Inches:</string>
@@ -131,5 +134,6 @@
         <string name="cumuluslabel">Cumulus</string>
         <string name="stratuslabel">stratus</string>
         <string name="cloudsfinish">Done</string>
+        <string name="label_generate">Generate</string>
        
 </resources>
