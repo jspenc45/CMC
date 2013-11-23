@@ -17,6 +17,8 @@ public class MainActivity extends Activity implements OnClickListener {
 		setContentView(R.layout.activity_main);
 		
 		((Button) findViewById(R.id.soilcolorbackbutton)).setOnClickListener(this);
+		((Button) findViewById(R.id.btn_reviewData)).setOnClickListener(this);
+		((Button) findViewById(R.id.btn_createCharts)).setOnClickListener(this);
 	}
 
 	@Override

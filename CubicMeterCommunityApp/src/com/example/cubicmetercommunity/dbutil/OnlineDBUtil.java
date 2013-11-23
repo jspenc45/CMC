@@ -112,9 +112,13 @@ public class OnlineDBUtil {
 
 		RestClient restClient = new RestClient(clientInfo, accessToken, httpAccessor, null);
 		RestResponse rResponse = restClient.sendSync(request);
+		
 		JSONObject response = rResponse.asJSONObject();
 		
 		Log.d("debug","response: " + response);
+		
+		context.unregisterReceiver(httpAccessor);
+		
 		return response;
 	}
 

@@ -92,6 +92,7 @@
     <string name="caterLabel">Caterpillars</string>
     <string name="ghopLabel">Grasshoppers</string>
     <string name="DragonflyLabel">Dragonflies</string>
+    <string name="test1">JAMES</string>
     <string name="FlyLabel">Flies</string>
     <string name="WaspLabel">Wasps</string>
     <string name="biodiversityInstructions">Count the number of each organism and record it on the line under the picture of the organism</string>
