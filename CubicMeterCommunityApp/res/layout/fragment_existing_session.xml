@@ -49,7 +49,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/imageView1"
-        android:text="Select the previous collection time:"
+        android:text="@string/label_es1"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
 </RelativeLayout>

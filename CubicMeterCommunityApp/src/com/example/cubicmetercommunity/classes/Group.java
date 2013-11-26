@@ -1,5 +1,6 @@
 package com.example.cubicmetercommunity.classes;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,8 +8,12 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class Group {
+public class Group implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	public static final String sqlNAME = "group_name__c";
 	public static final String sqlID = "Id";
 

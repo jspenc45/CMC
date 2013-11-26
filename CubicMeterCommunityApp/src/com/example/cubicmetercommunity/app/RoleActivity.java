@@ -4,6 +4,7 @@ import com.example.cubicmetercommunity.classes.Group;
 import com.example.cubicmetercommunity.classes.Session;
 import com.example.cubicmetercommunityapp.R;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -47,6 +48,13 @@ public class RoleActivity extends FragmentActivity implements
 		fragmentTransaction.replace(R.id.role_layout, nextFragment);
 		fragmentTransaction.addToBackStack(null);
 		fragmentTransaction.commit();
+	}
+	
+	@Override
+	public void sendIntentWithExtra(Intent i) {
+		i.putExtra("group", group);
+		i.putExtra("session", session);
+		startActivity(i);
 	}
 	
 	@Override

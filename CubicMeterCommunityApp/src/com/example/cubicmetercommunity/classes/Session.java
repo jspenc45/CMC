@@ -1,5 +1,6 @@
 package com.example.cubicmetercommunity.classes;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,8 +8,12 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class Session {
+public class Session implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	public static final String sqlID = "Id";
 	public static final String sqlGROUP_ID = "group_id__c";
 	public static final String sqlTIME = "session_time__c";

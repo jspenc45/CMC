@@ -42,7 +42,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/imageView1"
-        android:text="Enter your Group Name:"
+        android:text="@string/label_ng3"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <EditText
@@ -52,7 +52,7 @@
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/textView2"
         android:ems="10"
-        android:hint="Firstname Lastname"
+        android:hint="@string/label_ng2"
         android:inputType="textPersonName" >
 
         <requestFocus />
@@ -65,7 +65,7 @@
         android:layout_alignLeft="@+id/numFlies"
         android:layout_below="@+id/numFlies"
         android:ems="10"
-        android:hint="Firstname Lastname"
+        android:hint="@string/label_ng2"
         android:inputType="textPersonName" />
 
     <EditText
@@ -75,7 +75,7 @@
         android:layout_alignLeft="@+id/numWasps"
         android:layout_below="@+id/numWasps"
         android:ems="10"
-        android:hint="Firstname Lastname"
+        android:hint="@string/label_ng2"
         android:inputType="textPersonName" />
 
     <EditText
@@ -85,7 +85,7 @@
         android:layout_alignLeft="@+id/numDragonflies"
         android:layout_below="@+id/numDragonflies"
         android:ems="10"
-        android:hint="Firstname Lastname"
+        android:hint="@string/label_ng2"
         android:inputType="textPersonName" />
 
     <EditText
@@ -94,8 +94,8 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/textView1"
         android:layout_below="@+id/textView1"
-        android:hint="Group Name"
-        android:ems="10" />
+        android:ems="10"
+        android:hint="@string/label_ng4" />
 
     <TextView
         android:id="@+id/textView2"
@@ -104,7 +104,7 @@
         android:layout_alignLeft="@+id/numDragonflies"
         android:layout_below="@+id/numBeetles"
         android:layout_marginTop="15dp"
-        android:text="Enter the people in your group:"
+        android:text="@string/label_ng5"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
 </RelativeLayout>

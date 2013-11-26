@@ -69,7 +69,7 @@ public class SelectActivityFragment extends Fragment implements OnClickListener 
 					Intent i = new Intent(getActivity(),
 							IndividualActivity.class);
 					i.putExtra("fragmentList", layout);
-					startActivity(i);
+					buttonClick.sendIntentWithExtra(i);
 
 				}
 			});

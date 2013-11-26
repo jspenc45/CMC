@@ -1,19 +1,35 @@
 package com.example.cubicmetercommunity.app;
 
+import com.example.cubicmetercommunity.classes.Group;
+import com.example.cubicmetercommunity.classes.Session;
 import com.example.cubicmetercommunityapp.R;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 
 public class IndividualActivity extends FragmentActivity implements
 		OnButtonClick {
 
+	Group group;
+	Session session;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		
+		if (getIntent().getExtras().containsKey("group"))
+			group = (Group) getIntent().getExtras().get("group");
+		if (getIntent().getExtras().containsKey("session"))
+			session = (Session) getIntent().getExtras().get("session");
+		
+		Log.d("debug",group.getName());
+		Log.d("debug",session.toString());
+		
 		String str = getIntent().getExtras().getString("fragmentList");
 		int resource = getResources().getIdentifier(str, "layout", getBaseContext().getPackageName());
 		
@@ -54,5 +70,12 @@ public class IndividualActivity extends FragmentActivity implements
 		FragmentManager fm = getSupportFragmentManager();
         fm.popBackStack (fragment.getTag(), FragmentManager.POP_BACK_STACK_INCLUSIVE);
 		
+	}
+
+	@Override
+	public void sendIntentWithExtra(Intent i) {
+		i.putExtra("group", group);
+		i.putExtra("session", session);
+		startActivity(i);
 	}
 }

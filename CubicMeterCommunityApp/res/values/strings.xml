@@ -3,38 +3,31 @@
 
     <string name="app_name">Cubic Meter Community</string>
     <string name="action_settings">Settings</string>
-    <string name="activity_background_color">"#ccffff"</string>  <!-- green "##2f4f4f", light-green "#ccffff" --> <!-- white "#ffffff", light-green "#ccffff" -->
+    <string name="activity_background_color">"#ccffff"</string>
+ <!-- green "##2f4f4f", light-green "#ccffff" -->
+ <!-- white "#ffffff", light-green "#ccffff" -->
     <string name="label_meteorologist">Meteorologist</string>
     <string name="label_soil__scientist">Soil Scientist</string>
     <string name="label_naturalist">Naturalist</string>
-	<string name="activity_prompt">Select an Activity:</string>
-	<string name="activity_btn_bcolor">"#2f4f4f"</string>
-	<string name="label_main_menu">Main Menu</string>
-	<string name="label_mm1">Collect Data</string>
-	<string name="label_mm1_desc">Do Activities and Collect Data</string>
-	<string name="label_mm2">Review Data</string>
-	<string name="label_mm2_desc">Review Past Activities</string>
-	<string name="label_mm3">Create Charts</string>
-	<string name="label_mm3_desc">View Data in the form of Charts</string>
-	<string name="label_sg1">Select Your Group:</string>
-	<string name="label_sg2">Is this a new or previous session?</string>
-	<string name="label_sr1">Select a Role:</string>
-	<string name="label_sa1">Select an Activity:</string>
-	<string name="label_back">Back</string>
-	<string name="label_next">Next</string>
-	<string name="label_finish">Finish</string>
-	<string name="radiobutton_sg1">New Session</string>
-	<string name="radiobutton_sg2">Existing Session</string>	
-	<string-array name="groups">
-        <item>Group A</item>
-        <item>Group B</item>
-        <item>Group C</item>
-        <item>Group D</item>
-        <item>Group E</item>
-        <item>Group F</item>
-        <item>Group G</item>
-        <item>*New Group*</item>
-    </string-array>
+    <string name="activity_prompt">Select an Activity:</string>
+    <string name="activity_btn_bcolor">"#2f4f4f"</string>
+    <string name="label_main_menu">Main Menu</string>
+    <string name="label_mm1">Collect Data</string>
+    <string name="label_mm1_desc">Do Activities and Collect Data</string>
+    <string name="label_mm2">Review Data</string>
+    <string name="label_mm2_desc">Review Past Activities</string>
+    <string name="label_mm3">Create Charts</string>
+    <string name="label_mm3_desc">View Data in the form of Charts</string>
+    <string name="label_sg1">Select Your Group:</string>
+    <string name="label_sg2">Is this a new or previous session?</string>
+    <string name="label_sr1">Select a Role:</string>
+    <string name="label_sa1">Select an Activity:</string>
+    <string name="label_back">Back</string>
+    <string name="label_next">Next</string>
+    <string name="label_finish">Finish</string>
+    <string name="radiobutton_sg1">New Session</string>
+    <string name="radiobutton_sg2">Existing Session</string>
+
     <string-array name="meteorologistActivities">
         <item>Canopy Cover</item>
         <item>Temperature</item>
@@ -75,65 +68,72 @@
         <item>activity_role</item>
         <item>activity_role</item>
     </string-array>
-        <string name="soil_color_title">Select the color of your soil below:</string>
-        <string name="backbuttonsoilcolor">&lt;back to activities</string>
-        <string name="rainfalltitle">"Record the rainfall amount that is in your rain gauge: "</string>
-        <string name="recordRainfall">submit</string>
-        <string name="rainfallInstructions">Enter the rainfall amount in your rain gauge</string>
-        <string name="biodiversitylabel">Count the number of each organism and record it under the picture of the organism</string>
-        <string name="antLabel">Ants</string>
-        <string name="caterLabel">Caterpillars</string>
-        <string name="ghopLabel">Grasshoppers</string>
-        <string name="DragonflyLabel">Dragonflies</string>
-        <string name="FlyLabel">Flies</string>
-        <string name="WaspLabel">Wasps</string>
-        <string name="biodiversityInstructions">Count the number of each organism and record it on the line under the picture of the organism</string>
-        <string name="AntLabel">Ants</string>
-        <string name="earwigLabel">Earwigs</string>
-        <string name="BeetleLabel">Beetles</string>
-        <string name="Wormlabel">Worms</string>
-        <string name="numOrganisms">total number of organisms:</string>
-        <string name="numTypes">total types of organisms</string>
-        <string name="typeCount">total organism types:</string>
-        <string name="biodiversityinstructions">Count the number of each organism</string>
-        <string name="biodiversityFinishButton">Finish</string>
-        <string name="bioInstructions">Count the number of each organism</string>
-        <string name="cloudTitle">Look at the sky, and then press the picture of the cloud type that you see</string>
-        <string name="cumulonimbusCloudLabel">Cumulonimbus</string>
-        <string name="stratusLabel">Stratus</string>
-        <string name="cirrusLabel">Cirrus</string>
-        <string name="cumulusLabel">Cumulus</string>
-        <string name="backButtonClouds">Back To Meteorlogist Activities</string>
-        <string name="finishClouds">Finish</string>
-        <string name="tempInstructions">Enter the temperature from your thermometer</string>
-        <string name="tempButtonFinish">Submit</string>
-        <string name="temperatureButton">Submit</string>
-        <string name="FarenheitTextField">Farenheit</string>
-        <string name="farenheightLabel">Farenheit:</string>
-        <string name="label_cc1">Select Group:</string>
-        <string name="label_cc2">Select Chart Type:</string>
-        <string name="label_cc3">Farenheit:</string>
-        <string name="celsiusLabel">Celsius:</string>
-        <string name="finishTempActivity">Finish</string>
-        <string name="rainfallInches">Inches:</string>
-        <string name="rainfallCentimeters">Centimeters:</string>
-        <string name="windLabel">Enter the number from your wind barometer</string>
-        <string name="airpressureinstructions">"Record the barometric pressure from the weather station "</string>
-        <string name="hglabel">Hg</string>
-        <string name="finishairpressurebutton">finish</string>
-        <string name="windinstructions">Hold your wind meter away from your body, and then record the result from the meter:</string>
-        <string name="mphresult">mph</string>
-        <string name="finishwindactivity">Finish</string>
-        <string name="wetbulbtemp">Wet bulb temperature</string>
-        <string name="drybulbtemp">Dry bulb temperature</string>
-        <string name="wetdrydifference">Wet Bulb temp - Dry bulb temp =</string>
-        <string name="finishhumidity">Finish</string>
-        <string name="cloudInstruction">Observe the clouds in the sky, and select which type you see</string>
-        <string name="cirruslabel">cirrus</string>
-        <string name="cumulonimbuslabel">cumulonimbus</string>
-        <string name="cumuluslabel">Cumulus</string>
-        <string name="stratuslabel">stratus</string>
-        <string name="cloudsfinish">Done</string>
-        <string name="label_generate">Generate</string>
-       
+	<string name="label_ng1"></string>
+    <string name="label_ng2">Firstname Lastname</string>
+    
+    <string name="soil_color_title">Select the color of your soil below:</string>
+    <string name="backbuttonsoilcolor">&lt;back to activities</string>
+    <string name="rainfalltitle">"Record the rainfall amount that is in your rain gauge: "</string>
+    <string name="recordRainfall">submit</string>
+    <string name="rainfallInstructions">Enter the rainfall amount in your rain gauge</string>
+    <string name="biodiversitylabel">Count the number of each organism and record it under the picture of the organism</string>
+    <string name="antLabel">Ants</string>
+    <string name="caterLabel">Caterpillars</string>
+    <string name="ghopLabel">Grasshoppers</string>
+    <string name="DragonflyLabel">Dragonflies</string>
+    <string name="FlyLabel">Flies</string>
+    <string name="WaspLabel">Wasps</string>
+    <string name="biodiversityInstructions">Count the number of each organism and record it on the line under the picture of the organism</string>
+    <string name="AntLabel">Ants</string>
+    <string name="earwigLabel">Earwigs</string>
+    <string name="BeetleLabel">Beetles</string>
+    <string name="Wormlabel">Worms</string>
+    <string name="numOrganisms">total number of organisms:</string>
+    <string name="numTypes">total types of organisms</string>
+    <string name="typeCount">total organism types:</string>
+    <string name="biodiversityinstructions">Count the number of each organism</string>
+    <string name="biodiversityFinishButton">Finish</string>
+    <string name="bioInstructions">Count the number of each organism</string>
+    <string name="cloudTitle">Look at the sky, and then press the picture of the cloud type that you see</string>
+    <string name="cumulonimbusCloudLabel">Cumulonimbus</string>
+    <string name="stratusLabel">Stratus</string>
+    <string name="cirrusLabel">Cirrus</string>
+    <string name="cumulusLabel">Cumulus</string>
+    <string name="backButtonClouds">Back To Meteorlogist Activities</string>
+    <string name="finishClouds">Finish</string>
+    <string name="tempInstructions">Enter the temperature from your thermometer</string>
+    <string name="tempButtonFinish">Submit</string>
+    <string name="temperatureButton">Submit</string>
+    <string name="FarenheitTextField">Fahrenheit</string>
+    <string name="farenheightLabel">Fahrenheit:</string>
+    <string name="label_cc1">Select Group:</string>
+    <string name="label_cc2">Select Chart Type:</string>
+    <string name="label_cc3">Fahrenheit:</string>
+    <string name="celsiusLabel">Celsius:</string>
+    <string name="finishTempActivity">Finish</string>
+    <string name="rainfallInches">Inches:</string>
+    <string name="rainfallCentimeters">Centimeters:</string>
+    <string name="windLabel">Enter the number from your wind barometer</string>
+    <string name="airpressureinstructions">"Record the barometric pressure from the weather station "</string>
+    <string name="hglabel">Hg</string>
+    <string name="finishairpressurebutton">finish</string>
+    <string name="windinstructions">Hold your wind meter away from your body, and then record the result from the meter:</string>
+    <string name="mphresult">mph</string>
+    <string name="finishwindactivity">Finish</string>
+    <string name="wetbulbtemp">Wet bulb temperature</string>
+    <string name="drybulbtemp">Dry bulb temperature</string>
+    <string name="wetdrydifference">Wet Bulb temp - Dry bulb temp =</string>
+    <string name="finishhumidity">Finish</string>
+    <string name="cloudInstruction">Observe the clouds in the sky, and select which type you see</string>
+    <string name="cirruslabel">cirrus</string>
+    <string name="cumulonimbuslabel">cumulonimbus</string>
+    <string name="cumuluslabel">Cumulus</string>
+    <string name="stratuslabel">stratus</string>
+    <string name="cloudsfinish">Done</string>
+    <string name="label_generate">Generate</string>
+    <string name="label_ng3">Enter your Group Name:</string>
+    <string name="label_ng4">Group Name</string>
+    <string name="label_ng5">Enter the people in your group:</string>
+    <string name="label_es1">Select the previous collection time:</string>
+
 </resources>

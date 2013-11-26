@@ -49,17 +49,17 @@ public class SelectRoleFragment extends Fragment implements OnClickListener {
 		case R.id.sr_meteorologist:
 			String meteorologist = getResources().getString(R.string.label_meteorologist);
 			i.putExtra(meteorologist,getResources().getStringArray(R.array.meteorologistActivities));
-			startActivity(i);
+			buttonClick.sendIntentWithExtra(i);
 			break;
 		case R.id.sr_naturalist:
 			String naturalist = getResources().getString(R.string.label_naturalist);
 			i.putExtra(naturalist,getResources().getStringArray(R.array.naturalistActivities));
-			startActivity(i);
+			buttonClick.sendIntentWithExtra(i);
 			break;
 		case R.id.sr_soil_scientist:
 			String soilScientist = getResources().getString(R.string.label_soil__scientist);
 			i.putExtra(soilScientist,getResources().getStringArray(R.array.soilScientistActivities));
-			startActivity(i);
+			buttonClick.sendIntentWithExtra(i);
 			break;
 		case R.id.sr_main_menu:
 			getActivity().finish();

@@ -40,11 +40,15 @@
         </activity>
         <activity
             android:name="com.example.cubicmetercommunity.app.ReviewdataActivity"
-            android:label="@string/title_activity_reviewdata" >
+            android:theme="@android:style/Theme.Holo.Light.NoActionBar" >
         </activity>
         <activity
             android:name="com.example.cubicmetercommunity.app.CreatechartActivity"
-            android:label="@string/title_activity_createchart" >
+            android:theme="@android:style/Theme.Holo.Light.NoActionBar" >
+        </activity>
+        <activity
+            android:name="com.example.cubicmetercommunity.app.BarChartActivity"
+            android:theme="@android:style/Theme.Holo.Light.NoActionBar" >
         </activity>
     </application>
 
