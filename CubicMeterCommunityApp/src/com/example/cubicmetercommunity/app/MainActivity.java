@@ -1,6 +1,7 @@
 package com.example.cubicmetercommunity.app;
 
 import com.example.cubicmetercommunityapp.R;
+import com.salesforce.androidsdk.auth.HttpAccess;
 
 import android.os.Bundle;
 import android.app.Activity;
@@ -15,6 +16,8 @@ public class MainActivity extends Activity implements OnClickListener {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		
+		HttpAccess.init(this, null);
 		
 		((Button) findViewById(R.id.soilcolorbackbutton)).setOnClickListener(this);
 		((Button) findViewById(R.id.btn_reviewData)).setOnClickListener(this);

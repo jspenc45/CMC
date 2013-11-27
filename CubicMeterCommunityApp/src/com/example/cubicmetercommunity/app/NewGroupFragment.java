@@ -50,7 +50,7 @@ public class NewGroupFragment extends Fragment implements OnClickListener {
 		String groupName = txt.getText().toString();
 		
 		if (!groupName.equals("")) {
-			DBUtil db = new DBUtil(getActivity().getBaseContext());
+			DBUtil db = new DBUtil();
 			Map<String,Object> fields = new HashMap<String,Object>();
 			fields.put(Group.sqlNAME, groupName);
 			JSONObject resp = db.create("Group__c", fields);

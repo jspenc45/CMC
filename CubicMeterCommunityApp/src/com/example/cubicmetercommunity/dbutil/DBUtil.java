@@ -9,15 +9,8 @@ import org.json.JSONObject;
 
 import com.salesforce.androidsdk.rest.RestRequest;
 
-import android.content.Context;
-
 public class DBUtil {
 	final String apiVersion = "v27.0";
-	Context context;
-
-	public DBUtil(Context context) {
-		this.context = context;
-	}
 
 	public JSONObject create(String table, Map<String, Object> fields) {
 		RestRequest request = null;
@@ -38,7 +31,7 @@ public class DBUtil {
 		String str = "";
 		int x = 0;
 		for (String s : fields.keySet()) {
-			str += (x==0?"":", ") + s;
+			str += (x == 0 ? "" : ", ") + s;
 			x++;
 		}
 		String query = "select " + str + " from " + table
@@ -74,8 +67,8 @@ public class DBUtil {
 	public JSONObject getResponse(RestRequest request) {
 		JSONObject response = null;
 		try {
-			response = (JSONObject) new OnlineDBUtil.sendSync().execute(
-					context, request).get();
+			response = (JSONObject) new OnlineDBUtil.sendSync()
+					.execute(request).get();
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		} catch (ExecutionException e) {

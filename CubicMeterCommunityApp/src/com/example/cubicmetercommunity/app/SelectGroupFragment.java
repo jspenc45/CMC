@@ -79,7 +79,7 @@ public class SelectGroupFragment extends Fragment implements OnClickListener {
 	}
 
 	private List<Group> getGroups() {
-		DBUtil db = new DBUtil(getActivity().getBaseContext());
+		DBUtil db = new DBUtil();
 		Map<String, Object> fields = new HashMap<String, Object>();
 		fields.put(Group.sqlNAME, null);
 		fields.put(Group.sqlID, null);
@@ -95,7 +95,7 @@ public class SelectGroupFragment extends Fragment implements OnClickListener {
 				false);
 	}
 	public void createNewSession(Group group){
-		DBUtil db = new DBUtil(getActivity().getBaseContext());
+		DBUtil db = new DBUtil();
 		Map<String, Object> fields = new HashMap<String, Object>();
 		fields.put(Session.sqlGROUP_ID, group.getId());
 		String date = new Date().toString();

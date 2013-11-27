@@ -53,7 +53,7 @@ public class PreviousSessionFragment extends Fragment implements
 
 	private List<Session> getSessions() {
 
-		DBUtil db = new DBUtil(getActivity().getBaseContext());
+		DBUtil db = new DBUtil();
 		Map<String, Object> fields = new HashMap<String, Object>();
 		fields.put(Session.sqlID, null);
 		fields.put(Session.sqlGROUP_ID, null);

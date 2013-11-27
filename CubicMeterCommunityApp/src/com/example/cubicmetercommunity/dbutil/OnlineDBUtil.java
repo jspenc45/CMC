@@ -29,7 +29,6 @@ import com.salesforce.androidsdk.rest.RestClient.ClientInfo;
 import com.salesforce.androidsdk.rest.RestRequest;
 import com.salesforce.androidsdk.rest.RestResponse;
 
-import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
 
@@ -39,14 +38,13 @@ public class OnlineDBUtil {
 
 		@Override
 		protected JSONObject doInBackground(Object... arg0) {
-			Context context = (Context) arg0[0];
-			RestRequest request = (RestRequest) arg0[1];
+			RestRequest request = (RestRequest) arg0[0];
 			JSONObject oauthLoginResponse;
 			JSONObject response = null;
 
 			try {
 				oauthLoginResponse = oAuthSessionProvider();
-				response = getResponse(context,oauthLoginResponse, request);
+				response = getResponse(oauthLoginResponse, request);
 			} catch (HttpException e) {
 				e.printStackTrace();
 			} catch (IOException e) {
@@ -100,7 +98,7 @@ public class OnlineDBUtil {
 		return oauthLoginResponse;
 	}
 
-	private static JSONObject getResponse(Context context, JSONObject oauthLoginResponse,
+	private static JSONObject getResponse(JSONObject oauthLoginResponse,
 			RestRequest request) throws JSONException, ClientProtocolException,
 			IOException, URISyntaxException {
 		
@@ -108,16 +106,16 @@ public class OnlineDBUtil {
 		String instanceURL = oauthLoginResponse.getString("instance_url");
 		
 		ClientInfo clientInfo = new ClientInfo(null, new URI(instanceURL), null, null, null, null, null, null);
-		HttpAccess httpAccessor = new HttpAccess(context,null);
+		
 
-		RestClient restClient = new RestClient(clientInfo, accessToken, httpAccessor, null);
+		
+		RestClient restClient = new RestClient(clientInfo, accessToken, HttpAccess.DEFAULT, null);
 		RestResponse rResponse = restClient.sendSync(request);
 		
 		JSONObject response = rResponse.asJSONObject();
 		
 		Log.d("debug","response: " + response);
 		
-		context.unregisterReceiver(httpAccessor);
 		
 		
 		return response;
