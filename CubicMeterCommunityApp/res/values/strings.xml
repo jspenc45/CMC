@@ -52,7 +52,7 @@
         <item>activity_role</item>
         <item>temperature_activity</item>
         <item>airpressure_activity</item>
-        <item>activity_role</item>
+        <item>humidity_activity</item>
         <item>wind_activity</item>
         <item>rainfall_activity</item>
         <item>cloudactivity</item>
