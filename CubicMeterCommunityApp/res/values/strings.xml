@@ -55,7 +55,7 @@
         <item>activity_role</item>
         <item>wind_activity</item>
         <item>rainfall_activity</item>
-        <item>cloud_activity</item>
+        <item>cloudactivity</item>
     </string-array>
     <string-array name="naturalistFragments">
         <item>biodiversity_activity</item>
