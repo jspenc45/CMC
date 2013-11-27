@@ -9,6 +9,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import com.example.cubicmetercommunity.classes.Group;
+import com.example.cubicmetercommunity.classes.Roles;
 import com.example.cubicmetercommunity.classes.Session;
 import com.example.cubicmetercommunity.dbutil.DBUtil;
 import com.example.cubicmetercommunityapp.R;
@@ -16,6 +17,7 @@ import com.example.cubicmetercommunityapp.R;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -30,6 +32,7 @@ import android.widget.AdapterView.OnItemSelectedListener;
 public class SelectGroupFragment extends Fragment implements OnClickListener {
 	OnButtonClick buttonClick;
 	List<Group> groups;
+	DBUtil db;
 
 	@Override
 	public void onAttach(Activity activity) {
@@ -40,6 +43,7 @@ public class SelectGroupFragment extends Fragment implements OnClickListener {
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
+		db = new DBUtil();
 		((Button) getActivity().findViewById(R.id.sg_back))
 				.setOnClickListener(this);
 		((Button) getActivity().findViewById(R.id.sg_next))
@@ -79,7 +83,6 @@ public class SelectGroupFragment extends Fragment implements OnClickListener {
 	}
 
 	private List<Group> getGroups() {
-		DBUtil db = new DBUtil();
 		Map<String, Object> fields = new HashMap<String, Object>();
 		fields.put(Group.sqlNAME, null);
 		fields.put(Group.sqlID, null);
@@ -95,7 +98,6 @@ public class SelectGroupFragment extends Fragment implements OnClickListener {
 				false);
 	}
 	public void createNewSession(Group group){
-		DBUtil db = new DBUtil();
 		Map<String, Object> fields = new HashMap<String, Object>();
 		fields.put(Session.sqlGROUP_ID, group.getId());
 		String date = new Date().toString();
@@ -108,6 +110,40 @@ public class SelectGroupFragment extends Fragment implements OnClickListener {
 			e.printStackTrace();
 		}
 		((RoleActivity) getActivity()).setSession(session);
+		createNewRoles(group,session);
+	}
+	private void createNewRoles(Group group,Session session) {
+		Roles role = new Roles();
+		Map<String, Object> fields = new HashMap<String, Object>();
+		
+		fields.put(Roles.sqlSESSION_ID, session.getId());
+		fields.put(Roles.sqlGROUP_ID, group.getId());
+		
+		//Set up Meteorologist Table
+		JSONObject response = db.create("Meteorologist__c", fields);
+		try {
+			role.setMeteorologistID(response.getString("id"));
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
+		//Set up Naturalist Table
+		response = db.create("Naturalist__c", fields);
+		try {
+			role.setNaturalistID(response.getString("id"));
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
+		//Set up Soil Scientist Table
+		response = db.create("SoilScientist__c", fields);
+		try {
+			role.setSoilScientistID(response.getString("id"));
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
+		
+		
+		/*
+		((RoleActivity) getActivity()).setSession(session);*/
 	}
 
 	@Override
@@ -120,12 +156,15 @@ public class SelectGroupFragment extends Fragment implements OnClickListener {
 			Spinner s = (Spinner) getActivity().findViewById(R.id.spinner1);
 			Group group = (Group) s.getSelectedItem();
 			
+			//New Group
 			if (group.getName().equals("*New Group*"))
 				buttonClick.LoadNextFragmentWithBackstack(new NewGroupFragment());
+			//Existing session
 			else if (((RadioButton)getActivity().findViewById(R.id.radioButton2)).isChecked()) {
 				buttonClick.LoadNextFragmentWithBackstack(new PreviousSessionFragment());
 				((RoleActivity) getActivity()).setGroup(group);
 			}
+			//New Session
 			else {
 				createNewSession(group);
 				((RoleActivity) getActivity()).setGroup(group);
