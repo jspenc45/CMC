@@ -1,13 +1,8 @@
 package com.example.cubicmetercommunity.app;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-
-import org.json.JSONObject;
-
 import com.example.cubicmetercommunity.classes.Session;
-import com.example.cubicmetercommunity.dbutil.DBUtil;
+import com.example.cubicmetercommunity.dbutil.SQLWork;
 import com.example.cubicmetercommunityapp.R;
 
 import android.app.Activity;
@@ -40,7 +35,7 @@ public class PreviousSessionFragment extends Fragment implements
 		((Button) getActivity().findViewById(R.id.sg_next))
 				.setOnClickListener(this);
 
-		sessions = getSessions();
+		sessions = SQLWork.getSessions(((RoleActivity)getActivity()).getGroup());
 
 		Spinner spinner = (Spinner) getActivity().findViewById(
 				R.id.sessionSpinner);
@@ -49,21 +44,6 @@ public class PreviousSessionFragment extends Fragment implements
 				sessions);
 		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		spinner.setAdapter(adapter);
-	}
-
-	private List<Session> getSessions() {
-
-		DBUtil db = new DBUtil();
-		Map<String, Object> fields = new HashMap<String, Object>();
-		fields.put(Session.sqlID, null);
-		fields.put(Session.sqlGROUP_ID, null);
-		fields.put(Session.sqlTIME, null);
-		String where = Session.sqlGROUP_ID + "=" + "\'" + ((RoleActivity)getActivity()).getGroup().getId() + "\'";
-		JSONObject resp = db.select("Session__c", fields, where);
-		
-		return Session.getSessions(resp);
-
-		
 	}
 
 	@Override

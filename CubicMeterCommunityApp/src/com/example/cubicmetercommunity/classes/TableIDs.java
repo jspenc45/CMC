@@ -1,6 +1,6 @@
 package com.example.cubicmetercommunity.classes;
 
-public class Roles {
+public class TableIDs {
 
 	public static final String sqlSESSION_ID = "session_id__c";
 	public static final String sqlGROUP_ID = "group_id__c";

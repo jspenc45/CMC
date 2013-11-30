@@ -1,14 +1,8 @@
 package com.example.cubicmetercommunity.app;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import com.example.cubicmetercommunity.classes.Group;
-import com.example.cubicmetercommunity.dbutil.DBUtil;
+import com.example.cubicmetercommunity.dbutil.SQLWork;
 import com.example.cubicmetercommunityapp.R;
 
 import android.app.Activity;
@@ -50,16 +44,8 @@ public class NewGroupFragment extends Fragment implements OnClickListener {
 		String groupName = txt.getText().toString();
 		
 		if (!groupName.equals("")) {
-			DBUtil db = new DBUtil();
-			Map<String,Object> fields = new HashMap<String,Object>();
-			fields.put(Group.sqlNAME, groupName);
-			JSONObject resp = db.create("Group__c", fields);
 			RoleActivity r = (RoleActivity) getActivity();
-			try {
-				r.setGroup(new Group(groupName,resp.getString("id")));
-			} catch (JSONException e) {
-				e.printStackTrace();
-			}
+			r.setGroup(SQLWork.createNewGroup(groupName));
 			return true;
 		}
 		

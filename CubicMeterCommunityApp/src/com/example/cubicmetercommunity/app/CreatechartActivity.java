@@ -1,13 +1,8 @@
 package com.example.cubicmetercommunity.app;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-
-import org.json.JSONObject;
-
 import com.example.cubicmetercommunity.classes.Group;
-import com.example.cubicmetercommunity.dbutil.DBUtil;
+import com.example.cubicmetercommunity.dbutil.SQLWork;
 import com.example.cubicmetercommunityapp.R;
 import android.os.Bundle;
 import android.view.View;
@@ -15,7 +10,6 @@ import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.app.Activity;
@@ -23,16 +17,15 @@ import android.content.Intent;
 
 public class CreatechartActivity extends Activity implements OnClickListener{
 	List<Group> groups;
-	DBUtil db;
+	
 	String selectedGroup, selectedChartType;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_createchart);		
-		
-		db = new DBUtil();		
-		groups = getGroups();
+			
+		groups = SQLWork.getGroups();
 		
 		String[] chartTypes = new String[]{"Bar Chart","Pie Chart"};	
 		
@@ -75,15 +68,6 @@ public class CreatechartActivity extends Activity implements OnClickListener{
 		
 		Button b = (Button) findViewById(R.id.ccf_generate);
 		b.setOnClickListener(this);
-	}
-
-	private List<Group> getGroups() {
-		Map<String, Object> fields = new HashMap<String, Object>();
-		fields.put(Group.sqlNAME, null);
-		fields.put(Group.sqlID, null);
-		JSONObject response = db.select("Group__c", fields, null);
-
-		return Group.getGroups(response);
 	}
 	
 	@Override
