@@ -17,6 +17,7 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
@@ -40,12 +41,25 @@ public class DynamicFragment extends Fragment implements OnClickListener {
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
+		
+		//BACK BUTTON
+		Button back = (Button) getActivity().findViewById(R.id.act_back);
+		if (back!=null)
+			back.setOnClickListener(new OnClickListener() {
+				
+				@Override
+				public void onClick(View v) {
+					getActivity().finish();
+				}
+			});
 
+		//FINISH BUTTON
 		Button finish = (Button) getActivity().findViewById(R.id.act_finish);
 		if (finish != null) {
 			finish.setOnClickListener(this);
 		}
 
+		setSoilColorOnClicks();
 	}
 
 	@Override
@@ -211,5 +225,45 @@ public class DynamicFragment extends Fragment implements OnClickListener {
 	public void showToast() {
 		Toast.makeText(getActivity(), "One of your boxes is blank!",
 				Toast.LENGTH_LONG).show();
+	}
+	
+	public void setSoilColorOnClicks() {
+		ImageButton button = (ImageButton) getActivity().findViewById(R.id.black);
+		if (button!=null){
+			OnClickListener sColor = new soilColor();
+			button.setOnClickListener(sColor);
+			getActivity().findViewById(R.id.darkred).setOnClickListener(sColor);
+			getActivity().findViewById(R.id.brown).setOnClickListener(sColor);
+			getActivity().findViewById(R.id.brownorange).setOnClickListener(sColor);
+			getActivity().findViewById(R.id.sienna).setOnClickListener(sColor);
+			getActivity().findViewById(R.id.orange).setOnClickListener(sColor);
+			getActivity().findViewById(R.id.brightorange).setOnClickListener(sColor);
+			getActivity().findViewById(R.id.paleorange).setOnClickListener(sColor);
+			getActivity().findViewById(R.id.pinkorange).setOnClickListener(sColor);
+			getActivity().findViewById(R.id.red).setOnClickListener(sColor);
+			getActivity().findViewById(R.id.darkyellow).setOnClickListener(sColor);
+			getActivity().findViewById(R.id.gray).setOnClickListener(sColor);
+		}
+	}
+	
+	public class soilColor implements OnClickListener {
+
+		//SOIL COLOR
+		@Override
+		public void onClick(View v) {
+			String color = ((ImageButton)v).getTag().toString();
+			
+			TableIDs ids = ((IndividualActivity) getActivity()).getTables();
+			DBUtil db = new DBUtil();
+			Map<String, Object> fields = new HashMap<String, Object>();
+			fields.clear();
+			fields.put("soil_color__c", color);
+
+			db.update("SoilScientist__c", ids.getSoilScientistID(), fields);
+			
+			getActivity().finish();
+			
+		}
+		
 	}
 }

@@ -2,4 +2,7 @@
 <lint>
     <issue id="ButtonStyle" severity="ignore" />
     <issue id="ContentDescription" severity="ignore" />
+    <issue id="HardcodedText">
+        <ignore path="res\layout\soil_color_activity.xml" />
+    </issue>
 </lint>

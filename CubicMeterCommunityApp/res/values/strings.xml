@@ -78,7 +78,7 @@
     <string name="label_ng2">Firstname Lastname</string>
     
     <string name="soil_color_title">Select the color of your soil below:</string>
-    <string name="backbuttonsoilcolor">&lt;back to activities</string>
+    <string name="backbuttonsoilcolor">&lt; Back to Activities</string>
     <string name="rainfalltitle">"Record the rainfall amount that is in your rain gauge: "</string>
     <string name="recordRainfall">submit</string>
     <string name="rainfallInstructions">Enter the rainfall amount in your rain gauge</string>
