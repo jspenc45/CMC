@@ -15,11 +15,11 @@ public class Detailed_ReviewActivity extends Activity {
 		setContentView(R.layout.activity_detailed__review);
 		
 		if (getIntent().getExtras() != null) {
-			if (getIntent().getExtras().containsKey("DATA")) {				
+			if (getIntent().getExtras().containsKey("VAL")) {				
 					try {
 						
 						data = (ReviewData) getIntent().getExtras().getSerializable(
-								"DATA");			
+								"VAL");			
 
 						TextView id = (TextView) findViewById(R.id.rd_ID);  
 						TextView gid = (TextView) findViewById(R.id.rd_groupID);   

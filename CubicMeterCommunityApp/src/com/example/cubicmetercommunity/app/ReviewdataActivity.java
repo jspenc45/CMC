@@ -42,7 +42,7 @@ public class ReviewdataActivity extends Activity {
 			public void onItemClick(AdapterView<?> arg0, View arg1, int position,
 					long arg3) {
 				Intent i = new Intent(getBaseContext(), Detailed_ReviewActivity.class);
-				i.putExtra("DATA", dAdapter.getList().get(position));
+				i.putExtra("VAL", dAdapter.getList().get(position));
 				startActivity(i);
 				
 			}
