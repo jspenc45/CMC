@@ -11,11 +11,16 @@ import org.json.JSONObject;
 import android.util.Log;
 
 import com.example.cubicmetercommunity.classes.Group;
+import com.example.cubicmetercommunity.classes.Meteorologist;
 import com.example.cubicmetercommunity.classes.Session;
 import com.example.cubicmetercommunity.classes.TableIDs;
 
 public class DatabaseManager {
 
+	public static final String METEOROLOGIST_TABLE = "Meteorologist__c";
+	public static final String NATURALIST_TABLE = "Naturalist__c";
+	public static final String SOIL_SCIENTIST_TABLE = "SoilScientist__c";
+	
 	public static Group createNewGroup(String groupName){
 		DBUtil db = new DBUtil();
 		Map<String,Object> fields = new HashMap<String,Object>();
@@ -134,5 +139,26 @@ public class DatabaseManager {
 		Log.d("debug",ids.getNaturalistID());
 		Log.d("debug",ids.getSoilScientistID());
 		return ids;
+	}
+	public static <E> List<E> getCollectedDataByRole(String role) {
+		DBUtil db = new DBUtil();
+		Map<String, Object> fields = new HashMap<String, Object>();
+		
+		if (role.equals(METEOROLOGIST_TABLE)){
+			fields = Meteorologist.generateFieldsAll();
+			JSONObject resp = db.select(role, fields, null);
+			@SuppressWarnings("unchecked")
+			List<E> list = (List<E>) Meteorologist.makeList(resp);
+			return list;
+		}
+		else if (role.equals(NATURALIST_TABLE)){
+			
+		}
+		else if (role.equals(SOIL_SCIENTIST_TABLE)){
+			
+		}
+		
+		
+		return null;
 	}
 }
