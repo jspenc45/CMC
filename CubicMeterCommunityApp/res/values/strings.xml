@@ -70,7 +70,7 @@
         <item>soil_ph_activity</item>
         <item>soil_texture</item>
         <item>soil_consistency</item>
-        <item>activity_role</item>
+        <item>soil_moisture</item>
         <item>activity_role</item>
         <item>comments_soil_scientist</item>
     </string-array>
@@ -150,12 +150,12 @@
     <string name="act_finishSoilpH">Finish</string>
     <string name="textview_soilconsistency_instructions">Select the option below that best describes the consistency of your soil:</string>
     <string name="radioButton_sand">Sand</string>
-    <string name="textview_sandDescription">particles are visible to the naked eye</string>
+    <string name="textview_sandDescription">&#009;Particles are visible to the naked eye</string>
     <string name="radioButton_Silt">"particles become dusty when dry and are easily brushed off hands and boots. "</string>
     <string name="radioButton_Silt2">Silt</string>
-    <string name="textview_siltDescription">"particles become dusty when dry and are easily brushed off hands and boots. "</string>
+    <string name="textview_siltDescription">"Particles become dusty when dry and are easily brushed off hands and boots. "</string>
     <string name="radioButton_clay">Clay</string>
-    <string name="textview_clayDescription">"particles are greasy and sticky when wet and hard when dry, and have to be scraped or washed off hands and boots. "</string>
+    <string name="textview_clayDescription">"Particles are greasy and sticky when wet and hard when dry, and have to be scraped or washed off hands and boots. "</string>
     <string name="act_finishSoilConsistency">Finish</string>
     <string name="title_activity_review__details">Review_DetailsActivity</string>
     <string name="hello_world">Hello world!</string>

@@ -41,19 +41,19 @@ public class DynamicFragment extends Fragment implements OnClickListener {
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
-		
-		//BACK BUTTON
+
+		// BACK BUTTON
 		Button back = (Button) getActivity().findViewById(R.id.act_back);
-		if (back!=null)
+		if (back != null)
 			back.setOnClickListener(new OnClickListener() {
-				
+
 				@Override
 				public void onClick(View v) {
 					getActivity().finish();
 				}
 			});
 
-		//FINISH BUTTON
+		// FINISH BUTTON
 		Button finish = (Button) getActivity().findViewById(R.id.act_finish);
 		if (finish != null) {
 			finish.setOnClickListener(this);
@@ -172,7 +172,43 @@ public class DynamicFragment extends Fragment implements OnClickListener {
 				success = true;
 			}
 		}
+		// SOIL CONSISTENCY
+		else if ((rg = (RadioGroup) getActivity().findViewById(
+				R.id.selectSoilConsistency)) != null) {
+			RadioButton selected = (RadioButton) getActivity().findViewById(
+					rg.getCheckedRadioButtonId());
 
+			if (selected == null)
+				showToast();
+			else {
+				String soilC = selected.getText().toString();
+				// Do update on DB
+				fields.put("soil_consistency__c", soilC);
+
+				db.update("SoilScientist__c", ids.getSoilScientistID(), fields);
+				success = true;
+			}
+		}
+		// SOIL PH/TYPE
+		else if ((rg = (RadioGroup) getActivity().findViewById(
+				R.id.selectSoilType)) != null) {
+			temp = (EditText) getActivity().findViewById(R.id.text_soilPH);
+			RadioButton selected = (RadioButton) getActivity().findViewById(
+					rg.getCheckedRadioButtonId());
+			String soilPh = temp.getText().toString();
+
+			if (selected == null||soilPh.equals(""))
+				showToast();
+			else {
+				String soilType = selected.getText().toString();
+				// Do update on DB
+				fields.put("soil_type__c", soilType);
+				fields.put("soil_ph__c", soilPh);
+
+				db.update("SoilScientist__c", ids.getSoilScientistID(), fields);
+				success = true;
+			}
+		}
 		// Additional - Meteorologist
 		else if ((temp = (EditText) getActivity().findViewById(
 				R.id.text_m_additional)) != null) {
@@ -226,33 +262,39 @@ public class DynamicFragment extends Fragment implements OnClickListener {
 		Toast.makeText(getActivity(), "One of your boxes is blank!",
 				Toast.LENGTH_LONG).show();
 	}
-	
+
 	public void setSoilColorOnClicks() {
-		ImageButton button = (ImageButton) getActivity().findViewById(R.id.black);
-		if (button!=null){
+		ImageButton button = (ImageButton) getActivity().findViewById(
+				R.id.black);
+		if (button != null) {
 			OnClickListener sColor = new soilColor();
 			button.setOnClickListener(sColor);
 			getActivity().findViewById(R.id.darkred).setOnClickListener(sColor);
 			getActivity().findViewById(R.id.brown).setOnClickListener(sColor);
-			getActivity().findViewById(R.id.brownorange).setOnClickListener(sColor);
+			getActivity().findViewById(R.id.brownorange).setOnClickListener(
+					sColor);
 			getActivity().findViewById(R.id.sienna).setOnClickListener(sColor);
 			getActivity().findViewById(R.id.orange).setOnClickListener(sColor);
-			getActivity().findViewById(R.id.brightorange).setOnClickListener(sColor);
-			getActivity().findViewById(R.id.paleorange).setOnClickListener(sColor);
-			getActivity().findViewById(R.id.pinkorange).setOnClickListener(sColor);
+			getActivity().findViewById(R.id.brightorange).setOnClickListener(
+					sColor);
+			getActivity().findViewById(R.id.paleorange).setOnClickListener(
+					sColor);
+			getActivity().findViewById(R.id.pinkorange).setOnClickListener(
+					sColor);
 			getActivity().findViewById(R.id.red).setOnClickListener(sColor);
-			getActivity().findViewById(R.id.darkyellow).setOnClickListener(sColor);
+			getActivity().findViewById(R.id.darkyellow).setOnClickListener(
+					sColor);
 			getActivity().findViewById(R.id.gray).setOnClickListener(sColor);
 		}
 	}
-	
+
 	public class soilColor implements OnClickListener {
 
-		//SOIL COLOR
+		// SOIL COLOR
 		@Override
 		public void onClick(View v) {
-			String color = ((ImageButton)v).getTag().toString();
-			
+			String color = ((ImageButton) v).getTag().toString();
+
 			TableIDs ids = ((IndividualActivity) getActivity()).getTables();
 			DBUtil db = new DBUtil();
 			Map<String, Object> fields = new HashMap<String, Object>();
@@ -260,10 +302,10 @@ public class DynamicFragment extends Fragment implements OnClickListener {
 			fields.put("soil_color__c", color);
 
 			db.update("SoilScientist__c", ids.getSoilScientistID(), fields);
-			
+
 			getActivity().finish();
-			
+
 		}
-		
+
 	}
 }
