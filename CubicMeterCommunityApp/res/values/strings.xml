@@ -67,7 +67,7 @@
     </string-array>
     <string-array name="soilScientistFragments">
         <item>soil_color_activity</item>
-        <item>activity_role</item>
+        <item>soil_ph_activity</item>
         <item>activity_role</item>
         <item>activity_role</item>
         <item>activity_role</item>
@@ -142,5 +142,11 @@
     <string name="label_ng5">Enter the people in your group:</string>
     <string name="label_es1">Select the previous collection time:</string>
     <string name="comments">Enter any additional thoughts you have, or things you couldn\'t list:</string>
+    <string name="textview_soilPHInstructions">Insert your soil pH device into the ground and wait 60 seconds. When the number appears, record it below:</string>
+    <string name="textview_soilType">Is your soil alkaline, neutral, or acidic?</string>
+    <string name="radiobutton_alkaline">Alkaline</string>
+    <string name="radiobutton_acidic">Acidic</string>
+    <string name="radiobutton_neutral">Neutral</string>
+    <string name="act_finishSoilpH">Finish</string>
 
 </resources>
