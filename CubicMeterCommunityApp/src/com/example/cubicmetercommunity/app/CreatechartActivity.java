@@ -15,6 +15,8 @@ import android.widget.AdapterView.OnItemSelectedListener;
 import android.app.Activity;
 import android.content.Intent;
 
+//This activity shows data parameters for creating a new chart.
+
 public class CreatechartActivity extends Activity implements OnClickListener{
 	List<Group> groups;
 	

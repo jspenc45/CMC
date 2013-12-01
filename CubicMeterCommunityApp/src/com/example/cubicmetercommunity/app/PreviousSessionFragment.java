@@ -20,6 +20,8 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 
+//This fragment allows users to select previous sessions from their group
+
 @SuppressLint("ValidFragment")
 public class PreviousSessionFragment extends Fragment implements
 		OnClickListener {

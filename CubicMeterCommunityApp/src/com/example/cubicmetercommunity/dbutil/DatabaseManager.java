@@ -15,6 +15,8 @@ import com.example.cubicmetercommunity.classes.Meteorologist;
 import com.example.cubicmetercommunity.classes.Session;
 import com.example.cubicmetercommunity.classes.TableIDs;
 
+//This class handles DB transactions to the specific DB
+
 public class DatabaseManager {
 
 	public static final String METEOROLOGIST_TABLE = "Meteorologist__c";

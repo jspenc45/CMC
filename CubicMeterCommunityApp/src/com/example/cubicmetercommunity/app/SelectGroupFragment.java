@@ -21,6 +21,8 @@ import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.AdapterView.OnItemSelectedListener;
 
+//This fragment allows users to select a Group or make a new one
+
 public class SelectGroupFragment extends Fragment implements OnClickListener {
 	OnButtonClick buttonClick;
 	List<Group> groups;

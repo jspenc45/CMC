@@ -41,23 +41,14 @@
 
 package com.example.cubicmetercommunity.app;
 
-
-
 import com.example.cubicmetercommunity.chart.BarChartView;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Window;
 
-/**
- * BarChartDemo01Activity
- */
 public class BarChartActivity extends Activity {
 
-    /**
-     * Called when the activity is starting.
-     * @param savedInstanceState
-     */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

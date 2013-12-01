@@ -10,10 +10,15 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 
-public class RoleActivity extends FragmentActivity implements
-		OnButtonClick {
+//This class handles the following fragments: 
+//SelectGroupFragment
+//NewGroupFragment
+//PreviousSessionFragment,
+//SelectRoleFragment
+
+public class RoleActivity extends FragmentActivity implements OnButtonClick {
 	TableIDs ids;
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -48,17 +53,18 @@ public class RoleActivity extends FragmentActivity implements
 		fragmentTransaction.addToBackStack(null);
 		fragmentTransaction.commit();
 	}
-	
+
 	@Override
 	public void sendIntentWithExtra(Intent i) {
 		i.putExtra("tables", ids);
 		startActivity(i);
 	}
-	
+
 	@Override
 	public void popStack(Fragment fragment) {
 		FragmentManager fm = getSupportFragmentManager();
-        fm.popBackStack (fragment.getTag(), FragmentManager.POP_BACK_STACK_INCLUSIVE);	
+		fm.popBackStack(fragment.getTag(),
+				FragmentManager.POP_BACK_STACK_INCLUSIVE);
 	}
 
 	public void setTableIDs(TableIDs ids) {

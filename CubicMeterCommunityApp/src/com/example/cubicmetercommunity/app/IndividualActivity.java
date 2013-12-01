@@ -10,6 +10,8 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 
+//This activity holds new DynamicFragments, which allow users to complete activities
+
 public class IndividualActivity extends FragmentActivity implements
 		OnButtonClick {
 

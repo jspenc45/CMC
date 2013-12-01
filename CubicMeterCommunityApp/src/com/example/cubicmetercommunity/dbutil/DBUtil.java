@@ -9,6 +9,8 @@ import org.json.JSONObject;
 
 import com.salesforce.androidsdk.rest.RestRequest;
 
+//This class uses the SalesForce sdk to create CRUD operations on the DB
+
 public class DBUtil {
 	final String apiVersion = "v27.0";
 

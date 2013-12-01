@@ -12,6 +12,8 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+//This fragment allows a user to select a role
+
 public class SelectRoleFragment extends Fragment implements OnClickListener {
 	OnButtonClick buttonClick;
 

@@ -17,6 +17,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
+//This fragment allows users to create a new group
+
 public class NewGroupFragment extends Fragment implements OnClickListener {
 	OnButtonClick buttonClick;
 	List<Group> groups;

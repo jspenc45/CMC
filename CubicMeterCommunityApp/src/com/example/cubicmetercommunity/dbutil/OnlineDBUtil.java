@@ -32,6 +32,8 @@ import com.salesforce.androidsdk.rest.RestResponse;
 import android.os.AsyncTask;
 import android.util.Log;
 
+//This class handles connections to the database and returns responses
+
 public class OnlineDBUtil {
 	public static class sendSync extends
 			AsyncTask<Object, String, JSONObject> {

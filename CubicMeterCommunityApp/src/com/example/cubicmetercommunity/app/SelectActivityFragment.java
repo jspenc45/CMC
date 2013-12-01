@@ -18,6 +18,8 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+//This fragment allows users to select an activity from a list populated in Strings.xml
+
 public class SelectActivityFragment extends Fragment implements OnClickListener {
 	OnButtonClick buttonClick;
 

@@ -10,6 +10,9 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 
+
+//This class handles the main menu activity for the project
+
 public class MainActivity extends Activity implements OnClickListener {
 
 	@Override

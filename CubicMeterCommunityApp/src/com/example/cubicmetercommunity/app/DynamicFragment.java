@@ -22,12 +22,13 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+//This fragment populates the individual activities and the activities involved in completing them.
+
 @SuppressLint("ValidFragment")
 public class DynamicFragment extends Fragment implements OnClickListener {
 	OnButtonClick buttonClick;
 	int resource;
 
-	@SuppressLint("ValidFragment")
 	public DynamicFragment(int resource) {
 		this.resource = resource;
 	}
