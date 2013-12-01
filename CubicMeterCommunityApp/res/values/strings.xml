@@ -68,7 +68,7 @@
     <string-array name="soilScientistFragments">
         <item>soil_color_activity</item>
         <item>soil_ph_activity</item>
-        <item>activity_role</item>
+        <item>soil_texture</item>
         <item>soil_consistency</item>
         <item>activity_role</item>
         <item>activity_role</item>
@@ -159,5 +159,9 @@
     <string name="act_finishSoilConsistency">Finish</string>
     <string name="title_activity_review__details">Review_DetailsActivity</string>
     <string name="hello_world">Hello world!</string>
+    <string name="textview_soiltextureinstructions">Describe the texture of your soil in the textbox below</string>
+    <string name="act_finishsoiltexture">Finish</string>
+    <string name="edittext_soiltextureanswer"></string>
+    <string name="textview_soilmoistureinstructions">Insert your soil moisture device into the ground and record the result below:</string>
 
 </resources>
