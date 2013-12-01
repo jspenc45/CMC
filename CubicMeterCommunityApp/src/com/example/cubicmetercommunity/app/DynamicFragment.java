@@ -17,6 +17,8 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 @SuppressLint("ValidFragment")
@@ -63,6 +65,7 @@ public class DynamicFragment extends Fragment implements OnClickListener {
 
 		// Get inputs
 		EditText temp;
+		RadioGroup rg;
 
 		// TEMPERATURE
 		if ((temp = (EditText) getActivity().findViewById(R.id.text_fahr)) != null) {
@@ -137,49 +140,68 @@ public class DynamicFragment extends Fragment implements OnClickListener {
 				success = true;
 			}
 		}
+
+		// CLOUDS
+		else if ((rg = (RadioGroup) getActivity().findViewById(
+				R.id.cloudSelector)) != null) {
+			RadioButton selected = (RadioButton) getActivity().findViewById(
+					rg.getCheckedRadioButtonId());
+
+			if (selected == null)
+				showToast();
+			else {
+				String cloud = selected.getText().toString();
+				// Do update on DB
+				fields.put("cloud__c", cloud);
+
+				db.update("Meteorologist__c", ids.getMeteorologistID(), fields);
+				success = true;
+			}
+		}
+
 		// Additional - Meteorologist
-				else if ((temp = (EditText) getActivity().findViewById(
-						R.id.text_m_additional)) != null) {
-					String additional = temp.getText().toString();
-					if (additional.equals(""))
-						showToast();
-					else {
-						// Do update on DB
-						fields.put("comments__c", additional);
+		else if ((temp = (EditText) getActivity().findViewById(
+				R.id.text_m_additional)) != null) {
+			String additional = temp.getText().toString();
+			if (additional.equals(""))
+				showToast();
+			else {
+				// Do update on DB
+				fields.put("comments__c", additional);
 
-						db.update("Meteorologist__c", ids.getMeteorologistID(), fields);
-						success = true;
-					}
-				}
+				db.update("Meteorologist__c", ids.getMeteorologistID(), fields);
+				success = true;
+			}
+		}
 		// Additional - Naturalist
-				else if ((temp = (EditText) getActivity().findViewById(
-						R.id.text_n_additional)) != null) {
-					String additional = temp.getText().toString();
-					if (additional.equals(""))
-						showToast();
-					else {
-						// Do update on DB
-						fields.put("comments__c", additional);
+		else if ((temp = (EditText) getActivity().findViewById(
+				R.id.text_n_additional)) != null) {
+			String additional = temp.getText().toString();
+			if (additional.equals(""))
+				showToast();
+			else {
+				// Do update on DB
+				fields.put("comments__c", additional);
 
-						db.update("Naturalist__c", ids.getNaturalistID(), fields);
-						success = true;
-					}
-				}
+				db.update("Naturalist__c", ids.getNaturalistID(), fields);
+				success = true;
+			}
+		}
 		// Additional - Soil Scientist
-				else if ((temp = (EditText) getActivity().findViewById(
-						R.id.text_s_additional)) != null) {
-					String additional = temp.getText().toString();
-					if (additional.equals(""))
-						showToast();
-					else {
-						// Do update on DB
-						fields.put("comments__c", additional);
+		else if ((temp = (EditText) getActivity().findViewById(
+				R.id.text_s_additional)) != null) {
+			String additional = temp.getText().toString();
+			if (additional.equals(""))
+				showToast();
+			else {
+				// Do update on DB
+				fields.put("comments__c", additional);
 
-						db.update("SoilScientist__c", ids.getSoilScientistID(), fields);
-						success = true;
-					}
-				}
-		
+				db.update("SoilScientist__c", ids.getSoilScientistID(), fields);
+				success = true;
+			}
+		}
+
 		// End
 		if (success) {
 			getActivity().finish();

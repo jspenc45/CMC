@@ -131,10 +131,10 @@
     <string name="wetdrydifference">Wet Bulb temp - Dry bulb temp =</string>
     <string name="finishhumidity">Finish</string>
     <string name="cloudInstruction">Observe the clouds in the sky, and select which type you see</string>
-    <string name="cirruslabel">cirrus</string>
-    <string name="cumulonimbuslabel">cumulonimbus</string>
+    <string name="cirruslabel">Cirrus</string>
+    <string name="cumulonimbuslabel">Cumulonimbus</string>
     <string name="cumuluslabel">Cumulus</string>
-    <string name="stratuslabel">stratus</string>
+    <string name="stratuslabel">Stratus</string>
     <string name="cloudsfinish">Done</string>
     <string name="label_generate">Generate</string>
     <string name="label_ng3">Enter your Group Name:</string>
