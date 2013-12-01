@@ -2,7 +2,7 @@ package com.example.cubicmetercommunity.app;
 
 import java.util.List;
 import com.example.cubicmetercommunity.classes.Group;
-import com.example.cubicmetercommunity.dbutil.SQLWork;
+import com.example.cubicmetercommunity.dbutil.DatabaseManager;
 import com.example.cubicmetercommunityapp.R;
 import android.os.Bundle;
 import android.view.View;
@@ -25,7 +25,7 @@ public class CreatechartActivity extends Activity implements OnClickListener{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_createchart);		
 			
-		groups = SQLWork.getGroups();
+		groups = DatabaseManager.getGroups();
 		
 		String[] chartTypes = new String[]{"Bar Chart","Pie Chart"};	
 		

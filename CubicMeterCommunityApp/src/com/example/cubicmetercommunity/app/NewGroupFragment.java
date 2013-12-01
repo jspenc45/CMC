@@ -2,7 +2,9 @@ package com.example.cubicmetercommunity.app;
 
 import java.util.List;
 import com.example.cubicmetercommunity.classes.Group;
-import com.example.cubicmetercommunity.dbutil.SQLWork;
+import com.example.cubicmetercommunity.classes.Session;
+import com.example.cubicmetercommunity.classes.TableIDs;
+import com.example.cubicmetercommunity.dbutil.DatabaseManager;
 import com.example.cubicmetercommunityapp.R;
 
 import android.app.Activity;
@@ -45,7 +47,10 @@ public class NewGroupFragment extends Fragment implements OnClickListener {
 		
 		if (!groupName.equals("")) {
 			RoleActivity r = (RoleActivity) getActivity();
-			r.setGroup(SQLWork.createNewGroup(groupName));
+			Group group = DatabaseManager.createNewGroup(groupName);
+			Session session = DatabaseManager.createNewSession(group);
+			TableIDs ids = DatabaseManager.createNewRoles(group, session);
+			r.setTableIDs(ids);
 			return true;
 		}
 		

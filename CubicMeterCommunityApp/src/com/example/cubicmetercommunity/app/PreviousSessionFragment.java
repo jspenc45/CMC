@@ -1,10 +1,14 @@
 package com.example.cubicmetercommunity.app;
 
 import java.util.List;
+
+import com.example.cubicmetercommunity.classes.Group;
 import com.example.cubicmetercommunity.classes.Session;
-import com.example.cubicmetercommunity.dbutil.SQLWork;
+import com.example.cubicmetercommunity.classes.TableIDs;
+import com.example.cubicmetercommunity.dbutil.DatabaseManager;
 import com.example.cubicmetercommunityapp.R;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -16,10 +20,16 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 
+@SuppressLint("ValidFragment")
 public class PreviousSessionFragment extends Fragment implements
 		OnClickListener {
 	OnButtonClick buttonClick;
 	List<Session> sessions;
+	Group group;
+
+	public PreviousSessionFragment(Group group) {
+		this.group = group;
+	}
 
 	@Override
 	public void onAttach(Activity activity) {
@@ -35,7 +45,7 @@ public class PreviousSessionFragment extends Fragment implements
 		((Button) getActivity().findViewById(R.id.sg_next))
 				.setOnClickListener(this);
 
-		sessions = SQLWork.getSessions(((RoleActivity)getActivity()).getGroup());
+		sessions = DatabaseManager.getSessions(group);
 
 		Spinner spinner = (Spinner) getActivity().findViewById(
 				R.id.sessionSpinner);
@@ -62,7 +72,8 @@ public class PreviousSessionFragment extends Fragment implements
 			Spinner spinner = (Spinner) getActivity().findViewById(
 					R.id.sessionSpinner);
 			Session session = (Session) spinner.getSelectedItem();
-			((RoleActivity) getActivity()).setSession(session);
+			TableIDs ids = DatabaseManager.getTables(group,session);
+			((RoleActivity) getActivity()).setTableIDs(ids);
 			buttonClick.LoadNextFragment(new SelectRoleFragment());
 			break;
 		}

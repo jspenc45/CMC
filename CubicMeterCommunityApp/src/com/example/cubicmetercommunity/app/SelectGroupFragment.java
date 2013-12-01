@@ -4,7 +4,7 @@ import java.util.List;
 import com.example.cubicmetercommunity.classes.Group;
 import com.example.cubicmetercommunity.classes.TableIDs;
 import com.example.cubicmetercommunity.classes.Session;
-import com.example.cubicmetercommunity.dbutil.SQLWork;
+import com.example.cubicmetercommunity.dbutil.DatabaseManager;
 import com.example.cubicmetercommunityapp.R;
 
 import android.app.Activity;
@@ -39,7 +39,7 @@ public class SelectGroupFragment extends Fragment implements OnClickListener {
 		((Button) getActivity().findViewById(R.id.sg_next))
 				.setOnClickListener(this);
 
-		groups = SQLWork.getGroups();
+		groups = DatabaseManager.getGroups();
 		Group newGroup = new Group("*New Group*","null");
 		groups.add(newGroup);
 		
@@ -94,15 +94,15 @@ public class SelectGroupFragment extends Fragment implements OnClickListener {
 				buttonClick.LoadNextFragmentWithBackstack(new NewGroupFragment());
 			//Existing session
 			else if (((RadioButton)getActivity().findViewById(R.id.radioButton2)).isChecked()) {
-				buttonClick.LoadNextFragmentWithBackstack(new PreviousSessionFragment());
-				((RoleActivity) getActivity()).setGroup(group);
+				buttonClick.LoadNextFragmentWithBackstack(new PreviousSessionFragment(group));
 			}
 			//New Session
 			else {
-				Session session = SQLWork.createNewSession(group);
-				((RoleActivity) getActivity()).setSession(session);
-				TableIDs ids = SQLWork.createNewRoles(group,session);
-				((RoleActivity) getActivity()).setGroup(group);
+				Session session = DatabaseManager.createNewSession(group);
+				TableIDs ids = DatabaseManager.createNewRoles(group,session);
+				
+				((RoleActivity) getActivity()).setTableIDs(ids);
+				
 				buttonClick.LoadNextFragment(new SelectRoleFragment());
 			}
 			break;

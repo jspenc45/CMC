@@ -8,11 +8,13 @@ import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.util.Log;
+
 import com.example.cubicmetercommunity.classes.Group;
 import com.example.cubicmetercommunity.classes.Session;
 import com.example.cubicmetercommunity.classes.TableIDs;
 
-public class SQLWork {
+public class DatabaseManager {
 
 	public static Group createNewGroup(String groupName){
 		DBUtil db = new DBUtil();
@@ -92,6 +94,45 @@ public class SQLWork {
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}
+		return ids;
+	}
+	public static TableIDs getTables(Group group, Session session) {
+		TableIDs ids = new TableIDs();
+	
+		DBUtil db = new DBUtil();
+		Map<String, Object> fields = new HashMap<String, Object>();
+		fields.put(TableIDs.sqlTABLE_ID, null);
+		String where = TableIDs.sqlSESSION_ID + "=" + "\'" + session.getId() + "\'";
+		
+		//METEOROLOGIST TABLE
+		JSONObject resp = db.select("Meteorologist__c", fields, where);
+		try {
+			ids.setMeteorologistID(resp.getJSONArray("records").getJSONObject(0).getString("Id"));
+		} catch (JSONException e) {
+			
+			e.printStackTrace();
+		}
+
+		//NATURALIST TABLE
+		resp = db.select("Naturalist__c", fields, where);
+		try {
+			ids.setNaturalistID(resp.getJSONArray("records").getJSONObject(0).getString("Id"));
+		} catch (JSONException e) {
+			
+			e.printStackTrace();
+		}
+
+		//SOIL SCIENTIST TABLE
+		resp = db.select("SoilScientist__c", fields, where);
+		try {
+			ids.setSoilScientistID(resp.getJSONArray("records").getJSONObject(0).getString("Id"));
+		} catch (JSONException e) {
+			
+			e.printStackTrace();
+		}
+		Log.d("debug",ids.getMeteorologistID());
+		Log.d("debug",ids.getNaturalistID());
+		Log.d("debug",ids.getSoilScientistID());
 		return ids;
 	}
 }
