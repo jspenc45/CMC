@@ -163,5 +163,7 @@
     <string name="act_finishsoiltexture">Finish</string>
     <string name="edittext_soiltextureanswer"></string>
     <string name="textview_soilmoistureinstructions">Insert your soil moisture device into the ground and record the result below:</string>
+    <string name="edittext_soilmoistureanswer"></string>
+    <string name="act_finishsoilmoisture">Finish</string>
 
 </resources>
