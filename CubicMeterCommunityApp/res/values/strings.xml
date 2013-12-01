@@ -4,8 +4,8 @@
     <string name="app_name">Cubic Meter Community</string>
     <string name="action_settings">Settings</string>
     <string name="activity_background_color">"#ccffff"</string>
- <!-- green "##2f4f4f", light-green "#ccffff" -->
- <!-- white "#ffffff", light-green "#ccffff" -->
+    <!-- green "##2f4f4f", light-green "#ccffff" -->
+    <!-- white "#ffffff", light-green "#ccffff" -->
     <string name="label_meteorologist">Meteorologist</string>
     <string name="label_soil__scientist">Soil Scientist</string>
     <string name="label_naturalist">Naturalist</string>
@@ -74,9 +74,9 @@
         <item>activity_role</item>
         <item>comments_soil_scientist</item>
     </string-array>
-	<string name="label_ng1"></string>
+
+    <string name="label_ng1"></string>
     <string name="label_ng2">Firstname Lastname</string>
-    
     <string name="soil_color_title">Select the color of your soil below:</string>
     <string name="backbuttonsoilcolor">&lt; Back to Activities</string>
     <string name="rainfalltitle">"Record the rainfall amount that is in your rain gauge: "</string>
@@ -157,5 +157,7 @@
     <string name="radioButton_clay">Clay</string>
     <string name="textview_clayDescription">"particles are greasy and sticky when wet and hard when dry, and have to be scraped or washed off hands and boots. "</string>
     <string name="act_finishSoilConsistency">Finish</string>
+    <string name="title_activity_review__details">Review_DetailsActivity</string>
+    <string name="hello_world">Hello world!</string>
 
 </resources>

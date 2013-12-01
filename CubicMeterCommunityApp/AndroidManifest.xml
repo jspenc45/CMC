@@ -50,6 +50,10 @@
             android:name="com.example.cubicmetercommunity.app.BarChartActivity"
             android:theme="@android:style/Theme.Holo.Light.NoActionBar" >
         </activity>
+        <activity
+            android:name="com.example.cubicmetercommunity.app.Review_DetailsActivity"
+            android:label="@string/title_activity_review__details" >
+        </activity>
     </application>
 
 </manifest>

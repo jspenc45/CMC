@@ -3,23 +3,22 @@ package com.example.cubicmetercommunity.app;
 import com.example.cubicmetercommunity.classes.ReviewData;
 import com.example.cubicmetercommunityapp.R;
 import android.os.Bundle;
-import android.app.Activity;
 import android.widget.TextView;
+import android.app.Activity;
 
-public class Detailed_ReviewActivity extends Activity {
-
+public class Review_DetailsActivity extends Activity {
 	ReviewData data;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_detailed__review);
+		setContentView(R.layout.activity_review__details);
 		
 		if (getIntent().getExtras() != null) {
-			if (getIntent().getExtras().containsKey("VAL")) {				
+			if (getIntent().getExtras().containsKey("DATA")) {				
 					try {
 						
 						data = (ReviewData) getIntent().getExtras().getSerializable(
-								"VAL");			
+								"DATA");			
 
 						TextView id = (TextView) findViewById(R.id.rd_ID);  
 						TextView gid = (TextView) findViewById(R.id.rd_groupID);   
@@ -36,5 +35,7 @@ public class Detailed_ReviewActivity extends Activity {
 			}
 		}
 	}
+
+
 
 }

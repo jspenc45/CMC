@@ -8,7 +8,10 @@ public class ReviewData implements Serializable{
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = -4792774731561162284L;
+	private static final long serialVersionUID = 1L;
+	/**
+	 * 
+	 */
 	String ID, groupID, sessionID;
 	
 	public ReviewData(String ID, String groupID, String sessionID){
