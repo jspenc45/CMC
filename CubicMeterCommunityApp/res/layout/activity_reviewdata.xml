@@ -8,23 +8,61 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".ReviewdataActivity" >
     
-      <ImageView
-        android:id="@+id/imageView1"
+      <LinearLayout
+        android:id="@+id/linearLayout1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true" >
+       
+          <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"       
         android:adjustViewBounds="true"
         android:src="@drawable/cmc_label_small" />
+    </LinearLayout>
+    
+        <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+         android:layout_below="@+id/linearLayout1"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true" >
+          
+            <TextView
+               android:id="@+id/textView1"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"              
+               android:layout_marginTop="25dp"
+               android:text="Sort Data by:"
+               android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <Spinner
+                android:id="@+id/rd_spinner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp" />
+       
+    </LinearLayout>    
+      
+      
+           <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linearLayout2"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true" >  
 
       
         <ListView
             android:id="@+id/rdata_list"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/imageView1"
-            android:layout_alignParentBottom="true" >
+            >
         </ListView>
+        </LinearLayout>
     
 </RelativeLayout>

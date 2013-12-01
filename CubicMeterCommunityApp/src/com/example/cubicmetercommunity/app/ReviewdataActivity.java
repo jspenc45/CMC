@@ -9,7 +9,10 @@ import com.example.cubicmetercommunityapp.R;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ListView;
 import android.app.Activity;
 import android.content.Intent;
@@ -18,7 +21,7 @@ public class ReviewdataActivity extends Activity {
 
 	ListView reviewList;
 	ReviewDataAdapter dAdapter;	
-	ArrayList<ReviewData> result;
+	String sortBy;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -26,16 +29,6 @@ public class ReviewdataActivity extends Activity {
 		setContentView(R.layout.activity_reviewdata);
 		
 		reviewList = (ListView)findViewById(R.id.rdata_list);
-		
-		result  = new ArrayList<ReviewData>();
-		result.add(new ReviewData("id_1", "group_1", "session_1"));
-		result.add(new ReviewData("id_2", "group_2", "session_2"));
-		result.add(new ReviewData("id_3", "group_3", "session_3"));
-		result.add(new ReviewData("id_4", "group_4", "session_4"));
-		
-		dAdapter = new ReviewDataAdapter(this,result);
-		
-		reviewList.setAdapter(dAdapter);
 		reviewList.setOnItemClickListener(new OnItemClickListener() {
 
 			@Override
@@ -47,6 +40,56 @@ public class ReviewdataActivity extends Activity {
 				
 			}
 		});
+		
+		String[] chartTypes = new String[]{"GROUP","ROLE"};
+		
+		Spinner rdspinner = (Spinner) findViewById(R.id.rd_spinner);
+		ArrayAdapter<String> cadapter = new ArrayAdapter<String>(getBaseContext(), android.R.layout.simple_spinner_item, chartTypes);
+		cadapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		rdspinner.setAdapter(cadapter);
+		
+		//sortBy = chartTypes[0];  //select the first item to be default
+		
+		rdspinner.setOnItemSelectedListener(new OnItemSelectedListener() {
+			public void onItemSelected(AdapterView<?> parent, View view,
+					int pos, long id) {
+				sortBy = parent.getItemAtPosition(pos).toString();	
+				dAdapter = new ReviewDataAdapter(getBaseContext() ,getReviewDataBy(sortBy));
+				reviewList.setAdapter(dAdapter);
+				
+			}
+			public void onNothingSelected(AdapterView<?> arg0) {}
+			
+		});		
+		
+	}
+	
+	private ArrayList<ReviewData> getReviewDataBy(String sortby){
+		
+		ArrayList<ReviewData> _result = new ArrayList<ReviewData>();
+		int sortType = (sortby.equals("GROUP"))?0:1; //set 0 for sortby Group else 1 for by role
+		
+		switch(sortType){
+		
+			case 0:
+				//get review data from db by group
+				_result.add(new ReviewData("sorted by group1", "group_1", "session_1"));
+				_result.add(new ReviewData("sorted by group2", "group_2", "session_2"));
+				_result.add(new ReviewData("sorted by group3", "group_3", "session_3"));
+				_result.add(new ReviewData("sorted by group4", "group_4","session_4"));
+				break;
+			
+			case 1:
+				//get review data from db by role
+				_result.add(new ReviewData("sorted by role", "group_1", "session_1"));
+				_result.add(new ReviewData("sorted by role", "group_2", "session_2"));
+				_result.add(new ReviewData("sorted by role", "group_3", "session_3"));
+				_result.add(new ReviewData("sorted by role", "group_4","session_4"));
+				
+				break;
+		}
+		
+		return _result;
 	}
 	
 

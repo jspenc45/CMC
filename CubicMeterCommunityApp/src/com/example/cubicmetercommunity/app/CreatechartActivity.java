@@ -40,7 +40,6 @@ public class CreatechartActivity extends Activity implements OnClickListener{
 			public void onItemSelected(AdapterView<?> parent, View view,
 					int pos, long id) {
 				selectedGroup = parent.getItemAtPosition(pos).toString();
-				//do something with group
 				
 			}
 			public void onNothingSelected(AdapterView<?> arg0) {
@@ -59,7 +58,6 @@ public class CreatechartActivity extends Activity implements OnClickListener{
 			public void onItemSelected(AdapterView<?> parent, View view,
 					int pos, long id) {
 				selectedChartType = parent.getItemAtPosition(pos).toString();
-				//do something with chartType
 				
 			}
 			public void onNothingSelected(AdapterView<?> arg0) {}
