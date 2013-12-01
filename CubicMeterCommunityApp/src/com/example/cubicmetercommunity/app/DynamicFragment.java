@@ -172,6 +172,7 @@ public class DynamicFragment extends Fragment implements OnClickListener {
 				success = true;
 			}
 		}
+		
 		// SOIL CONSISTENCY
 		else if ((rg = (RadioGroup) getActivity().findViewById(
 				R.id.selectSoilConsistency)) != null) {
@@ -189,6 +190,36 @@ public class DynamicFragment extends Fragment implements OnClickListener {
 				success = true;
 			}
 		}
+		
+		// SOIL TEXTURE
+		else if ((temp = (EditText) getActivity().findViewById(
+				R.id.text_soil_texture)) != null) {
+			String soilText = temp.getText().toString();
+			if (soilText.equals(""))
+				showToast();
+			else {
+				// Do update on DB
+				fields.put("soil_texture__c", soilText);
+
+				db.update("SoilScientist__c", ids.getSoilScientistID(), fields);
+				success = true;
+			}
+		}
+		
+		// SOIL MOISTURE
+		else if ((temp = (EditText) getActivity().findViewById(
+				R.id.text_soil_moisture)) != null) {
+			String soilMoist = temp.getText().toString();
+			if (soilMoist.equals(""))
+				showToast();
+			else {
+				// Do update on DB
+				fields.put("soil_moisture__c", soilMoist);
+
+				db.update("SoilScientist__c", ids.getSoilScientistID(), fields);
+				success = true;
+			}
+		}
 		// SOIL PH/TYPE
 		else if ((rg = (RadioGroup) getActivity().findViewById(
 				R.id.selectSoilType)) != null) {
@@ -197,7 +228,7 @@ public class DynamicFragment extends Fragment implements OnClickListener {
 					rg.getCheckedRadioButtonId());
 			String soilPh = temp.getText().toString();
 
-			if (selected == null||soilPh.equals(""))
+			if (selected == null || soilPh.equals(""))
 				showToast();
 			else {
 				String soilType = selected.getText().toString();

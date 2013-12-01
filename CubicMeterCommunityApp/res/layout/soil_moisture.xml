@@ -16,7 +16,7 @@
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <EditText
-        android:id="@+id/editText1"
+        android:id="@+id/text_soil_moisture"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
@@ -31,11 +31,11 @@
     </EditText>
 
     <Button
-        android:id="@+id/button1"
+        android:id="@+id/act_finish"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:layout_below="@+id/editText1"
+        android:layout_below="@+id/text_soil_moisture"
         android:layout_marginRight="74dp"
         android:layout_marginTop="36dp"
         android:text="@string/act_finishsoilmoisture" />

@@ -18,10 +18,11 @@ public class Meteorologist {
 	private final static String HUMIDITY_FIELD = "humidity__c";
 	private final static String PRESSURE_FIELD = "pressure__c";
 	private final static String RAINFALL_FIELD = "rainfall__c";
+	private final static String CANOPY_COVER_FIELD = "canopy_cover__c";
 	private final static String SESSION_ID_FIELD = "session_id__c";
 	private final static String WIND_FIELD = "wind__c";
 	
-	String celsius, cloud, comments, fahrenheit, group_id,humidity, pressure,rainfall,session_id,wind;
+	String celsius, canopy_cover, cloud, comments, fahrenheit, group_id,humidity, pressure,rainfall,session_id,wind;
 	
 	public static Map<String,Object> generateFieldsAll() {
 		Map<String,Object> fields = new HashMap<String,Object>();
@@ -35,6 +36,7 @@ public class Meteorologist {
 		fields.put(RAINFALL_FIELD, null);
 		fields.put(SESSION_ID_FIELD, null);
 		fields.put(WIND_FIELD, null);
+		fields.put(CANOPY_COVER_FIELD, null);
 		
 		return fields;
 	}
@@ -89,6 +91,11 @@ public class Meteorologist {
 		} catch (JSONException e) {
 			this.wind = "";
 		}
+		try {
+			this.canopy_cover = json.getString(CANOPY_COVER_FIELD);
+		} catch (JSONException e) {
+			this.canopy_cover = "";
+		}
 	}
 	public static List<Meteorologist> makeList(JSONObject obj){
 		JSONArray records = null;
@@ -112,11 +119,12 @@ public class Meteorologist {
 	}
 	@Override
 	public String toString() {
-		return "Meteorologist [celsius=" + celsius + ", cloud=" + cloud
-				+ ", comments=" + comments + ", fahrenheit=" + fahrenheit
-				+ ", group_id=" + group_id + ", humidity=" + humidity
-				+ ", pressure=" + pressure + ", rainfall=" + rainfall
-				+ ", session_id=" + session_id + ", wind=" + wind + "]";
+		return "Meteorologist [celsius=" + celsius + ", canopy_cover="
+				+ canopy_cover + ", cloud=" + cloud + ", comments=" + comments
+				+ ", fahrenheit=" + fahrenheit + ", group_id=" + group_id
+				+ ", humidity=" + humidity + ", pressure=" + pressure
+				+ ", rainfall=" + rainfall + ", session_id=" + session_id
+				+ ", wind=" + wind + "]";
 	}
 	
 	
