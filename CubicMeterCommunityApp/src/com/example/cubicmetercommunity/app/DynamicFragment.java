@@ -95,7 +95,91 @@ public class DynamicFragment extends Fragment implements OnClickListener {
 				success = true;
 			}
 		}
+		// PRESSURE
+		else if ((temp = (EditText) getActivity().findViewById(
+				R.id.text_pressure)) != null) {
+			String pressure = temp.getText().toString();
+			if (pressure.equals(""))
+				showToast();
+			else {
+				// Do update on DB
+				fields.put("pressure__c", pressure);
 
+				db.update("Meteorologist__c", ids.getMeteorologistID(), fields);
+				success = true;
+			}
+		}
+		// RAINFALL
+		else if ((temp = (EditText) getActivity().findViewById(
+				R.id.text_rainfall)) != null) {
+			String rainfall = temp.getText().toString();
+			if (rainfall.equals(""))
+				showToast();
+			else {
+				// Do update on DB
+				fields.put("rainfall__c", rainfall);
+
+				db.update("Meteorologist__c", ids.getMeteorologistID(), fields);
+				success = true;
+			}
+		}
+		// HUMIDITY
+		else if ((temp = (EditText) getActivity().findViewById(
+				R.id.text_humidity)) != null) {
+			String humidity = temp.getText().toString();
+			if (humidity.equals(""))
+				showToast();
+			else {
+				// Do update on DB
+				fields.put("humidity__c", humidity);
+
+				db.update("Meteorologist__c", ids.getMeteorologistID(), fields);
+				success = true;
+			}
+		}
+		// Additional - Meteorologist
+				else if ((temp = (EditText) getActivity().findViewById(
+						R.id.text_m_additional)) != null) {
+					String additional = temp.getText().toString();
+					if (additional.equals(""))
+						showToast();
+					else {
+						// Do update on DB
+						fields.put("comments__c", additional);
+
+						db.update("Meteorologist__c", ids.getMeteorologistID(), fields);
+						success = true;
+					}
+				}
+		// Additional - Naturalist
+				else if ((temp = (EditText) getActivity().findViewById(
+						R.id.text_n_additional)) != null) {
+					String additional = temp.getText().toString();
+					if (additional.equals(""))
+						showToast();
+					else {
+						// Do update on DB
+						fields.put("comments__c", additional);
+
+						db.update("Naturalist__c", ids.getNaturalistID(), fields);
+						success = true;
+					}
+				}
+		// Additional - Soil Scientist
+				else if ((temp = (EditText) getActivity().findViewById(
+						R.id.text_s_additional)) != null) {
+					String additional = temp.getText().toString();
+					if (additional.equals(""))
+						showToast();
+					else {
+						// Do update on DB
+						fields.put("comments__c", additional);
+
+						db.update("SoilScientist__c", ids.getSoilScientistID(), fields);
+						success = true;
+					}
+				}
+		
 		// End
 		if (success) {
 			getActivity().finish();

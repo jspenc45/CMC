@@ -36,9 +36,11 @@
         <item>Wind</item>
         <item>Precipitation and Average Rainfall</item>
         <item>Clouds</item>
+        <item>Additional Comments</item>
     </string-array>
     <string-array name="naturalistActivities">
         <item>Biodiversity</item>
+        <item>Additional Comments</item>
     </string-array>
     <string-array name="soilScientistActivities">
         <item>Soil Color</item>
@@ -47,6 +49,7 @@
         <item>Soil Consistence</item>
         <item>Soil Moisture</item>
         <item>Soul Odor</item>
+        <item>Additional Comments</item>
     </string-array>
     <string-array name="meteorologistFragments">
         <item>activity_role</item>
@@ -56,9 +59,11 @@
         <item>wind_activity</item>
         <item>rainfall_activity</item>
         <item>cloudactivity</item>
+        <item>comments_meteorologist</item>
     </string-array>
     <string-array name="naturalistFragments">
         <item>biodiversity_activity</item>
+        <item>comments_naturalist</item>
     </string-array>
     <string-array name="soilScientistFragments">
         <item>soil_color_activity</item>
@@ -67,6 +72,7 @@
         <item>activity_role</item>
         <item>activity_role</item>
         <item>activity_role</item>
+        <item>comments_soil_scientist</item>
     </string-array>
 	<string name="label_ng1"></string>
     <string name="label_ng2">Firstname Lastname</string>
@@ -135,5 +141,6 @@
     <string name="label_ng4">Group Name</string>
     <string name="label_ng5">Enter the people in your group:</string>
     <string name="label_es1">Select the previous collection time:</string>
+    <string name="comments">Enter any additional thoughts you have, or things you couldn\'t list:</string>
 
 </resources>

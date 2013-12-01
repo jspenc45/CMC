@@ -49,11 +49,11 @@
         android:inputType="number" />
 
     <Button
-        android:id="@+id/button1"
+        android:id="@+id/act_finish"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:layout_below="@+id/editText3"
+        android:layout_below="@+id/text_humidity"
         android:layout_marginRight="46dp"
         android:layout_marginTop="19dp"
         android:text="@string/finishhumidity" />
@@ -69,10 +69,10 @@
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <EditText
-        android:id="@+id/editText3"
+        android:id="@+id/text_humidity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/button1"
+        android:layout_alignRight="@+id/act_finish"
         android:layout_below="@+id/textView3"
         android:layout_marginTop="16dp"
         android:ems="10"
