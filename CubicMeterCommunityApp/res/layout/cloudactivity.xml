@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/RelativeLayout1"
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
@@ -7,66 +8,81 @@
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
         android:text="@string/cloudInstruction"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
-    <TextView
-        android:id="@+id/textView2"
+    <ScrollView
+        android:id="@+id/scrollView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:text="@string/cirruslabel"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        android:layout_above="@+id/act_finish"
+        android:layout_below="@+id/textView1" >
 
-    <ImageButton
-        android:id="@+id/imageButton1"
-        android:layout_width="wrap_content"
-        android:layout_height="67dp"
-        android:src="@drawable/cirrus" />
+        <RadioGroup
+            android:id="@+id/cloudSelector"
+            android:layout_width="wrap_content"
+            android:layout_height="194dp" >
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/cumuluslabel"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+            <RadioButton
+                android:id="@+id/radioButton1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/cirrusLabel" />
 
-    <ImageButton
-        android:id="@+id/imageButton2"
-        android:layout_width="wrap_content"
-        android:layout_height="60dp"
-        android:src="@drawable/cumulonimbus" />
+            <ImageButton
+                android:id="@+id/button_cumulo"
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:src="@drawable/cumulonimbus" />
 
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/cumulonimbuslabel"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+            <RadioButton
+                android:id="@+id/radioButton2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/cumuluslabel" />
 
-    <ImageButton
-        android:id="@+id/imageButton3"
-        android:layout_width="wrap_content"
-        android:layout_height="62dp"
-        android:src="@drawable/darkclouds" />
+            <ImageButton
+                android:id="@+id/button_cirrus"
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:src="@drawable/cirrus" />
 
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/stratuslabel"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+            <RadioButton
+                android:id="@+id/radioButton3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/cumulonimbuslabel" />
 
-    <ImageButton
-        android:id="@+id/imageButton4"
-        android:layout_width="wrap_content"
-        android:layout_height="64dp"
-        android:src="@drawable/stratusss" />
+            <ImageButton
+                android:id="@+id/button_dark"
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:src="@drawable/darkclouds" />
+
+            <RadioButton
+                android:id="@+id/radioButton4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/stratusLabel" />
+
+            <ImageButton
+                android:id="@+id/button_stratus"
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:src="@drawable/stratusss" />
+        </RadioGroup>
+
+    </ScrollView>
 
     <Button
         android:id="@+id/act_finish"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
         android:text="@string/cloudsfinish" />
 
-</TableLayout>
+</RelativeLayout>

@@ -10,6 +10,7 @@
         android:layout_alignLeft="@+id/darkred"
         android:layout_below="@+id/black"
         android:adjustViewBounds="true"
+        android:tag="Brown"
         android:src="@drawable/brown" />
 
     <ImageButton
@@ -19,6 +20,7 @@
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/brown"
         android:layout_marginLeft="44dp"
+        android:tag="Dark Red"
         android:src="@drawable/darkred" />
 
     <TextView
@@ -37,6 +39,7 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/brown"
         android:layout_below="@+id/biodiversitylabel"
+        android:tag="Black"
         android:layout_marginTop="23dp"
         android:src="@drawable/black" />
 
@@ -45,6 +48,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/brown"
+        android:tag="Brownish Orange"
         android:layout_centerHorizontal="true"
         android:src="@drawable/brownorange" />
 
@@ -54,6 +58,7 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/darkred"
         android:layout_alignLeft="@+id/brownorange"
+        android:tag="Orange"
         android:src="@drawable/orange" />
 
     <ImageButton
@@ -62,6 +67,7 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/sienna"
         android:layout_alignTop="@+id/darkred"
+        android:tag="Dark Orange"
         android:src="@drawable/darkorange" />
 
     <ImageButton
@@ -70,6 +76,7 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/sienna"
         android:layout_toRightOf="@+id/brownorange"
+        android:tag="Bright Orange"
         android:src="@drawable/brightorange" />
 
     <ImageButton
@@ -77,6 +84,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/orange"
+        android:tag="Pale Orange"
         android:layout_alignRight="@+id/brightorange"
         android:src="@drawable/paleorange" />
 
@@ -85,6 +93,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/paleorange"
+        android:tag="Pinkish Orange"
         android:layout_below="@+id/paleorange"
         android:src="@drawable/palebrownorange" />
 
@@ -93,6 +102,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/darkred"
+        android:tag="Red"
         android:layout_below="@+id/darkred"
         android:src="@drawable/red" />
 
@@ -101,6 +111,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/orange"
+        android:tag="Dark Yellow"
         android:layout_toLeftOf="@+id/pinkorange"
         android:src="@drawable/darkyellow" />
 
@@ -109,11 +120,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/pinkorange"
+        android:tag="Gray"
         android:layout_alignTop="@+id/darkyellow"
         android:src="@drawable/gray" />
 
     <Button
-        android:id="@+id/soilcolorbackbutton"
+        android:id="@+id/act_back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/biodiversitylabel"
