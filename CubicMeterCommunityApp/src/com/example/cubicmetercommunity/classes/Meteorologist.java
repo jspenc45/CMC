@@ -1,5 +1,6 @@
 package com.example.cubicmetercommunity.classes;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -9,7 +10,11 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class Meteorologist {
+public class Meteorologist implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private final static String CELSIUS_FIELD = "celsius__c";
 	private final static String CLOUD_FIELD = "cloud__c";
 	private final static String COMMENTS_FIELD = "comments__c";
@@ -40,6 +45,14 @@ public class Meteorologist {
 		
 		return fields;
 	}
+	public Meteorologist(String canopy, String celsius,String fahrenheit, String humidity, String cloud){
+		this.canopy_cover = canopy;
+		this.celsius = celsius;
+		this.cloud = cloud;
+		this.fahrenheit = fahrenheit;
+		this.humidity = humidity;
+	}
+	
 	public Meteorologist(JSONObject json){
 		try {
 			this.celsius = json.getString(CELSIUS_FIELD);
