@@ -4,8 +4,6 @@ import java.util.HashMap;
 
 import org.afree.chart.AFreeChart;
 import org.afree.chart.ChartFactory;
-import org.afree.chart.plot.PiePlot;
-import org.afree.data.category.CategoryDataset;
 import org.afree.data.general.DefaultPieDataset;
 import org.afree.data.general.PieDataset;
 
@@ -13,6 +11,7 @@ import org.afree.data.general.PieDataset;
 import android.annotation.SuppressLint;
 import android.content.Context;
 
+@SuppressLint("ViewConstructor")
 public class PieChartView extends DemoView{
 		
 		
