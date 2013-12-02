@@ -174,6 +174,24 @@ public class DynamicFragment extends Fragment implements OnClickListener {
 			}
 		}
 		
+		// CANOPY COVER
+		else if ((rg = (RadioGroup) getActivity().findViewById(
+				R.id.radioGroup_canopyCover)) != null) {
+			RadioButton selected = (RadioButton) getActivity().findViewById(
+					rg.getCheckedRadioButtonId());
+
+			if (selected == null)
+				showToast();
+			else {
+				String cCover = selected.getText().toString();
+				// Do update on DB
+				fields.put("canopy_cover__c", cCover);
+
+				db.update("Meteorologist__c", ids.getMeteorologistID(), fields);
+				success = true;
+			}
+		}
+
 		// SOIL CONSISTENCY
 		else if ((rg = (RadioGroup) getActivity().findViewById(
 				R.id.selectSoilConsistency)) != null) {
@@ -191,7 +209,7 @@ public class DynamicFragment extends Fragment implements OnClickListener {
 				success = true;
 			}
 		}
-		
+
 		// SOIL TEXTURE
 		else if ((temp = (EditText) getActivity().findViewById(
 				R.id.text_soil_texture)) != null) {
@@ -206,7 +224,7 @@ public class DynamicFragment extends Fragment implements OnClickListener {
 				success = true;
 			}
 		}
-		
+
 		// SOIL MOISTURE
 		else if ((temp = (EditText) getActivity().findViewById(
 				R.id.text_soil_moisture)) != null) {
@@ -221,6 +239,22 @@ public class DynamicFragment extends Fragment implements OnClickListener {
 				success = true;
 			}
 		}
+
+		// SOIL ODOR
+		else if ((temp = (EditText) getActivity().findViewById(
+				R.id.text_soil_odor)) != null) {
+			String soilOdor = temp.getText().toString();
+			if (soilOdor.equals(""))
+				showToast();
+			else {
+				// Do update on DB
+				fields.put("soil_odor__c", soilOdor);
+
+				db.update("SoilScientist__c", ids.getSoilScientistID(), fields);
+				success = true;
+			}
+		}
+
 		// SOIL PH/TYPE
 		else if ((rg = (RadioGroup) getActivity().findViewById(
 				R.id.selectSoilType)) != null) {

@@ -15,7 +15,7 @@
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <EditText
-        android:id="@+id/editText1"
+        android:id="@+id/text_soil_odor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView1"
@@ -29,11 +29,11 @@
     </EditText>
 
     <Button
-        android:id="@+id/button1"
+        android:id="@+id/act_finish"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/editText1"
-        android:layout_below="@+id/editText1"
+        android:layout_alignRight="@+id/text_soil_odor"
+        android:layout_below="@+id/text_soil_odor"
         android:layout_marginRight="43dp"
         android:layout_marginTop="90dp"
         android:text="@string/act_finishSoilOdor" />
