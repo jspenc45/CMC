@@ -14,7 +14,7 @@ import android.widget.Button;
 //This class handles the main menu activity for the project
 
 public class MainActivity extends Activity implements OnClickListener {
-
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);

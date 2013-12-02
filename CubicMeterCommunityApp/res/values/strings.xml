@@ -52,7 +52,7 @@
         <item>Additional Comments</item>
     </string-array>
     <string-array name="meteorologistFragments">
-        <item>activity_role</item>
+        <item>canopy_cover_activity</item>
         <item>temperature_activity</item>
         <item>airpressure_activity</item>
         <item>humidity_activity</item>
@@ -71,7 +71,7 @@
         <item>soil_texture</item>
         <item>soil_consistency</item>
         <item>soil_moisture</item>
-        <item>activity_role</item>
+        <item>soil_odor</item>
         <item>comments_soil_scientist</item>
     </string-array>
 
@@ -166,5 +166,13 @@
     <string name="edittext_soilmoistureanswer"></string>
     <string name="act_finishsoilmoisture">Finish</string>
     <string name="title_activity_pie_chart">PieChartActivity</string>
+<string name="textview_soilOdorInstructions">Describe the odor of the soil in the text box below:</string>
+    <string name="act_finishSoilOdor">Finish</string>
+    <string name="edittext_soilOdortextbox"></string>
+    <string name="textview_canopycover">How much of the sky you can see from your CMC station?</string>
+    <string name="radiobutton_mostOfIt">most of it</string>
+    <string name="radioButton_veryLittle">very little</string>
+    <string name="radioButton_noneOfIt">None at all</string>
+    <string name="act_finishCanopyCover">Finish</string>
 
 </resources>
