@@ -26,7 +26,7 @@ public class RoleActivity extends FragmentActivity implements OnButtonClick {
 		FragmentManager fragmentManager = getSupportFragmentManager();
 		FragmentTransaction fragmentTransaction = fragmentManager
 				.beginTransaction();
-		Fragment fragment = new BiodiversityFragment();
+		Fragment fragment = new SelectGroupFragment();
 		if (savedInstanceState != null) {
 			fragment = getSupportFragmentManager().getFragment(
 					savedInstanceState, null);

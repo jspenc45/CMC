@@ -31,7 +31,12 @@ public class IndividualActivity extends FragmentActivity implements
 		FragmentManager fragmentManager = getSupportFragmentManager();
 		FragmentTransaction fragmentTransaction = fragmentManager
 				.beginTransaction();
-		Fragment fragment = new DynamicFragment(resource);
+		Fragment fragment;
+		if (str.equals("biodiversity_activity_2"))
+			fragment = new BiodiversityFragment();
+		else
+			fragment = new DynamicFragment(resource);
+		
 		if (savedInstanceState != null) {
 			fragment = getSupportFragmentManager().getFragment(
 					savedInstanceState, null);
