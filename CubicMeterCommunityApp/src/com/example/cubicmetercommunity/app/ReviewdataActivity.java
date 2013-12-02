@@ -1,12 +1,12 @@
 package com.example.cubicmetercommunity.app;
 
 
-import java.util.ArrayList;
 import java.util.List;
 
+import com.example.cubicmetercommunity.classes.CmcAdapters;
+import com.example.cubicmetercommunity.classes.CmcAdapters.MeteoAdapter;
 import com.example.cubicmetercommunity.classes.Group;
-import com.example.cubicmetercommunity.classes.ReviewData;
-import com.example.cubicmetercommunity.classes.ReviewDataAdapter;
+import com.example.cubicmetercommunity.classes.Meteorologist;
 import com.example.cubicmetercommunity.dbutil.DatabaseManager;
 import com.example.cubicmetercommunityapp.R;
 import android.os.Bundle;
@@ -23,7 +23,8 @@ import android.content.Intent;
 public class ReviewdataActivity extends Activity {
 	Spinner typespinner, subtypespinner;
 	ListView reviewList;
-	ReviewDataAdapter rdAdapter;	
+	//DataAdapter<?> rdAdapter;
+	MeteoAdapter madapter;
 	String sortBy;// subType;
 	List<Group> groups;
 	
@@ -41,7 +42,8 @@ public class ReviewdataActivity extends Activity {
 			public void onItemClick(AdapterView<?> arg0, View arg1, int position,
 					long arg3) {
 				Intent i = new Intent(getBaseContext(), Review_DetailsActivity.class);
-				i.putExtra("DATA", rdAdapter.getList().get(position));
+				
+				i.putExtra("DATA", (Meteorologist)madapter.getList().get(position));
 				startActivity(i);
 				
 			}
@@ -70,7 +72,7 @@ public class ReviewdataActivity extends Activity {
 					break;
 					
 				case 1:
-					String[] roles = new String[]{"Meterologis","Soil Scientist", "Naturalist"}; 	
+					String[] roles = new String[]{"METEOROLOGIST","SOIL SCIENTIST", "NATURALIST"}; 	
 					ArrayAdapter<String> radapter = new ArrayAdapter<String>(getBaseContext(), android.R.layout.simple_spinner_item, roles);
 					radapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 					subtypespinner.setAdapter(radapter);
@@ -87,8 +89,7 @@ public class ReviewdataActivity extends Activity {
 			public void onItemSelected(AdapterView<?> parent, View view,
 					int pos, long id) {
 				String subval = parent.getItemAtPosition(pos).toString();	
-				rdAdapter = new ReviewDataAdapter(getBaseContext() ,getReviewDataBy(sortBy, subval));
-				reviewList.setAdapter(rdAdapter);
+				getData(sortBy, subval);
 				
 			}
 			public void onNothingSelected(AdapterView<?> arg0) {}
@@ -97,33 +98,36 @@ public class ReviewdataActivity extends Activity {
 		
 	}
 	
-	private ArrayList<ReviewData> getReviewDataBy(String sortby, String val){
+	
+	private  void getData(String sortby, String val){			
 		
-		ArrayList<ReviewData> _result = new ArrayList<ReviewData>();
 		int sortType = (sortby.equals("GROUP"))?0:1; //set 0 for sortby Group else 1 for by role
 		
 		switch(sortType){
 		
-			case 0:
-				//get review data from db by group where group is val
-				_result.add(new ReviewData("sorted by group1", "group_1", "session_1"));
-				_result.add(new ReviewData("sorted by group2", "group_2", "session_2"));
-				_result.add(new ReviewData("sorted by group3", "group_3", "session_3"));
-				_result.add(new ReviewData("sorted by group4", "group_4","session_4"));
-				break;
-			
-			case 1:
-				//get review data from db by role where role is val
-				_result.add(new ReviewData("sorted by role", "role_1", "session_1"));
-				_result.add(new ReviewData("sorted by role", "role_2", "session_2"));
-				_result.add(new ReviewData("sorted by role", "role_3", "session_3"));
-				_result.add(new ReviewData("sorted by role", "role_4","session_4"));
+			case 0: //sort  by Group
+				
 				
 				break;
-		}
-		
-		return _result;
+			
+			case 1: 
+				if(val.equals("METEOROLOGIST")){				
+					List<Meteorologist> list = DatabaseManager.getCollectedDataByRole(DatabaseManager.METEOROLOGIST_TABLE);
+					list.add(0, new Meteorologist("Canopy_Cover", "Celsius", "fahrenheit", "Humidity", "Cloud"));
+					
+					madapter = new MeteoAdapter(getBaseContext(),list);
+					reviewList.setAdapter(madapter);
+				}
+				if(val.equals("SOIL SCIENTIST")){
+					
+				}
+				if(val.equals("NATURALIST")){
+					
+					
+				}
+				
+				break;
+		}		
 	}
-	
 
 }
