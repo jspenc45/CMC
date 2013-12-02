@@ -26,6 +26,8 @@ public class SelectRoleFragment extends Fragment implements OnClickListener {
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
+		
+		((RoleActivity)getActivity()).state = true;
 		((Button) getActivity().findViewById(R.id.sr_main_menu))
 				.setOnClickListener(this);
 		((Button) getActivity().findViewById(R.id.sr_meteorologist))

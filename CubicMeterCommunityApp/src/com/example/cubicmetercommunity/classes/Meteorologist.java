@@ -117,6 +117,72 @@ public class Meteorologist {
 		return list;
 		
 	}
+	public String getCelsius() {
+		return celsius;
+	}
+	public void setCelsius(String celsius) {
+		this.celsius = celsius;
+	}
+	public String getCanopy_cover() {
+		return canopy_cover;
+	}
+	public void setCanopy_cover(String canopy_cover) {
+		this.canopy_cover = canopy_cover;
+	}
+	public String getCloud() {
+		return cloud;
+	}
+	public void setCloud(String cloud) {
+		this.cloud = cloud;
+	}
+	public String getComments() {
+		return comments;
+	}
+	public void setComments(String comments) {
+		this.comments = comments;
+	}
+	public String getFahrenheit() {
+		return fahrenheit;
+	}
+	public void setFahrenheit(String fahrenheit) {
+		this.fahrenheit = fahrenheit;
+	}
+	public String getGroup_id() {
+		return group_id;
+	}
+	public void setGroup_id(String group_id) {
+		this.group_id = group_id;
+	}
+	public String getHumidity() {
+		return humidity;
+	}
+	public void setHumidity(String humidity) {
+		this.humidity = humidity;
+	}
+	public String getPressure() {
+		return pressure;
+	}
+	public void setPressure(String pressure) {
+		this.pressure = pressure;
+	}
+	public String getRainfall() {
+		return rainfall;
+	}
+	public void setRainfall(String rainfall) {
+		this.rainfall = rainfall;
+	}
+	public String getSession_id() {
+		return session_id;
+	}
+	public void setSession_id(String session_id) {
+		this.session_id = session_id;
+	}
+	public String getWind() {
+		return wind;
+	}
+	public void setWind(String wind) {
+		this.wind = wind;
+	}
 	@Override
 	public String toString() {
 		return "Meteorologist [celsius=" + celsius + ", canopy_cover="

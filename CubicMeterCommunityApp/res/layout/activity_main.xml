@@ -26,18 +26,22 @@
 
     <Button
         android:id="@+id/btn_createCharts"
+        style="@style/ButtonText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/textView3"
         android:layout_centerHorizontal="true"
+        android:background="@drawable/btn_yellow"
         android:text="@string/label_mm3" />
 
     <Button
         android:id="@+id/btn_reviewData"
+        style="@style/ButtonText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/textView2"
         android:layout_centerHorizontal="true"
+        android:background="@drawable/btn_yellow"
         android:text="@string/label_mm2" />
 
     <TextView
@@ -62,10 +66,12 @@
 
     <Button
         android:id="@+id/soilcolorbackbutton"
+        style="@style/ButtonText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
         android:layout_above="@+id/biodiversitylabel"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/btn_yellow"
         android:text="@string/label_mm1" />
 
 </RelativeLayout>

@@ -9,6 +9,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.view.KeyEvent;
 
 //This class handles the following fragments: 
 //SelectGroupFragment
@@ -18,6 +19,7 @@ import android.support.v4.app.FragmentTransaction;
 
 public class RoleActivity extends FragmentActivity implements OnButtonClick {
 	TableIDs ids;
+	boolean state = false;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -69,5 +71,14 @@ public class RoleActivity extends FragmentActivity implements OnButtonClick {
 
 	public void setTableIDs(TableIDs ids) {
 		this.ids = ids;
+	}
+	@Override
+	public boolean onKeyDown(int keyCode, KeyEvent event)  {
+	    if (keyCode == KeyEvent.KEYCODE_BACK&&state) {
+	        finish();
+	        return true;
+	    }
+
+	    return super.onKeyDown(keyCode, event);
 	}
 }

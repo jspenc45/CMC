@@ -1,9 +1,18 @@
 package com.example.cubicmetercommunity.app;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import com.example.cubicmetercommunity.classes.Meteorologist;
+import com.example.cubicmetercommunity.classes.TableIDs;
+import com.example.cubicmetercommunity.dbutil.DBUtil;
+import com.example.cubicmetercommunity.dbutil.DatabaseManager;
 import com.example.cubicmetercommunityapp.R;
 
 import android.app.Activity;
@@ -22,6 +31,7 @@ import android.widget.TextView;
 
 public class SelectActivityFragment extends Fragment implements OnClickListener {
 	OnButtonClick buttonClick;
+	Bundle savedInstanceState;
 
 	@Override
 	public void onAttach(Activity activity) {
@@ -32,6 +42,14 @@ public class SelectActivityFragment extends Fragment implements OnClickListener 
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
+		this.savedInstanceState = savedInstanceState;
+		((Button) getActivity().findViewById(R.id.sa_back))
+				.setOnClickListener(this);
+	}
+
+	@Override
+	public void onResume() {
+		super.onResume();
 		String[] str = {};
 		String label = "";
 		String meteorologist = getResources().getString(
@@ -39,29 +57,43 @@ public class SelectActivityFragment extends Fragment implements OnClickListener 
 		String naturalist = getResources().getString(R.string.label_naturalist);
 		String soilScientist = getResources().getString(
 				R.string.label_soil__scientist);
-		
+		boolean[] done = {};
 		List<String> list = null;
 
 		if (getActivity().getIntent().getStringArrayExtra(meteorologist) != null) {
 			str = getActivity().getIntent().getStringArrayExtra(meteorologist);
-			list = Arrays.asList(getResources().getStringArray(R.array.meteorologistFragments));
+			list = Arrays.asList(getResources().getStringArray(
+					R.array.meteorologistFragments));
 			label = meteorologist;
+			done = getMetDone();
 		} else if (getActivity().getIntent().getStringArrayExtra(naturalist) != null) {
 			str = getActivity().getIntent().getStringArrayExtra(naturalist);
-			list = Arrays.asList(getResources().getStringArray(R.array.naturalistFragments));
+			list = Arrays.asList(getResources().getStringArray(
+					R.array.naturalistFragments));
 			label = naturalist;
 		} else if (getActivity().getIntent().getStringArrayExtra(soilScientist) != null) {
 			str = getActivity().getIntent().getStringArrayExtra(soilScientist);
-			list = Arrays.asList(getResources().getStringArray(R.array.soilScientistFragments));
+			list = Arrays.asList(getResources().getStringArray(
+					R.array.soilScientistFragments));
 			label = soilScientist;
 		}
+		
+		
 
 		((TextView) getActivity().findViewById(R.id.role)).setText(label);
 		LinearLayout activitiesList = (LinearLayout) getActivity()
 				.findViewById(R.id.activityList);
+		activitiesList.removeAllViews();
 		Iterator<String> iter = list.iterator();
+		int x = 0;
 		for (String s : str) {
-			Button b = new Button(getActivity());
+			Button b = (Button) getLayoutInflater(savedInstanceState).inflate(
+					R.layout.custom_button_ylw, null);
+			if(done.length>x)
+				if (done[x])
+					b = (Button) getLayoutInflater(savedInstanceState).inflate(
+						R.layout.custom_button_grn, null);
+
 			b.setText(s);
 			final String layout = iter.next();
 			b.setOnClickListener(new OnClickListener() {
@@ -76,9 +108,8 @@ public class SelectActivityFragment extends Fragment implements OnClickListener 
 				}
 			});
 			activitiesList.addView(b);
+			x++;
 		}
-		((Button) getActivity().findViewById(R.id.sa_back))
-				.setOnClickListener(this);
 	}
 
 	@Override
@@ -96,6 +127,36 @@ public class SelectActivityFragment extends Fragment implements OnClickListener 
 			getActivity().finish();
 			break;
 		}
+	}
+	public boolean[] getMetDone(){
+		boolean[] done = {false,false,false,false,false,false,false,false};
+		DBUtil db = new DBUtil();
+		Map<String, Object> fields = new HashMap<String, Object>();
+
+		fields = Meteorologist.generateFieldsAll();
+		TableIDs ids = ((ActivitiesActivity) getActivity()).ids;
+		String where = "Id" + "=" + "\'" + ids.getMeteorologistID()
+				+ "\'";
+		JSONObject resp = db.select(DatabaseManager.METEOROLOGIST_TABLE,
+				fields, where);
+		Meteorologist met = null;
+		try {
+			met = new Meteorologist(resp.getJSONArray("records")
+					.getJSONObject(0));
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
+
+		if(!met.getCanopy_cover().equals("null")) done[0] = true;
+		if(!met.getFahrenheit().equals("null")) done[1] = true;
+		if(!met.getPressure().equals("null")) done[2] = true;
+		if(!met.getHumidity().equals("null")) done[3] = true;
+		if(!met.getWind().equals("null")) done[4] = true;
+		if(!met.getRainfall().equals("null")) done[5] = true;
+		if(!met.getCloud().equals("null")) done[6] = true;
+		if(!met.getComments().equals("null")) done[7] = true;
+		
+		return done;
 	}
 
 }
