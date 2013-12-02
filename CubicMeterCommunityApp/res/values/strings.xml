@@ -166,5 +166,8 @@
     <string name="edittext_soilmoistureanswer"></string>
     <string name="act_finishsoilmoisture">Finish</string>
     <string name="title_activity_pie_chart">PieChartActivity</string>
+    <string name="textview_soilOdorInstructions">Describe the odor of the soil in the text box below:</string>
+    <string name="act_finishSoilOdor">Finish</string>
+    <string name="edittext_soilOdortextbox"></string>
 
 </resources>
