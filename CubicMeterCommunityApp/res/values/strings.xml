@@ -71,7 +71,7 @@
         <item>soil_texture</item>
         <item>soil_consistency</item>
         <item>soil_moisture</item>
-        <item>activity_role</item>
+        <item>soil_odor</item>
         <item>comments_soil_scientist</item>
     </string-array>
 
