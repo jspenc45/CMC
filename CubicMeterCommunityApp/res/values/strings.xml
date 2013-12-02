@@ -165,5 +165,6 @@
     <string name="textview_soilmoistureinstructions">Insert your soil moisture device into the ground and record the result below:</string>
     <string name="edittext_soilmoistureanswer"></string>
     <string name="act_finishsoilmoisture">Finish</string>
+    <string name="title_activity_pie_chart">PieChartActivity</string>
 
 </resources>

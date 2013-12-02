@@ -1,6 +1,9 @@
 package com.example.cubicmetercommunity.app;
 
+import java.util.HashMap;
 import java.util.List;
+
+import com.example.cubicmetercommunity.classes.ChartInfo;
 import com.example.cubicmetercommunity.classes.Group;
 import com.example.cubicmetercommunity.dbutil.DatabaseManager;
 import com.example.cubicmetercommunityapp.R;
@@ -12,6 +15,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.AdapterView.OnItemSelectedListener;
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 
@@ -66,28 +70,40 @@ public class CreatechartActivity extends Activity implements OnClickListener{
 			
 		});
 		
-		Button b = (Button) findViewById(R.id.ccf_generate);
+		Button b = (Button) findViewById(R.id.ccf_back);
 		b.setOnClickListener(this);
+		Button g = (Button) findViewById(R.id.ccf_generate);
+		g.setOnClickListener(this);
 	}
 	
+	@SuppressLint("UseValueOf")
 	@Override
 	public void onClick(View v) {
 		int chartType = (selectedChartType.equals("Bar Chart"))?0:1; //set 0 if bar chart else 1 for pie chart
 		Intent i;
 		switch(v.getId()){
-		case R.id.ccf_generate:
-			
+		case R.id.ccf_generate:			
 			switch(chartType){
-			case 0: //generate bar chart
-				i = new Intent(getBaseContext(), BarChartActivity.class);
-				startActivity(i);
-				break;
-			case 1://generate pie chart
-				
-				break;
-			}
-			
+				case 0: //generate bar chart
+					i = new Intent(getBaseContext(), BarChartActivity.class);
+					startActivity(i);
+					break;
+				case 1://generate pie chart
+					i = new Intent(getBaseContext(), PieChartActivity.class);
+					
+					//using temp data
+					HashMap<String, Double> data = new HashMap<String, Double>();  
+			        data.put("Meteorologist", new Double(34.8));
+			        data.put("Naturalist", new Double(55.3));
+			        data.put("Soil Scientist", new Double(26.9));
+					i.putExtra("VAL", new ChartInfo(selectedGroup,data ));
+					startActivity(i);
+					break;
+			}			
 			break;
+			
+		case R.id.ccf_back:
+			finish();
 		}
 		
 	}
