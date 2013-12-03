@@ -7,6 +7,8 @@ import com.example.cubicmetercommunity.classes.CmcAdapters;
 import com.example.cubicmetercommunity.classes.CmcAdapters.MeteoAdapter;
 import com.example.cubicmetercommunity.classes.Group;
 import com.example.cubicmetercommunity.classes.Meteorologist;
+import com.example.cubicmetercommunity.classes.Naturalist;
+import com.example.cubicmetercommunity.classes.SoilScientist;
 import com.example.cubicmetercommunity.dbutil.DatabaseManager;
 import com.example.cubicmetercommunityapp.R;
 import android.os.Bundle;
@@ -119,10 +121,10 @@ public class ReviewdataActivity extends Activity {
 					reviewList.setAdapter(madapter);
 				}
 				if(val.equals("SOIL SCIENTIST")){
-					
+					List<SoilScientist> list = DatabaseManager.getCollectedDataByRole(DatabaseManager.SOIL_SCIENTIST_TABLE);
 				}
 				if(val.equals("NATURALIST")){
-					
+					List<Naturalist> list = DatabaseManager.getCollectedDataByRole(DatabaseManager.NATURALIST_TABLE);
 					
 				}
 				
