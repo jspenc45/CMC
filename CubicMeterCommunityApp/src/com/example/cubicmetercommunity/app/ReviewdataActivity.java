@@ -5,6 +5,8 @@ import java.util.List;
 
 import com.example.cubicmetercommunity.classes.CmcAdapters;
 import com.example.cubicmetercommunity.classes.CmcAdapters.MeteoAdapter;
+import com.example.cubicmetercommunity.classes.CmcAdapters.NaturalistAdapter;
+import com.example.cubicmetercommunity.classes.CmcAdapters.SScientistAdapter;
 import com.example.cubicmetercommunity.classes.Group;
 import com.example.cubicmetercommunity.classes.Meteorologist;
 import com.example.cubicmetercommunity.classes.Naturalist;
@@ -25,8 +27,9 @@ import android.content.Intent;
 public class ReviewdataActivity extends Activity {
 	Spinner typespinner, subtypespinner;
 	ListView reviewList;
-	//DataAdapter<?> rdAdapter;
 	MeteoAdapter madapter;
+	NaturalistAdapter nadapter;
+	SScientistAdapter ssadapter;
 	String sortBy;// subType;
 	List<Group> groups;
 	
@@ -122,6 +125,8 @@ public class ReviewdataActivity extends Activity {
 				}
 				if(val.equals("SOIL SCIENTIST")){
 					List<SoilScientist> list = DatabaseManager.getCollectedDataByRole(DatabaseManager.SOIL_SCIENTIST_TABLE);
+					
+					ssadapter = new SScientistAdapter(getBaseContext(), list);
 				}
 				if(val.equals("NATURALIST")){
 					List<Naturalist> list = DatabaseManager.getCollectedDataByRole(DatabaseManager.NATURALIST_TABLE);
