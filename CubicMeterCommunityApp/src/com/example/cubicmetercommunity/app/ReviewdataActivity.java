@@ -99,8 +99,7 @@ public class ReviewdataActivity extends Activity {
 			}
 			public void onNothingSelected(AdapterView<?> arg0) {}
 			
-		});		
-		
+		});			
 	}
 	
 	
@@ -115,7 +114,7 @@ public class ReviewdataActivity extends Activity {
 				
 				break;
 			
-			case 1: 
+			case 1:  // sort by role
 				if(val.equals("METEOROLOGIST")){				
 					List<Meteorologist> list = DatabaseManager.getCollectedDataByRole(DatabaseManager.METEOROLOGIST_TABLE);
 					list.add(0, new Meteorologist("Canopy_Cover", "Celsius", "fahrenheit", "Humidity", "Cloud"));

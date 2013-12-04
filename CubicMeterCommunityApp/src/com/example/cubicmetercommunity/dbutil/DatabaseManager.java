@@ -12,6 +12,7 @@ import android.util.Log;
 
 import com.example.cubicmetercommunity.classes.Group;
 import com.example.cubicmetercommunity.classes.Meteorologist;
+import com.example.cubicmetercommunity.classes.Naturalist;
 import com.example.cubicmetercommunity.classes.Session;
 import com.example.cubicmetercommunity.classes.TableIDs;
 
@@ -154,7 +155,11 @@ public class DatabaseManager {
 			return list;
 		}
 		else if (role.equals(NATURALIST_TABLE)){
-			
+			fields = Naturalist.generateFieldsAll();
+			JSONObject resp = db.select(role, fields, null);
+			@SuppressWarnings("unchecked")
+			List<E> list = (List<E>) Naturalist.makeList(resp);
+			return list;
 		}
 		else if (role.equals(SOIL_SCIENTIST_TABLE)){
 			

@@ -1,9 +1,12 @@
 package com.example.cubicmetercommunity.classes;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -39,4 +42,24 @@ public class Naturalist implements Serializable {
 		}
 	}	
 	
+	public static List<Naturalist> makeList(JSONObject obj){
+		JSONArray records = null;
+		try {
+			records = obj.getJSONArray("records");
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
+		List<Naturalist> list = new ArrayList<Naturalist>();
+		for (int i = 0; i < records.length(); i++) {
+			Naturalist met = null;
+			try {
+				met = new Naturalist(records.getJSONObject(i));
+			} catch (JSONException e) {
+				e.printStackTrace();
+			}
+			list.add(met);
+		}
+		return list;
+		
+	}
 }
