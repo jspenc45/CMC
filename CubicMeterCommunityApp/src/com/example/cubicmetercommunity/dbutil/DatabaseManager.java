@@ -14,6 +14,7 @@ import com.example.cubicmetercommunity.classes.Group;
 import com.example.cubicmetercommunity.classes.Meteorologist;
 import com.example.cubicmetercommunity.classes.Naturalist;
 import com.example.cubicmetercommunity.classes.Session;
+import com.example.cubicmetercommunity.classes.SoilScientist;
 import com.example.cubicmetercommunity.classes.TableIDs;
 
 //This class handles DB transactions to the specific DB
@@ -162,7 +163,11 @@ public class DatabaseManager {
 			return list;
 		}
 		else if (role.equals(SOIL_SCIENTIST_TABLE)){
-			
+			fields = SoilScientist.generateFieldsAll();
+			JSONObject resp = db.select(role, fields, null);
+			@SuppressWarnings("unchecked")
+			List<E> list = (List<E>) SoilScientist.makeList(resp);
+			return list;
 		}
 		
 		

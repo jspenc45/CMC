@@ -126,10 +126,12 @@ public class ReviewdataActivity extends Activity {
 					List<SoilScientist> list = DatabaseManager.getCollectedDataByRole(DatabaseManager.SOIL_SCIENTIST_TABLE);
 					
 					ssadapter = new SScientistAdapter(getBaseContext(), list);
+					reviewList.setAdapter(ssadapter);
 				}
 				if(val.equals("NATURALIST")){
 					List<Naturalist> list = DatabaseManager.getCollectedDataByRole(DatabaseManager.NATURALIST_TABLE);
-					
+					nadapter = new NaturalistAdapter(getBaseContext(), list);
+					reviewList.setAdapter(nadapter);
 				}
 				
 				break;
