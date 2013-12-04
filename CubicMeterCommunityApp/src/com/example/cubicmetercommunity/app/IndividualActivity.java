@@ -32,7 +32,7 @@ public class IndividualActivity extends FragmentActivity implements
 		FragmentTransaction fragmentTransaction = fragmentManager
 				.beginTransaction();
 		Fragment fragment;
-		if (str.equals("biodiversity_activity_2"))
+		if (str.equals("biodiversity_activity"))
 			fragment = new BiodiversityFragment();
 		else
 			fragment = new DynamicFragment(resource);

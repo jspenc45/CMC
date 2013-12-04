@@ -58,7 +58,7 @@
         <item>comments_meteorologist</item>
     </string-array>
     <string-array name="naturalistFragments">
-        <item>biodiversity_activity_2</item>
+        <item>biodiversity_activity</item>
         <item>comments_naturalist</item>
     </string-array>
     <string-array name="soilScientistFragments">
@@ -69,6 +69,68 @@
         <item>soil_moisture</item>
         <item>soil_odor</item>
         <item>comments_soil_scientist</item>
+    </string-array>
+    <string-array name="BugNames">
+        <item>Snails</item>
+        <item>Bristletails</item>
+        <item>Lacewings</item>
+        <item>Mayflies</item>
+        <item>Thrips</item>
+        <item>Pill Bugs</item>
+        <item>Adult Beetles</item>
+        <item>Spiders</item>
+        <item>Butterflies/Moths</item>
+        <item>Grasshoppers</item>
+        <item>Earthworms</item>
+        <item>Springtails</item>
+        <item>Beetle Larvae</item>
+        <item>Daddy-Long-legs</item>
+        <item>Woodroaches</item>
+        <item>Cadislifes</item>
+        <item>Pseudoscorpiones</item>
+        <item>Adult Flies &amp; Gnats</item>
+        <item>Mites &amp; Ticks</item>
+        <item>Earwigs</item>
+        <item>Stoneflies</item>
+        <item>Caterpillars</item>
+        <item>Centipedes</item>
+        <item>Aphids/Cicadas</item>
+        <item>Booklice/Barklice</item>
+        <item>Millipedes</item>
+        <item>Fly &amp; Gnat Larvae</item>
+        <item>True Bugs</item>
+        <item>Bees/Ants/Wasps</item>
+    </string-array>
+    <string-array name="BugPics">
+        <item>ant</item>
+        <item>ant</item>
+        <item>ant</item>
+        <item>ant</item>
+        <item>ant</item>
+        <item>ant</item>
+        <item>beetle</item>
+        <item>ant</item>
+        <item>butterfly</item>
+        <item>grasshopper</item>
+        <item>worm</item>
+        <item>ant</item>
+        <item>ant</item>
+        <item>ant</item>
+        <item>ant</item>
+        <item>ant</item>
+        <item>ant</item>
+        <item>fly</item>
+        <item>ant</item>
+        <item>ant</item>
+        <item>ant</item>
+        <item>caterpillar</item>
+        <item>ant</item>
+        <item>ant</item>
+        <item>ant</item>
+        <item>ant</item>
+        <item>ant</item>
+        <item>ant</item>
+        <item>ant</item>
     </string-array>
 
     <string name="label_ng2">Firstname Lastname</string>
@@ -127,7 +189,7 @@
     <string name="textview_soilconsistency_instructions">Select the option below that best describes the consistency of your soil:</string>
     <string name="radioButton_sand">Sand</string>
     <string name="textview_sandDescription">&#009;Particles are visible to the naked eye</string>
-<string name="radioButton_Silt2">Silt</string>
+    <string name="radioButton_Silt2">Silt</string>
     <string name="textview_siltDescription">"Particles become dusty when dry and are easily brushed off hands and boots. "</string>
     <string name="radioButton_clay">Clay</string>
     <string name="textview_clayDescription">"Particles are greasy and sticky when wet and hard when dry, and have to be scraped or washed off hands and boots. "</string>
@@ -140,7 +202,7 @@
     <string name="edittext_soilmoistureanswer"></string>
     <string name="act_finishsoilmoisture">Finish</string>
     <string name="title_activity_pie_chart">PieChartActivity</string>
-<string name="textview_soilOdorInstructions">Describe the odor of the soil in the text box below:</string>
+    <string name="textview_soilOdorInstructions">Describe the odor of the soil in the text box below:</string>
     <string name="act_finishSoilOdor">Finish</string>
     <string name="edittext_soilOdortextbox"></string>
     <string name="textview_canopycover">How much of the sky you can see from your CMC station?</string>
