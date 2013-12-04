@@ -16,8 +16,8 @@ public class Naturalist implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private final static String GROUP_ID_FIELD = "group_id_c";
-	private final static String COMMENTS_FIELD = "comments_c";
+	private final static String GROUP_ID_FIELD = "group_id__c";
+	private final static String COMMENTS_FIELD = "comments__c";
 	private final static String SESSION_ID_FIELD = "session_id__c"; 
 	
 	String comments ,group_id,session_id;

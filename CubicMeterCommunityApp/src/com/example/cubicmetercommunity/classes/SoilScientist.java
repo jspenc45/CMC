@@ -17,16 +17,16 @@ public class SoilScientist implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	private final static String GROUP_ID_FIELD = "group_id_c";
-	private final static String COMMENTS_FIELD = "comments_c";
+	private final static String GROUP_ID_FIELD = "group_id__c";
+	private final static String COMMENTS_FIELD = "comments__c";
 	private final static String SESSION_ID_FIELD = "session_id__c"; 
-	private final static String SOIL_COLOR_FIELD = "soil_color_c";
-	private final static String SOIL_CONSISTENCY_FIELD = "soil_consistency_c";
-	private final static String SOIL_MOISTURE_FIELD = "soil_moisture_c";
-	private final static String SOIL_ODOR_FIELD = "soil_odor_c";
-	private final static String SOIL_PH_FIELD = "soil_ph_c";
-	private final static String SOIL_TEXTURE_FIELD = "soil_texture_c";
-	private final static String SOIL_TYPE_FIELD = "soil_type_c";
+	private final static String SOIL_COLOR_FIELD = "soil_color__c";
+	private final static String SOIL_CONSISTENCY_FIELD = "soil_consistency__c";
+	private final static String SOIL_MOISTURE_FIELD = "soil_moisture__c";
+	private final static String SOIL_ODOR_FIELD = "soil_odor__c";
+	private final static String SOIL_PH_FIELD = "soil_ph__c";
+	private final static String SOIL_TEXTURE_FIELD = "soil_texture__c";
+	private final static String SOIL_TYPE_FIELD = "soil_type__c";
 	
 	String comments ,group_id,session_id,soil_color, soil_consistency,soil_moisture,soil_odor,soil_ph,
 	soil_texture,soil_type;	
