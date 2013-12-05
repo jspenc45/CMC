@@ -10,6 +10,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import com.example.cubicmetercommunity.classes.Meteorologist;
+import com.example.cubicmetercommunity.classes.Naturalist;
+import com.example.cubicmetercommunity.classes.SoilScientist;
 import com.example.cubicmetercommunity.classes.TableIDs;
 import com.example.cubicmetercommunity.dbutil.DBUtil;
 import com.example.cubicmetercommunity.dbutil.DatabaseManager;
@@ -65,17 +67,19 @@ public class SelectActivityFragment extends Fragment implements OnClickListener 
 			list = Arrays.asList(getResources().getStringArray(
 					R.array.meteorologistFragments));
 			label = meteorologist;
-			done = getMetDone();
+			done = getMeteorologistDone();
 		} else if (getActivity().getIntent().getStringArrayExtra(naturalist) != null) {
 			str = getActivity().getIntent().getStringArrayExtra(naturalist);
 			list = Arrays.asList(getResources().getStringArray(
 					R.array.naturalistFragments));
 			label = naturalist;
+			done = getNaturalistDone();
 		} else if (getActivity().getIntent().getStringArrayExtra(soilScientist) != null) {
 			str = getActivity().getIntent().getStringArrayExtra(soilScientist);
 			list = Arrays.asList(getResources().getStringArray(
 					R.array.soilScientistFragments));
 			label = soilScientist;
+			done = getSoilScientistDone();
 		}
 		
 		
@@ -128,7 +132,7 @@ public class SelectActivityFragment extends Fragment implements OnClickListener 
 			break;
 		}
 	}
-	public boolean[] getMetDone(){
+	public boolean[] getMeteorologistDone(){
 		boolean[] done = {false,false,false,false,false,false,false,false};
 		DBUtil db = new DBUtil();
 		Map<String, Object> fields = new HashMap<String, Object>();
@@ -155,6 +159,59 @@ public class SelectActivityFragment extends Fragment implements OnClickListener 
 		if(!met.getRainfall().equals("null")) done[5] = true;
 		if(!met.getCloud().equals("null")) done[6] = true;
 		if(!met.getComments().equals("null")) done[7] = true;
+		
+		return done;
+	}
+	public boolean[] getNaturalistDone(){
+		boolean[] done = {false,false};
+		DBUtil db = new DBUtil();
+		Map<String, Object> fields = new HashMap<String, Object>();
+
+		fields = Naturalist.generateFieldsAll();
+		TableIDs ids = ((ActivitiesActivity) getActivity()).ids;
+		String where = "Id" + "=" + "\'" + ids.getNaturalistID()
+				+ "\'";
+		JSONObject resp = db.select(DatabaseManager.NATURALIST_TABLE,
+				fields, where);
+		Naturalist nat = null;
+		try {
+			nat = new Naturalist(resp.getJSONArray("records")
+					.getJSONObject(0));
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
+
+		if(!nat.getAnts().equals("null")) done[0] = true;
+		if(!nat.getComments().equals("null")) done[1] = true;
+		
+		return done;
+	}
+	public boolean[] getSoilScientistDone(){
+		boolean[] done = {false,false,false,false,false,false,false};
+		DBUtil db = new DBUtil();
+		Map<String, Object> fields = new HashMap<String, Object>();
+
+		fields = SoilScientist.generateFieldsAll();
+		TableIDs ids = ((ActivitiesActivity) getActivity()).ids;
+		String where = "Id" + "=" + "\'" + ids.getSoilScientistID()
+				+ "\'";
+		JSONObject resp = db.select(DatabaseManager.SOIL_SCIENTIST_TABLE,
+				fields, where);
+		SoilScientist sSci = null;
+		try {
+			sSci = new SoilScientist(resp.getJSONArray("records")
+					.getJSONObject(0));
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
+
+		if(!sSci.getSoil_color().equals("null")) done[0] = true;
+		if(!sSci.getSoil_ph().equals("null")) done[1] = true;
+		if(!sSci.getSoil_texture().equals("null")) done[2] = true;
+		if(!sSci.getSoil_consistency().equals("null")) done[3] = true;
+		if(!sSci.getSoil_moisture().equals("null")) done[4] = true;
+		if(!sSci.getSoil_odor().equals("null")) done[5] = true;
+		if(!sSci.getComments().equals("null")) done[6] = true;
 		
 		return done;
 	}

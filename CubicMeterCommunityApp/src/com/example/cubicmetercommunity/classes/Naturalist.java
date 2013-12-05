@@ -19,13 +19,15 @@ public class Naturalist implements Serializable {
 	private final static String GROUP_ID_FIELD = "group_id__c";
 	private final static String COMMENTS_FIELD = "comments__c";
 	private final static String SESSION_ID_FIELD = "session_id__c"; 
+	private final static String ANTS_FIELD = "ant__c"; 
 	
-	String comments ,group_id,session_id;
+	String comments ,group_id,session_id, ants;
 	
 	public static Map<String,Object> generateFieldsAll() {
 		Map<String,Object> fields = new HashMap<String,Object>();
 		fields.put(COMMENTS_FIELD, null);
 		fields.put(GROUP_ID_FIELD, null);
+		fields.put(ANTS_FIELD, null);
 		fields.put(SESSION_ID_FIELD, null);
 		
 		return fields;
@@ -36,12 +38,29 @@ public class Naturalist implements Serializable {
 	
 	public Naturalist(JSONObject json){		
 		try {
+			this.ants = json.getString(ANTS_FIELD);
+		} catch (JSONException e) {
+			this.ants = "";
+		}
+		try {
 			this.comments = json.getString(COMMENTS_FIELD);
 		} catch (JSONException e) {
 			this.comments = "";
 		}
 	}	
 	
+	public String getAnts() {
+		return ants;
+	}
+	public void setAnts(String ants) {
+		this.ants = ants;
+	}
+	public String getComments() {
+		return comments;
+	}
+	public void setComments(String comments) {
+		this.comments = comments;
+	}
 	public static List<Naturalist> makeList(JSONObject obj){
 		JSONArray records = null;
 		try {
