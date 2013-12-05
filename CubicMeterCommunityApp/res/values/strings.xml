@@ -84,53 +84,49 @@
         <item>Earthworms</item>
         <item>Springtails</item>
         <item>Beetle Larvae</item>
-        <item>Daddy-Long-legs</item>
         <item>Woodroaches</item>
-        <item>Cadislifes</item>
-        <item>Pseudoscorpiones</item>
+        <item>Cadisflies</item>
+        <item>Pseudoscorpions</item>
         <item>Adult Flies &amp; Gnats</item>
         <item>Mites &amp; Ticks</item>
         <item>Earwigs</item>
         <item>Stoneflies</item>
         <item>Caterpillars</item>
-        <item>Centipedes</item>
+        <item>Centipedes &amp; Millipedes</item>
         <item>Aphids/Cicadas</item>
         <item>Booklice/Barklice</item>
-        <item>Millipedes</item>
         <item>Fly &amp; Gnat Larvae</item>
-        <item>True Bugs</item>
-        <item>Bees/Ants/Wasps</item>
+        <item>Bees &amp; Wasps</item>
+        <item>Ants</item>
     </string-array>
     <string-array name="BugPics">
-        <item>ant</item>
-        <item>ant</item>
-        <item>ant</item>
-        <item>ant</item>
-        <item>ant</item>
-        <item>ant</item>
+        <item>snail2</item><!-- snails -->
+        <item>bristletail</item><!-- bristletails -->
+        <item>lacewing</item><!-- lacewings -->
+        <item>mayfly</item> <!-- mayflies -->
+        <item>thrip</item><!-- thrips -->
+        <item>Pillbug </item><!-- pillbugs -->
         <item>beetle</item>
-        <item>ant</item>
+        <item>spider</item><!-- spiders -->
         <item>butterfly</item>
         <item>grasshopper</item>
         <item>worm</item>
-        <item>ant</item>
-        <item>ant</item>
-        <item>ant</item>
-        <item>ant</item>
-        <item>ant</item>
-        <item>ant</item>
-        <item>fly</item>
-        <item>ant</item>
-        <item>ant</item>
-        <item>ant</item>
+        <item>springtail</item><!-- springtails -->
+        <item>larvae</item><!-- beetle larvae -->
+        <item>woodroach</item><!-- woodroaches -->
+        <item>caddis</item><!-- cadisflies -->
+        <item>pseudoscorpion</item><!-- pseudoscorpions -->
+        <item>Tick</item><!-- mites and ticks -->
+        <item>earwig</item><!-- earwigs -->
+        <item>stonefly</item><!-- stoneflies -->
         <item>caterpillar</item>
-        <item>ant</item>
-        <item>ant</item>
-        <item>ant</item>
-        <item>ant</item>
-        <item>ant</item>
-        <item>ant</item>
-        <item>ant</item>
+        <item>centipede</item><!-- centipedes and millipedes -->
+        <item>aphid</item><!-- aphids/cicadas -->
+        <item>lice</item><!-- Booklice/Barklice -->
+        <item>fly</item><!-- Flies &amp; Gnat Larvae -->
+        <item>wasp</item><!-- bees + wasps -->
+        <item>ant</item><!-- ants -->
+        
     </string-array>
 
     <string name="label_ng2">Firstname Lastname</string>
