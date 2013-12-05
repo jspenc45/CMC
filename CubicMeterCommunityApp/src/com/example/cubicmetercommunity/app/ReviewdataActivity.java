@@ -30,7 +30,7 @@ public class ReviewdataActivity extends Activity {
 	MeteoAdapter madapter;
 	NaturalistAdapter nadapter;
 	SScientistAdapter ssadapter;
-	String sortBy;// subType;
+	String sortBy;
 	List<Group> groups;
 	View mheader, nheader,ssheader, addedView;
 	

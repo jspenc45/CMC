@@ -9,7 +9,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text="Column n1"
+        android:text="Column na1"
         android:ems="10" >
 
         <requestFocus />
