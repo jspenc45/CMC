@@ -32,6 +32,7 @@ public class ReviewdataActivity extends Activity {
 	SScientistAdapter ssadapter;
 	String sortBy;// subType;
 	List<Group> groups;
+	View mheader, nheader,ssheader, addedView;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -41,15 +42,18 @@ public class ReviewdataActivity extends Activity {
 		typespinner = (Spinner) findViewById(R.id.rd_typespinner);
 		subtypespinner = (Spinner) findViewById(R.id.rd_subtypespinner);
 		reviewList = (ListView)findViewById(R.id.rdata_list);
+		final View mheader = getLayoutInflater().inflate(R.layout.header_meteorologist, null);
+		final View nheader = getLayoutInflater().inflate(R.layout.header_naturalist, null);
+		final View ssheader = getLayoutInflater().inflate(R.layout.header_soilscientist, null);
+		//reviewList.addHeaderView(mheader);	
 		reviewList.setOnItemClickListener(new OnItemClickListener() {
 
 			@Override
 			public void onItemClick(AdapterView<?> arg0, View arg1, int position,
 					long arg3) {
-				Intent i = new Intent(getBaseContext(), Review_DetailsActivity.class);
-				
-				i.putExtra("DATA", (Meteorologist)madapter.getList().get(position));
-				startActivity(i);
+//				Intent i = new Intent(getBaseContext(), Review_DetailsActivity.class);				
+//				i.putExtra("DATA", (Meteorologist)madapter.getList().get(position));
+//				startActivity(i);
 				
 			}
 		});
@@ -94,7 +98,80 @@ public class ReviewdataActivity extends Activity {
 			public void onItemSelected(AdapterView<?> parent, View view,
 					int pos, long id) {
 				String subval = parent.getItemAtPosition(pos).toString();	
-				getData(sortBy, subval);
+				//getData(subval);
+				
+				int sortType = (sortBy.equals("GROUP"))?0:1; //set 0 for sortby Group else 1 for by role
+				
+				switch(sortType){
+				
+				case 0: //sort  by Group
+					
+					
+					break;
+				
+				case 1:  // sort by role
+					if(subval.equals("METEOROLOGIST")){				
+						List<Meteorologist> list = DatabaseManager.getCollectedDataByRole(DatabaseManager.METEOROLOGIST_TABLE);
+						
+						madapter = new MeteoAdapter(getBaseContext(),list);
+						
+						if(reviewList.getHeaderViewsCount() == 0){
+							reviewList.addHeaderView(mheader);	
+							addedView = mheader;
+							reviewList.setHeaderDividersEnabled(true);
+						}
+						else{
+							reviewList.removeHeaderView(addedView);
+							reviewList.addHeaderView(mheader);	
+							addedView = mheader;
+							reviewList.setHeaderDividersEnabled(true);
+						}
+						
+						reviewList.setAdapter(madapter);
+						
+					}
+					if(subval.equals("NATURALIST")){
+						List<SoilScientist> list = DatabaseManager.getCollectedDataByRole(DatabaseManager.SOIL_SCIENTIST_TABLE);
+						
+						ssadapter = new SScientistAdapter(getBaseContext(), list);
+						
+						if(reviewList.getHeaderViewsCount() == 0){
+							reviewList.addHeaderView(nheader);	
+							addedView = nheader;
+							reviewList.setHeaderDividersEnabled(true);
+						}
+						else{
+							reviewList.removeHeaderView(addedView);
+							reviewList.addHeaderView(nheader);	
+							addedView = nheader;
+							reviewList.setHeaderDividersEnabled(true);
+						}
+						
+						reviewList.setAdapter(ssadapter);
+					}
+					if(subval.equals("SOIL SCIENTIST")){
+						List<Naturalist> list = DatabaseManager.getCollectedDataByRole(DatabaseManager.NATURALIST_TABLE);
+						nadapter = new NaturalistAdapter(getBaseContext(), list);
+						
+						if(reviewList.getHeaderViewsCount() == 0){
+							reviewList.addHeaderView(ssheader);	
+							addedView = ssheader;
+							reviewList.setHeaderDividersEnabled(true);
+						}
+						else{
+							reviewList.removeHeaderView(addedView);
+							reviewList.addHeaderView(ssheader);	
+							addedView = ssheader;
+							reviewList.setHeaderDividersEnabled(true);
+						}
+						
+						reviewList.setAdapter(nadapter);
+					}
+					
+					break;
+			}
+				
+				
 				
 			}
 			public void onNothingSelected(AdapterView<?> arg0) {}
@@ -103,39 +180,78 @@ public class ReviewdataActivity extends Activity {
 	}
 	
 	
-	private  void getData(String sortby, String val){			
+	private  void getData(String subval){			
 		
-		int sortType = (sortby.equals("GROUP"))?0:1; //set 0 for sortby Group else 1 for by role
+		int sortType = (sortBy.equals("GROUP"))?0:1; //set 0 for sortby Group else 1 for by role
 		
 		switch(sortType){
 		
-			case 0: //sort  by Group
-				
-				
-				break;
+		case 0: //sort  by Group
 			
-			case 1:  // sort by role
-				if(val.equals("METEOROLOGIST")){				
-					List<Meteorologist> list = DatabaseManager.getCollectedDataByRole(DatabaseManager.METEOROLOGIST_TABLE);
-					list.add(0, new Meteorologist("Canopy_Cover", "Celsius", "fahrenheit", "Humidity", "Cloud"));
-					
-					madapter = new MeteoAdapter(getBaseContext(),list);
-					reviewList.setAdapter(madapter);
+			
+			break;
+		
+		case 1:  // sort by role
+			if(subval.equals("METEOROLOGIST")){				
+				List<Meteorologist> list = DatabaseManager.getCollectedDataByRole(DatabaseManager.METEOROLOGIST_TABLE);
+				
+				madapter = new MeteoAdapter(getBaseContext(),list);
+				
+				if(reviewList.getHeaderViewsCount() == 0){
+					reviewList.addHeaderView(mheader);	
+					addedView = mheader;
+					reviewList.setHeaderDividersEnabled(true);
 				}
-				if(val.equals("SOIL SCIENTIST")){
-					List<SoilScientist> list = DatabaseManager.getCollectedDataByRole(DatabaseManager.SOIL_SCIENTIST_TABLE);
-					
-					ssadapter = new SScientistAdapter(getBaseContext(), list);
-					reviewList.setAdapter(ssadapter);
-				}
-				if(val.equals("NATURALIST")){
-					List<Naturalist> list = DatabaseManager.getCollectedDataByRole(DatabaseManager.NATURALIST_TABLE);
-					nadapter = new NaturalistAdapter(getBaseContext(), list);
-					reviewList.setAdapter(nadapter);
+				else{
+					reviewList.removeHeaderView(addedView);
+					reviewList.addHeaderView(mheader);	
+					addedView = mheader;
+					reviewList.setHeaderDividersEnabled(true);
 				}
 				
-				break;
-		}		
+				reviewList.setAdapter(madapter);
+				
+			}
+			if(subval.equals("NATURALIST")){
+				List<SoilScientist> list = DatabaseManager.getCollectedDataByRole(DatabaseManager.SOIL_SCIENTIST_TABLE);
+				
+				ssadapter = new SScientistAdapter(getBaseContext(), list);
+				
+				if(reviewList.getHeaderViewsCount() == 0){
+					reviewList.addHeaderView(nheader);	
+					addedView = nheader;
+					reviewList.setHeaderDividersEnabled(true);
+				}
+				else{
+					reviewList.removeHeaderView(addedView);
+					reviewList.addHeaderView(nheader);	
+					addedView = nheader;
+					reviewList.setHeaderDividersEnabled(true);
+				}
+				
+				reviewList.setAdapter(ssadapter);
+			}
+			if(subval.equals("SOIL SCIENTIST")){
+				List<Naturalist> list = DatabaseManager.getCollectedDataByRole(DatabaseManager.NATURALIST_TABLE);
+				nadapter = new NaturalistAdapter(getBaseContext(), list);
+				
+				if(reviewList.getHeaderViewsCount() == 0){
+					reviewList.addHeaderView(ssheader);	
+					addedView = ssheader;
+					reviewList.setHeaderDividersEnabled(true);
+				}
+				else{
+					reviewList.removeHeaderView(addedView);
+					reviewList.addHeaderView(ssheader);	
+					addedView = ssheader;
+					reviewList.setHeaderDividersEnabled(true);
+				}
+				
+				reviewList.setAdapter(nadapter);
+			}
+			
+			break;
+	}	
 	}
 
 }
