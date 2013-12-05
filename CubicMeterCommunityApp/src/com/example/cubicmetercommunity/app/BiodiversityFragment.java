@@ -48,7 +48,6 @@ public class BiodiversityFragment extends Fragment implements OnClickListener {
 				((TextView) v.findViewById(R.id.title)).setText(b.next());
 				ImageView image = (ImageView) v.findViewById(R.id.imageView1);
 				String resource = bPics.next();
-				Log.d("debug",resource);
 				int resID = getResources().getIdentifier(resource,
 					    "drawable", getActivity().getPackageName());
 				image.setImageDrawable(getResources().getDrawable(resID));

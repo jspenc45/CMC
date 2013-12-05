@@ -87,7 +87,6 @@
         <item>Woodroaches</item>
         <item>Cadisflies</item>
         <item>Pseudoscorpions</item>
-        <item>Adult Flies &amp; Gnats</item>
         <item>Mites &amp; Ticks</item>
         <item>Earwigs</item>
         <item>Stoneflies</item>
@@ -101,7 +100,7 @@
     </string-array>
     <string-array name="BugPics">
         <item>snail2</item><!-- snails -->
-        <item>bristletail</item><!-- bristletails -->
+        <item>bristletail2</item><!-- bristletails -->
         <item>lacewing</item><!-- lacewings -->
         <item>mayfly</item> <!-- mayflies -->
         <item>thrip</item><!-- thrips -->
