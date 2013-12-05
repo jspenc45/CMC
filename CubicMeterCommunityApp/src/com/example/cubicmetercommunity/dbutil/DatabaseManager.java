@@ -145,31 +145,44 @@ public class DatabaseManager {
 		return ids;
 	}
 	public static <E> List<E> getCollectedDataByRole(String role) {
+		return getCollectedDataByRole(role, null);
+	}
+	public static <E> List<E> getCollectedDataByRole(String role, String where) {
 		DBUtil db = new DBUtil();
 		Map<String, Object> fields = new HashMap<String, Object>();
 		
 		if (role.equals(METEOROLOGIST_TABLE)){
 			fields = Meteorologist.generateFieldsAll();
-			JSONObject resp = db.select(role, fields, null);
+			JSONObject resp = db.select(role, fields, where);
 			@SuppressWarnings("unchecked")
 			List<E> list = (List<E>) Meteorologist.makeList(resp);
 			return list;
 		}
 		else if (role.equals(NATURALIST_TABLE)){
 			fields = Naturalist.generateFieldsAll();
-			JSONObject resp = db.select(role, fields, null);
+			JSONObject resp = db.select(role, fields, where);
 			@SuppressWarnings("unchecked")
 			List<E> list = (List<E>) Naturalist.makeList(resp);
 			return list;
 		}
 		else if (role.equals(SOIL_SCIENTIST_TABLE)){
 			fields = SoilScientist.generateFieldsAll();
-			JSONObject resp = db.select(role, fields, null);
+			JSONObject resp = db.select(role, fields, where);
 			@SuppressWarnings("unchecked")
 			List<E> list = (List<E>) SoilScientist.makeList(resp);
 			return list;
 		}
 		
+		return null;
+	}
+	public static <E> List<E> getCollectedDataByGroup(String groupId) {
+		String where = "group_id__c=\'" + groupId + "\'"; 
+		
+		List<Meteorologist> met = getCollectedDataByRole(METEOROLOGIST_TABLE, where);
+		List<Naturalist> nat = getCollectedDataByRole(NATURALIST_TABLE, where);
+		List<SoilScientist> sci = getCollectedDataByRole(SOIL_SCIENTIST_TABLE, where);
+		
+		//TODO: DO MERGE ON SESSION ID
 		
 		return null;
 	}

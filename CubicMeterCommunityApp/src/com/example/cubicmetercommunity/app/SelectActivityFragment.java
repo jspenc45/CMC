@@ -132,7 +132,7 @@ public class SelectActivityFragment extends Fragment implements OnClickListener 
 			break;
 		}
 	}
-	public boolean[] getMeteorologistDone(){
+	public boolean[] getMeteorologistDone() {
 		boolean[] done = {false,false,false,false,false,false,false,false};
 		DBUtil db = new DBUtil();
 		Map<String, Object> fields = new HashMap<String, Object>();
@@ -181,7 +181,7 @@ public class SelectActivityFragment extends Fragment implements OnClickListener 
 			e.printStackTrace();
 		}
 
-		if(!nat.getAnts().equals("null")) done[0] = true;
+		if(!nat.getAnt().equals("null")) done[0] = true;
 		if(!nat.getComments().equals("null")) done[1] = true;
 		
 		return done;

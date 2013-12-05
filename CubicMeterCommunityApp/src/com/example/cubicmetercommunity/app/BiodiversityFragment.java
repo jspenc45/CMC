@@ -1,14 +1,19 @@
 package com.example.cubicmetercommunity.app;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
 
+import com.example.cubicmetercommunity.classes.Naturalist;
+import com.example.cubicmetercommunity.classes.TableIDs;
+import com.example.cubicmetercommunity.dbutil.DBUtil;
 import com.example.cubicmetercommunityapp.R;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -19,7 +24,7 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
-//This fragment allows a user to select a role
+//This fragment shows the user the Biodiversity page
 
 public class BiodiversityFragment extends Fragment implements OnClickListener {
 
@@ -48,18 +53,18 @@ public class BiodiversityFragment extends Fragment implements OnClickListener {
 				((TextView) v.findViewById(R.id.title)).setText(b.next());
 				ImageView image = (ImageView) v.findViewById(R.id.imageView1);
 				String resource = bPics.next();
-				int resID = getResources().getIdentifier(resource,
-					    "drawable", getActivity().getPackageName());
+				int resID = getResources().getIdentifier(resource, "drawable",
+						getActivity().getPackageName());
 				image.setImageDrawable(getResources().getDrawable(resID));
-				
-				
+
 				Button minus = (Button) v.findViewById(R.id.button1);
 				minus.setEnabled(false);
 				minus.setOnClickListener(new OnClickListener() {
 					@Override
 					public void onClick(View arg) {
 						View p = (View) arg.getParent();
-						TextView num = (TextView) p.findViewById(R.id.textView1);
+						TextView num = (TextView) p
+								.findViewById(R.id.textView1);
 						Button minus = (Button) p.findViewById(R.id.button1);
 						int count = Integer.parseInt(num.getText().toString());
 
@@ -73,11 +78,13 @@ public class BiodiversityFragment extends Fragment implements OnClickListener {
 							@Override
 							public void onClick(View arg) {
 								View p = (View) arg.getParent();
-								TextView num = (TextView) p.findViewById(R.id.textView1);
+								TextView num = (TextView) p
+										.findViewById(R.id.textView1);
 								int count = Integer.parseInt(num.getText()
 										.toString());
 								num.setText(Integer.toString(++count));
-								Button minus = (Button) p.findViewById(R.id.button1);
+								Button minus = (Button) p
+										.findViewById(R.id.button1);
 								minus.setEnabled(true);
 							}
 						});
@@ -106,21 +113,26 @@ public class BiodiversityFragment extends Fragment implements OnClickListener {
 		case R.id.act_finish:
 			TableLayout table = (TableLayout) getActivity().findViewById(
 					R.id.TableLayout1);
+			Map<String, Object> fields = new HashMap<String, Object>();
+			List<String> fieldList = Naturalist.returnFieldList();
+			Iterator<String> it = fieldList.iterator();
 
 			for (int i = 0; i < table.getChildCount(); i++) {
 				TableRow row = (TableRow) table.getChildAt(i);
+
 				for (int j = 0; j < row.getChildCount(); j++) {
 					View view = row.getChildAt(j);
-					String label = ((TextView) view.findViewById(R.id.title))
-							.getText().toString();
+
 					int count = Integer
 							.parseInt(((TextView) view
 									.findViewById(R.id.textView1)).getText()
 									.toString());
-					Log.d("debug", label + ": " + count);
-
+					fields.put(it.next(), count);
 				}
 			}
+			DBUtil db = new DBUtil();
+			TableIDs ids = ((IndividualActivity)getActivity()).getTables();
+			db.update("Naturalist__c", ids.getNaturalistID(), fields);
 
 		}
 
