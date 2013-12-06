@@ -30,6 +30,7 @@ public class ReviewdataActivity extends Activity {
 	MeteoAdapter madapter;
 	NaturalistAdapter nadapter;
 	SScientistAdapter ssadapter;
+	ArrayAdapter<Group> gadapter;
 	String sortBy;
 	List<Group> groups;
 	View mheader, nheader,ssheader, addedView;
@@ -71,16 +72,17 @@ public class ReviewdataActivity extends Activity {
 				
 				switch(intsortBy){
 				case 0:
-					
+					//populate groups
 					groups = DatabaseManager.getGroups();
 					
-					ArrayAdapter<Group> gadapter = new ArrayAdapter<Group>(getBaseContext(), android.R.layout.simple_spinner_item, groups);
+					gadapter = new ArrayAdapter<Group>(getBaseContext(), android.R.layout.simple_spinner_item, groups);
 					gadapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 					subtypespinner.setAdapter(gadapter);
 					
 					break;
 					
 				case 1:
+					//populate roles
 					String[] roles = new String[]{"METEOROLOGIST","SOIL SCIENTIST", "NATURALIST"}; 	
 					ArrayAdapter<String> radapter = new ArrayAdapter<String>(getBaseContext(), android.R.layout.simple_spinner_item, roles);
 					radapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -104,9 +106,9 @@ public class ReviewdataActivity extends Activity {
 				
 				switch(sortType){
 				
-				case 0: //sort  by Group
+				case 0: //sort  by Group					
 					
-					
+					String gid = gadapter.getItem(pos).getId(); //get selected groupID
 					break;
 				
 				case 1:  // sort by role

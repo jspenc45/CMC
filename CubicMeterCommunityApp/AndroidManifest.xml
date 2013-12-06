@@ -58,6 +58,10 @@
             android:name="com.example.cubicmetercommunity.app.PieChartActivity"
             android:label="@string/title_activity_pie_chart" >
         </activity>
+        <activity
+            android:name="com.example.cubicmetercommunity.app.Review_2Activity"
+            android:label="@string/title_activity_review_2" >
+        </activity>
     </application>
 
 </manifest>

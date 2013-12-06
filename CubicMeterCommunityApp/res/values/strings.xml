@@ -99,33 +99,54 @@
         <item>Ants</item>
     </string-array>
     <string-array name="BugPics">
-        <item>snail2</item><!-- snails -->
-        <item>bristletail2</item><!-- bristletails -->
-        <item>lacewing</item><!-- lacewings -->
-        <item>mayfly</item> <!-- mayflies -->
-        <item>thrip</item><!-- thrips -->
-        <item>pillbug </item><!-- pillbugs -->
+        <item>snail2</item>
+ <!-- snails -->
+        <item>bristletail2</item>
+ <!-- bristletails -->
+        <item>lacewing</item>
+ <!-- lacewings -->
+        <item>mayfly</item>
+ <!-- mayflies -->
+        <item>thrip</item>
+ <!-- thrips -->
+        <item>pillbug </item>
+ <!-- pillbugs -->
         <item>beetle</item>
-        <item>spider</item><!-- spiders -->
+        <item>spider</item>
+ <!-- spiders -->
         <item>butterfly</item>
         <item>grasshopper</item>
         <item>worm</item>
-        <item>springtail</item><!-- springtails -->
-        <item>larvae</item><!-- beetle larvae -->
-        <item>woodroach</item><!-- woodroaches -->
-        <item>caddis</item><!-- cadisflies -->
-        <item>pseudoscorpion</item><!-- pseudoscorpions -->
-        <item>tick</item><!-- mites and ticks -->
-        <item>earwig</item><!-- earwigs -->
-        <item>stonefly</item><!-- stoneflies -->
+        <item>springtail</item>
+ <!-- springtails -->
+        <item>larvae</item>
+ <!-- beetle larvae -->
+        <item>woodroach</item>
+ <!-- woodroaches -->
+        <item>caddis</item>
+ <!-- cadisflies -->
+        <item>pseudoscorpion</item>
+ <!-- pseudoscorpions -->
+        <item>tick</item>
+ <!-- mites and ticks -->
+        <item>earwig</item>
+ <!-- earwigs -->
+        <item>stonefly</item>
+ <!-- stoneflies -->
         <item>caterpillar</item>
-        <item>centipede</item><!-- centipedes and millipedes -->
-        <item>aphid</item><!-- aphids/cicadas -->
-        <item>lice</item><!-- Booklice/Barklice -->
-        <item>fly</item><!-- Flies &amp; Gnat Larvae -->
-        <item>wasp</item><!-- bees + wasps -->
-        <item>ant</item><!-- ants -->
-        
+        <item>centipede</item>
+ <!-- centipedes and millipedes -->
+        <item>aphid</item>
+ <!-- aphids/cicadas -->
+        <item>lice</item>
+ <!-- Booklice/Barklice -->
+        <item>fly</item>
+ <!-- Flies &amp; Gnat Larvae -->
+        <item>wasp</item>
+ <!-- bees + wasps -->
+        <item>ant</item>
+ <!-- ants -->
+
     </string-array>
 
     <string name="label_ng2">Firstname Lastname</string>
@@ -208,5 +229,7 @@
     <string name="minus">-</string>
     <string name="zero">0</string>
     <string name="act_finishCanopyCover">Finish</string>
+    <string name="title_activity_review_2">Review_2Activity</string>
+    <string name="hello_world">Hello world!</string>
 
 </resources>
