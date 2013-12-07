@@ -24,6 +24,12 @@ public class Session implements Serializable {
 		this.groupId = groupId;
 		this.sessionTime = sessionTime;
 	}
+	public String getSessionTime() {
+		return sessionTime;
+	}
+	public void setSessionTime(String sessionTime) {
+		this.sessionTime = sessionTime;
+	}
 	public Session(JSONObject obj) {
 		try {
 			id = obj.getString(Session.sqlID);

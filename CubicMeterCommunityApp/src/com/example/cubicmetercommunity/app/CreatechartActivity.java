@@ -89,7 +89,7 @@ public class CreatechartActivity extends Activity implements OnClickListener{
 		Intent i;
 		switch(v.getId()){
 		case R.id.ccf_generate:			
-			switch(chartType){
+			switch(chartType) {
 				case 0: //generate bar chart
 					i = new Intent(getBaseContext(), BarChartActivity.class);
 					i.putExtra("VAL", new ChartInfo(selectedGroup,getBarData() ));

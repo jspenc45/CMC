@@ -49,6 +49,18 @@ public class DatabaseManager {
 		
 		return Session.getSessions(resp);
 	}
+	public static List<Session> getAllSessions() {
+		DBUtil db = new DBUtil();
+		Map<String, Object> fields = new HashMap<String, Object>();
+		fields.put(Session.sqlID, null);
+		fields.put(Session.sqlGROUP_ID, null);
+		fields.put(Session.sqlTIME, null);
+		//String where = Session.sqlGROUP_ID + "=" + "\'" + group.getId() + "\'";
+		JSONObject resp = db.select("Session__c", fields, null);
+		
+		return Session.getSessions(resp);
+	}
+	
 	public static List<Group> getGroups(){
 		DBUtil db = new DBUtil();
 		Map<String, Object> fields = new HashMap<String, Object>();
