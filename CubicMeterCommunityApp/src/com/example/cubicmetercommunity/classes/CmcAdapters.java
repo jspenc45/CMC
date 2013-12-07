@@ -204,8 +204,7 @@ public class CmcAdapters {
 		@SuppressWarnings("unchecked")
 		@Override
 		public View getChildView(int groupPos, int childPos, boolean isLastChild, View convertView,
-				ViewGroup parent) {
-			Log.d("DD", "In getview");
+				ViewGroup parent) {			
 		final String value = "vaaa"; 
 		List<Meteorologist> _mlist = null;
 		List<Naturalist> _nlist = null;
@@ -214,26 +213,26 @@ public class CmcAdapters {
 			if (convertView == null) {
 			      convertView = inflater.inflate(R.layout.review_row_details, null);
 			    }
-			
-			if(list.get(groupPos).equals(Role.METEOROLOGIST))
+			if(list.get(groupPos).equals(Role.METEOROLOGIST)){
 				 _mlist = (List<Meteorologist>)getChild(groupPos, childPos);
 			((TextView)convertView.findViewById(R.id.rd_n1)).setText(_mlist.get(childPos).session_id);
 			((TextView)convertView.findViewById(R.id.rd_n2)).setText(_mlist.get(childPos).group_id);
 			((TextView)convertView.findViewById(R.id.rd_n3)).setText(_mlist.get(childPos).comments);
+			}
 			
 			if(list.get(groupPos).equals(Role.NATURALIST)){
-				Log.d("DD", "In nat");
 				_nlist = (List<Naturalist>)getChild(groupPos, childPos);
-				Log.d("DD", "got list, size " + _nlist.size());
 				((TextView)convertView.findViewById(R.id.rd_n1)).setText(_nlist.get(childPos).session_id);
 				((TextView)convertView.findViewById(R.id.rd_n2)).setText(_nlist.get(childPos).bee);
 				((TextView)convertView.findViewById(R.id.rd_n3)).setText(_nlist.get(childPos).comments);
-			}
-			if(list.get(groupPos).equals(Role.SOIL_SCIENTIST)){
+				}
+			 
+			if(list.get(groupPos).equals(Role.SOIL_SCIENTIST)){				
 				_sslist = (List<SoilScientist>)getChild(groupPos, childPos);
 				((TextView)convertView.findViewById(R.id.rd_n1)).setText(_sslist.get(childPos).session_id);
 				((TextView)convertView.findViewById(R.id.rd_n2)).setText(_sslist.get(childPos).soil_consistency);
 				((TextView)convertView.findViewById(R.id.rd_n3)).setText(_sslist.get(childPos).comments);
+				
 			}			
 			
 			convertView.setOnClickListener(new OnClickListener() {
