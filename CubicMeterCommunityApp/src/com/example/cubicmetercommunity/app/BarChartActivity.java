@@ -42,6 +42,8 @@
 package com.example.cubicmetercommunity.app;
 
 import com.example.cubicmetercommunity.chart.BarChartView;
+import com.example.cubicmetercommunity.chart.PieChartView;
+import com.example.cubicmetercommunity.classes.ChartInfo;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -49,12 +51,27 @@ import android.view.Window;
 
 public class BarChartActivity extends Activity {
 
+	ChartInfo data;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        BarChartView mView = new BarChartView(this);
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(mView);
+        
+        
+        if (getIntent().getExtras() != null) {
+			if (getIntent().getExtras().containsKey("VAL")) {				
+					try {
+						
+						data = (ChartInfo) getIntent().getExtras().getSerializable(
+								"VAL");		
+						BarChartView mView = new BarChartView(this, data.getTitle(), data.getData());
+				        requestWindowFeature(Window.FEATURE_NO_TITLE);
+				        setContentView(mView);
+					} 
+					catch (NullPointerException e) {									
+					
+					}		
+			}
+		}
     }
 }

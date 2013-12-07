@@ -92,12 +92,12 @@ public class CreatechartActivity extends Activity implements OnClickListener{
 			switch(chartType){
 				case 0: //generate bar chart
 					i = new Intent(getBaseContext(), BarChartActivity.class);
+					i.putExtra("VAL", new ChartInfo(selectedGroup,getBarData() ));
 					startActivity(i);
 					break;
 				case 1://generate pie chart
 					i = new Intent(getBaseContext(), PieChartActivity.class);					
 					
-					//HashMap<String, Double> data = getPieData();  
 					i.putExtra("VAL", new ChartInfo(selectedGroup,getPieData() ));
 					startActivity(i);
 					break;
@@ -118,6 +118,23 @@ public class CreatechartActivity extends Activity implements OnClickListener{
 		Double met = (mlist.size()/total) * 100.00;
 		Double nat = (nlist.size()/total) * 100.00;
 		Double ss = (sslist.size()/total) * 100.00;
+		
+		data.put("Meteorologist", met );
+        data.put("Naturalist",  nat);
+        data.put("Soil Scientist",ss);
+			
+		return data;
+	}
+	
+	public HashMap<String, Double> getBarData(){
+		List<Meteorologist> mlist = DatabaseManager.getCollectedDataByRole(DatabaseManager.NATURALIST_TABLE, selectedGroupID);
+		List<Naturalist> nlist = DatabaseManager.getCollectedDataByRole(DatabaseManager.SOIL_SCIENTIST_TABLE, selectedGroupID);
+		List<SoilScientist> sslist = DatabaseManager.getCollectedDataByRole(DatabaseManager.METEOROLOGIST_TABLE, selectedGroupID);
+		HashMap<String, Double> data = new HashMap<String, Double>();
+		
+		Double met = (double) mlist.size();
+		Double nat = (double) nlist.size();
+		Double ss = (double) sslist.size();
 		
 		data.put("Meteorologist", met );
         data.put("Naturalist",  nat);
