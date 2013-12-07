@@ -54,15 +54,15 @@ public class Review_2Activity extends Activity {
 		typespinner = (Spinner) findViewById(R.id.rd_typespinner);
 		subtypespinner = (Spinner) findViewById(R.id.rd_subtypespinner);
 		
-		List<String> roles = new ArrayList<String>();
+		final List<String> roles = new ArrayList<String>();
 		roles.add(Role.METEOROLOGIST);
 		roles.add(Role.NATURALIST);
 		roles.add(Role.SOIL_SCIENTIST);
 		
-		final ExpandableViewAdapter xAdapter = new ExpandableViewAdapter(getBaseContext(),
-	        roles);
+		//xAdapter = new ExpandableViewAdapter(getBaseContext(), roles);
+		
 		xView = (ExpandableListView) findViewById(R.id.expandableview);
-		xView.setAdapter(xAdapter);
+		//xView.setAdapter(xAdapter);
 //		xView.setOnClickListener(new OnClickListener() {
 //			
 //			@Override
@@ -131,8 +131,11 @@ public class Review_2Activity extends Activity {
 				
 				case 0: //sort  by Group					
 					
-					//String gid = gadapter.getItem(pos).getId(); //get selected groupID
-					// xView.setAdapter(xAdapter);
+					String gid = gadapter.getItem(pos).getId(); //get selected groupID
+					
+					xAdapter = new ExpandableViewAdapter(getBaseContext(),
+					        roles, gid);
+					xView.setAdapter(xAdapter);
 					break;
 				
 				case 1:  // sort by role

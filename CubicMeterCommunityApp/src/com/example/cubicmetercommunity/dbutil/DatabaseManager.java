@@ -147,7 +147,8 @@ public class DatabaseManager {
 	public static <E> List<E> getCollectedDataByRole(String role) {
 		return getCollectedDataByRole(role, null);
 	}
-	public static <E> List<E> getCollectedDataByRole(String role, String where) {
+	public static <E> List<E> getCollectedDataByRole(String role, String gid) {
+		String where = "group_id__c=\'" + gid + "\'"; 
 		DBUtil db = new DBUtil();
 		Map<String, Object> fields = new HashMap<String, Object>();
 		

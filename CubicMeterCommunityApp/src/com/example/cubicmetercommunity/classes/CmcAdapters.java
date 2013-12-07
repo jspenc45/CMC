@@ -4,6 +4,7 @@ package com.example.cubicmetercommunity.classes;
 import java.util.List;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -152,21 +153,22 @@ public class CmcAdapters {
 		List<SoilScientist> sslist;
 		int size = 0;
 		
-		public ExpandableViewAdapter(Context context, List<String> list) {		
+		public ExpandableViewAdapter(Context context, List<String> list, String gid) {		
 			this.context = context;
 			this.list = list;			
 			inflater = (LayoutInflater) context
 					.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 			
-			mlist = DatabaseManager.getCollectedDataByRole(DatabaseManager.METEOROLOGIST_TABLE);
-			nlist = DatabaseManager.getCollectedDataByRole(DatabaseManager.NATURALIST_TABLE);
-			sslist = DatabaseManager.getCollectedDataByRole(DatabaseManager.SOIL_SCIENTIST_TABLE);
+			nlist = DatabaseManager.getCollectedDataByRole(DatabaseManager.NATURALIST_TABLE, gid);
+			sslist = DatabaseManager.getCollectedDataByRole(DatabaseManager.SOIL_SCIENTIST_TABLE, gid);
+			mlist = DatabaseManager.getCollectedDataByRole(DatabaseManager.METEOROLOGIST_TABLE, gid);
+			 Toast.makeText(context, mlist.size() + " n " + nlist.size() + " ss " + sslist.size() + " gid " + gid ,
+			            Toast.LENGTH_LONG).show();
+			
 		}
 
 		@Override
 		public Object getChild(int groupPos, int childPos) {
-			//String [] child = new String[]{"sub 1", "sub 2", "sub 3", "sub 4"};
-			
 			if(list.get(groupPos).equals(Role.METEOROLOGIST)){
 				return mlist;
 			}
@@ -176,7 +178,6 @@ public class CmcAdapters {
 			if(list.get(groupPos).equals(Role.SOIL_SCIENTIST)){
 				return sslist;
 			}
-			
 			
 			return null; 
 		}
@@ -204,8 +205,8 @@ public class CmcAdapters {
 		@Override
 		public View getChildView(int groupPos, int childPos, boolean isLastChild, View convertView,
 				ViewGroup parent) {
-			
-		final String value = "vaaa"; // (String) getChild(groupPos, childPos);
+			Log.d("DD", "In getview");
+		final String value = "vaaa"; 
 		List<Meteorologist> _mlist = null;
 		List<Naturalist> _nlist = null;
 		List<SoilScientist> _sslist = null;
@@ -216,24 +217,24 @@ public class CmcAdapters {
 			
 			if(list.get(groupPos).equals(Role.METEOROLOGIST))
 				 _mlist = (List<Meteorologist>)getChild(groupPos, childPos);
-			((TextView)convertView.findViewById(R.id.rd_n1)).setText(_mlist.get(childPos).canopy_cover);
-			((TextView)convertView.findViewById(R.id.rd_n2)).setText(_mlist.get(childPos).celsius);
+			((TextView)convertView.findViewById(R.id.rd_n1)).setText(_mlist.get(childPos).session_id);
+			((TextView)convertView.findViewById(R.id.rd_n2)).setText(_mlist.get(childPos).group_id);
 			((TextView)convertView.findViewById(R.id.rd_n3)).setText(_mlist.get(childPos).comments);
 			
 			if(list.get(groupPos).equals(Role.NATURALIST)){
+				Log.d("DD", "In nat");
 				_nlist = (List<Naturalist>)getChild(groupPos, childPos);
-				((TextView)convertView.findViewById(R.id.rd_n1)).setText(_nlist.get(childPos).ant);
+				Log.d("DD", "got list, size " + _nlist.size());
+				((TextView)convertView.findViewById(R.id.rd_n1)).setText(_nlist.get(childPos).session_id);
 				((TextView)convertView.findViewById(R.id.rd_n2)).setText(_nlist.get(childPos).bee);
 				((TextView)convertView.findViewById(R.id.rd_n3)).setText(_nlist.get(childPos).comments);
 			}
 			if(list.get(groupPos).equals(Role.SOIL_SCIENTIST)){
 				_sslist = (List<SoilScientist>)getChild(groupPos, childPos);
-				((TextView)convertView.findViewById(R.id.rd_n1)).setText(_sslist.get(childPos).soil_color);
+				((TextView)convertView.findViewById(R.id.rd_n1)).setText(_sslist.get(childPos).session_id);
 				((TextView)convertView.findViewById(R.id.rd_n2)).setText(_sslist.get(childPos).soil_consistency);
 				((TextView)convertView.findViewById(R.id.rd_n3)).setText(_sslist.get(childPos).comments);
-			}
-			
-			
+			}			
 			
 			convertView.setOnClickListener(new OnClickListener() {
 			      @Override
