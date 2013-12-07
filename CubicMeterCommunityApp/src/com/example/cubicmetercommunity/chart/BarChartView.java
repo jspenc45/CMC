@@ -51,16 +51,9 @@ import org.afree.chart.axis.CategoryLabelPositions;
 import org.afree.chart.axis.NumberAxis;
 import org.afree.chart.plot.CategoryPlot;
 import org.afree.chart.plot.PlotOrientation;
-import org.afree.chart.renderer.category.BarRenderer;
 import org.afree.data.category.CategoryDataset;
 import org.afree.data.category.DefaultCategoryDataset;
-import org.afree.data.general.PieDataset;
-import org.afree.graphics.GradientColor;
-import org.afree.graphics.SolidColor;
-
 import android.content.Context;
-import android.graphics.Color;
-import android.util.Log;
 
 /**
  * BarChartDemo01View

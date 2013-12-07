@@ -15,13 +15,10 @@ import com.example.cubicmetercommunity.classes.SoilScientist;
 import com.example.cubicmetercommunity.dbutil.DatabaseManager;
 import com.example.cubicmetercommunityapp.R;
 
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.app.Activity;
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -30,7 +27,6 @@ import android.widget.ExpandableListView.OnChildClickListener;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.AdapterView.OnItemSelectedListener;
-import android.widget.Toast;
 
 public class Review_2Activity extends Activity {
 
@@ -171,16 +167,6 @@ public class Review_2Activity extends Activity {
 				return false;
 			}
 		});
-
-		class poop extends AsyncTask<String,Void,String>{
-
-			@Override
-			protected String doInBackground(String... arg0) {
-				xView.setAdapter(xAdapter);
-				return null;
-			}
-			
-		}
 	}
 
 }

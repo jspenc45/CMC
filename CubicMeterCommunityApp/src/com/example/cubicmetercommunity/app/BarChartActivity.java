@@ -42,7 +42,6 @@
 package com.example.cubicmetercommunity.app;
 
 import com.example.cubicmetercommunity.chart.BarChartView;
-import com.example.cubicmetercommunity.chart.PieChartView;
 import com.example.cubicmetercommunity.classes.ChartInfo;
 
 import android.app.Activity;

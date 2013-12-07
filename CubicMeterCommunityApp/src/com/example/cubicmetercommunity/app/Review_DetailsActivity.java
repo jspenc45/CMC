@@ -2,7 +2,6 @@ package com.example.cubicmetercommunity.app;
 
 import com.example.cubicmetercommunity.classes.Meteorologist;
 import com.example.cubicmetercommunity.classes.Naturalist;
-import com.example.cubicmetercommunity.classes.ReviewData;
 import com.example.cubicmetercommunity.classes.SoilScientist;
 import com.example.cubicmetercommunityapp.R;
 import android.os.Bundle;
