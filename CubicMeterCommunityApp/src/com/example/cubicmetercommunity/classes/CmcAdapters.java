@@ -1,13 +1,12 @@
 package com.example.cubicmetercommunity.classes;
 
 
-import java.util.ArrayList;
 import java.util.List;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -19,6 +18,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.cubicmetercommunity.app.Review_2Activity;
+import com.example.cubicmetercommunity.app.Review_DetailsActivity;
 import com.example.cubicmetercommunity.dbutil.DatabaseManager;
 import com.example.cubicmetercommunityapp.R;
 
@@ -167,10 +167,7 @@ public class CmcAdapters {
 			
 			nlist = DatabaseManager.getCollectedDataByRole(DatabaseManager.NATURALIST_TABLE, gid);
 			sslist = DatabaseManager.getCollectedDataByRole(DatabaseManager.SOIL_SCIENTIST_TABLE, gid);
-			mlist = DatabaseManager.getCollectedDataByRole(DatabaseManager.METEOROLOGIST_TABLE, gid);
-			 Toast.makeText(context, mlist.size() + " n " + nlist.size() + " ss " + sslist.size() + " gid " + gid ,
-			            Toast.LENGTH_LONG).show();
-			
+			mlist = DatabaseManager.getCollectedDataByRole(DatabaseManager.METEOROLOGIST_TABLE, gid);			
 		}
 
 		@Override
@@ -215,12 +212,13 @@ public class CmcAdapters {
 		List<Meteorologist> _mlist = null;
 		List<Naturalist> _nlist = null;
 		List<SoilScientist> _sslist = null;
+		final String role = "";
 		
 			if (convertView == null) {
 			      convertView = inflater.inflate(R.layout.review_row_details, null);
 			    }
 			if(list.get(groupPos).equals(Role.METEOROLOGIST)){
-				 _mlist = (List<Meteorologist>)getChild(groupPos, childPos);
+				_mlist = (List<Meteorologist>)getChild(groupPos, childPos);
 			((TextView)convertView.findViewById(R.id.rd_n1)).setText(_mlist.get(childPos).group_id);
 			((TextView)convertView.findViewById(R.id.rd_n2)).setText(_mlist.get(childPos).session_id);
 			((TextView)convertView.findViewById(R.id.rd_n3)).setText(_mlist.get(childPos).comments);
@@ -241,13 +239,27 @@ public class CmcAdapters {
 				
 			}			
 			
-			convertView.setOnClickListener(new OnClickListener() {
-			      @Override
-			      public void onClick(View v) {
-			        Toast.makeText(context, value,
-			            Toast.LENGTH_SHORT).show();
-			      }
-			    });
+//			convertView.setOnClickListener(new OnClickListener() {
+//			      @Override
+//			      public void onClick(View v) {
+//			        Toast.makeText(context, value,
+//			            Toast.LENGTH_SHORT).show();
+//			     					
+//					if(role.equals(Role.METEOROLOGIST)){
+//						((List<Meteorologist>)getChild(groupPos, childPos)).get(childPos);
+//					}
+//					if(role.equals(Role.NATURALIST)){				
+//						((List<Naturalist>)xAdapter.getChild(groupPosition, childPosition)).get(childPosition);
+//					}
+//					if(role.equals(Role.SOIL_SCIENTIST)){
+//						((List<SoilScientist>)xAdapter.getChild(groupPosition, childPosition)).get(childPosition);
+//					}
+//					
+//					Intent i = new Intent(context, Review_DetailsActivity.class);				
+//					//i.putExtra("DATA", (Meteorologist)madapter.getList().get(position));
+//					startActivity(i);
+//			      
+//			    });
 			return convertView;
 		}
 

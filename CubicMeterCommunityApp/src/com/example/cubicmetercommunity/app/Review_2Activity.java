@@ -4,11 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.example.cubicmetercommunity.classes.Group;
+import com.example.cubicmetercommunity.classes.Meteorologist;
+import com.example.cubicmetercommunity.classes.Naturalist;
 import com.example.cubicmetercommunity.classes.Role;
 import com.example.cubicmetercommunity.classes.CmcAdapters.ExpandableViewAdapter;
 import com.example.cubicmetercommunity.classes.CmcAdapters.MeteoAdapter;
 import com.example.cubicmetercommunity.classes.CmcAdapters.NaturalistAdapter;
 import com.example.cubicmetercommunity.classes.CmcAdapters.SScientistAdapter;
+import com.example.cubicmetercommunity.classes.SoilScientist;
 import com.example.cubicmetercommunity.dbutil.DatabaseManager;
 import com.example.cubicmetercommunityapp.R;
 
@@ -17,6 +20,7 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -77,11 +81,29 @@ public class Review_2Activity extends Activity {
 //		});
 		xView.setOnChildClickListener(new OnChildClickListener() {
 			
+			@SuppressWarnings("unchecked")
 			@Override
 			public boolean onChildClick(ExpandableListView parent, View v,
 					int groupPosition, int childPosition, long id) {
-				Toast.makeText(getBaseContext(), "position: " + childPosition,
-	            Toast.LENGTH_SHORT).show();
+//				Toast.makeText(getBaseContext(), "position: " + childPosition,
+//	            Toast.LENGTH_SHORT).show();
+				Intent i = new Intent(getBaseContext(), Review_DetailsActivity.class);	
+				String role = (String) xAdapter.getGroup(groupPosition);
+				
+				if(role.equals(Role.METEOROLOGIST)){
+					Meteorologist mt = ((List<Meteorologist>)xAdapter.getChild(groupPosition, childPosition)).get(childPosition);
+					i.putExtra("DATA", mt);
+				}
+				if(role.equals(Role.NATURALIST)){				
+					Naturalist nt =	((List<Naturalist>)xAdapter.getChild(groupPosition, childPosition)).get(childPosition);
+					i.putExtra("DATA", nt);
+				}
+				if(role.equals(Role.SOIL_SCIENTIST)){
+				SoilScientist ss =	((List<SoilScientist>)xAdapter.getChild(groupPosition, childPosition)).get(childPosition);
+				i.putExtra("DATA", ss);
+				}
+				startActivity(i);
+				
 				return false;
 			}
 		});
