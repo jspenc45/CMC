@@ -1,9 +1,12 @@
 package com.example.cubicmetercommunity.classes;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
+import android.app.Activity;
 import android.content.Context;
+import android.os.AsyncTask;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,8 +18,10 @@ import android.widget.CheckedTextView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.cubicmetercommunity.app.Review_2Activity;
 import com.example.cubicmetercommunity.dbutil.DatabaseManager;
 import com.example.cubicmetercommunityapp.R;
+
 
 public class CmcAdapters {
 	
@@ -146,6 +151,7 @@ public class CmcAdapters {
 	public static class ExpandableViewAdapter extends BaseExpandableListAdapter{
 		
 		Context context;
+		Review_2Activity ra;
 		List<String> list;	
 		LayoutInflater inflater;
 		List<Meteorologist> mlist;
@@ -215,22 +221,22 @@ public class CmcAdapters {
 			    }
 			if(list.get(groupPos).equals(Role.METEOROLOGIST)){
 				 _mlist = (List<Meteorologist>)getChild(groupPos, childPos);
-			((TextView)convertView.findViewById(R.id.rd_n1)).setText(_mlist.get(childPos).session_id);
-			((TextView)convertView.findViewById(R.id.rd_n2)).setText(_mlist.get(childPos).group_id);
+			((TextView)convertView.findViewById(R.id.rd_n1)).setText(_mlist.get(childPos).group_id);
+			((TextView)convertView.findViewById(R.id.rd_n2)).setText(_mlist.get(childPos).session_id);
 			((TextView)convertView.findViewById(R.id.rd_n3)).setText(_mlist.get(childPos).comments);
 			}
 			
 			if(list.get(groupPos).equals(Role.NATURALIST)){
 				_nlist = (List<Naturalist>)getChild(groupPos, childPos);
-				((TextView)convertView.findViewById(R.id.rd_n1)).setText(_nlist.get(childPos).session_id);
+				((TextView)convertView.findViewById(R.id.rd_n1)).setText(_nlist.get(childPos).group_id);
 				((TextView)convertView.findViewById(R.id.rd_n2)).setText(_nlist.get(childPos).bee);
 				((TextView)convertView.findViewById(R.id.rd_n3)).setText(_nlist.get(childPos).comments);
 				}
 			 
 			if(list.get(groupPos).equals(Role.SOIL_SCIENTIST)){				
 				_sslist = (List<SoilScientist>)getChild(groupPos, childPos);
-				((TextView)convertView.findViewById(R.id.rd_n1)).setText(_sslist.get(childPos).session_id);
-				((TextView)convertView.findViewById(R.id.rd_n2)).setText(_sslist.get(childPos).soil_consistency);
+				((TextView)convertView.findViewById(R.id.rd_n1)).setText(_sslist.get(childPos).group_id);
+				((TextView)convertView.findViewById(R.id.rd_n2)).setText(_sslist.get(childPos).session_id);
 				((TextView)convertView.findViewById(R.id.rd_n3)).setText(_sslist.get(childPos).comments);
 				
 			}			
@@ -299,5 +305,25 @@ public class CmcAdapters {
 		
 	}
 
+	public static class AsyncData extends AsyncTask<String, Void, List<String>>{
+		Activity context;
+		List<String> list;
+		
+		public AsyncData(Activity context, List<String> list) {
+			this.context = context;
+			this.list= list; 
+		}
+
+		@Override
+		protected List<String> doInBackground(String... arg0) {
+			return null;
+		}
+
+		@Override
+		protected void onPostExecute(List<String> result) {
+			super.onPostExecute(result);
+		}
+		
+	}
 
 }

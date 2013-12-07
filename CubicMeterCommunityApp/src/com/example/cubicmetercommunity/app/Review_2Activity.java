@@ -4,24 +4,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.example.cubicmetercommunity.classes.Group;
-import com.example.cubicmetercommunity.classes.Meteorologist;
-import com.example.cubicmetercommunity.classes.Naturalist;
 import com.example.cubicmetercommunity.classes.Role;
-import com.example.cubicmetercommunity.classes.SoilScientist;
 import com.example.cubicmetercommunity.classes.CmcAdapters.ExpandableViewAdapter;
 import com.example.cubicmetercommunity.classes.CmcAdapters.MeteoAdapter;
 import com.example.cubicmetercommunity.classes.CmcAdapters.NaturalistAdapter;
 import com.example.cubicmetercommunity.classes.CmcAdapters.SScientistAdapter;
 import com.example.cubicmetercommunity.dbutil.DatabaseManager;
 import com.example.cubicmetercommunityapp.R;
-import com.example.cubicmetercommunityapp.R.layout;
-import com.example.cubicmetercommunityapp.R.menu;
 
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.app.Activity;
-import android.view.Menu;
+import android.app.ProgressDialog;
+import android.content.Context;
+import android.util.Log;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ExpandableListView;
@@ -33,7 +30,9 @@ import android.widget.Toast;
 
 public class Review_2Activity extends Activity {
 
-	Spinner typespinner, subtypespinner;
+	ProgressDialog pDialog;
+	Spinner typespinner;
+	Spinner subtypespinner;
 	ExpandableListView xView;
 	ListView reviewList;
 	ExpandableViewAdapter xAdapter;
@@ -41,6 +40,7 @@ public class Review_2Activity extends Activity {
 	NaturalistAdapter nadapter;
 	SScientistAdapter ssadapter;
 	ArrayAdapter<Group> gadapter;
+	List<String> roles;
 	String sortBy;
 	List<Group> groups;
 	View mheader, nheader,ssheader, addedView;
@@ -50,11 +50,14 @@ public class Review_2Activity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_review_2);
 		
+		pDialog = new ProgressDialog(this);
+		pDialog.setCancelable(false);
+		pDialog.setMessage("Loading ...");
 		
 		typespinner = (Spinner) findViewById(R.id.rd_typespinner);
 		subtypespinner = (Spinner) findViewById(R.id.rd_subtypespinner);
 		
-		final List<String> roles = new ArrayList<String>();
+		roles = new ArrayList<String>();
 		roles.add(Role.METEOROLOGIST);
 		roles.add(Role.NATURALIST);
 		roles.add(Role.SOIL_SCIENTIST);
@@ -96,25 +99,20 @@ public class Review_2Activity extends Activity {
 				
 				switch(intsortBy){
 				case 0:
-					//populate groups
-					groups = DatabaseManager.getGroups();
-					
+					groups = DatabaseManager.getGroups();					
 					gadapter = new ArrayAdapter<Group>(getBaseContext(), android.R.layout.simple_spinner_item, groups);
 					gadapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 					subtypespinner.setAdapter(gadapter);
-					
 					break;
 					
 				case 1:
 					//populate roles
-					String[] roles = new String[]{"METEOROLOGIST","SOIL SCIENTIST", "NATURALIST"}; 	
+					//String[] roles = new String[]{"METEOROLOGIST","SOIL SCIENTIST", "NATURALIST"}; 	
 					ArrayAdapter<String> radapter = new ArrayAdapter<String>(getBaseContext(), android.R.layout.simple_spinner_item, roles);
 					radapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 					subtypespinner.setAdapter(radapter);
-					break;
-				
-				}			
-				
+					break;				
+				}						
 			}
 			public void onNothingSelected(AdapterView<?> arg0) {}
 			
@@ -131,16 +129,18 @@ public class Review_2Activity extends Activity {
 				
 				case 0: //sort  by Group					
 					
-					String gid = gadapter.getItem(pos).getId(); //get selected groupID
-					
 					xAdapter = new ExpandableViewAdapter(getBaseContext(),
-					        roles, gid);
+					        roles, gadapter.getItem(pos).getId());
 					xView.setAdapter(xAdapter);
 					break;
 				
 				case 1:  // sort by role
 					
-					// xView.setAdapter(xAdapter);
+					List<String> _roles = new ArrayList<String>();
+					_roles.add(subval);
+					xAdapter = new ExpandableViewAdapter(getBaseContext(),
+					        _roles, null);
+					xView.setAdapter(xAdapter);
 					
 					break;
 			}
@@ -153,4 +153,33 @@ public class Review_2Activity extends Activity {
 		});			
 
 	}
+	
+	private class AsyncGetGroups extends AsyncTask<String, Void, List<Group>> {
+
+		Context context;
+		AsyncGetGroups(Context context){
+			this.context = context;
+			
+		}
+		
+		@Override
+		protected List<Group> doInBackground(String... params) {	
+			Log.d("dd", "before group");
+			return DatabaseManager.getGroups();
+		}
+
+		@Override
+		protected void onPostExecute(List<Group> result) {
+			if(result != null){
+				Log.d("dd", "in result");
+				ArrayAdapter<Group> gadapter = new ArrayAdapter<Group>(context, android.R.layout.simple_spinner_item, result);
+				gadapter.setNotifyOnChange(true);
+				gadapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+				subtypespinner.setAdapter(gadapter);
+				pDialog.dismiss();
+			}else Log.d("dd", "result is null");
+		}
+		
+	}
 }
+
