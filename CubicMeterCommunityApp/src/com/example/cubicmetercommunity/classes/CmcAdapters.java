@@ -215,23 +215,23 @@ public class CmcAdapters {
 			    }
 			if(list.get(groupPos).equals(Role.METEOROLOGIST)){
 				_mlist = (List<Meteorologist>)getChild(groupPos, childPos);
-			((TextView)convertView.findViewById(R.id.rd_n1)).setText(_mlist.get(childPos).group_id);
-			((TextView)convertView.findViewById(R.id.rd_n2)).setText(_mlist.get(childPos).session_id);
-			((TextView)convertView.findViewById(R.id.rd_n3)).setText(_mlist.get(childPos).comments);
+			((TextView)convertView.findViewById(R.id.rd_n1)).setText(_mlist.get(childPos).session_id);
+//			((TextView)convertView.findViewById(R.id.rd_n2)).setText(_mlist.get(childPos).session_id);
+//			((TextView)convertView.findViewById(R.id.rd_n3)).setText(_mlist.get(childPos).comments);
 			}
 			
 			if(list.get(groupPos).equals(Role.NATURALIST)){
 				_nlist = (List<Naturalist>)getChild(groupPos, childPos);
-				((TextView)convertView.findViewById(R.id.rd_n1)).setText(_nlist.get(childPos).group_id);
-				((TextView)convertView.findViewById(R.id.rd_n2)).setText(_nlist.get(childPos).bee);
-				((TextView)convertView.findViewById(R.id.rd_n3)).setText(_nlist.get(childPos).comments);
+				((TextView)convertView.findViewById(R.id.rd_n1)).setText(_nlist.get(childPos).session_id);
+//				((TextView)convertView.findViewById(R.id.rd_n2)).setText(_nlist.get(childPos).bee);
+//				((TextView)convertView.findViewById(R.id.rd_n3)).setText(_nlist.get(childPos).comments);
 				}
 			 
 			if(list.get(groupPos).equals(Role.SOIL_SCIENTIST)){				
 				_sslist = (List<SoilScientist>)getChild(groupPos, childPos);
-				((TextView)convertView.findViewById(R.id.rd_n1)).setText(_sslist.get(childPos).group_id);
-				((TextView)convertView.findViewById(R.id.rd_n2)).setText(_sslist.get(childPos).session_id);
-				((TextView)convertView.findViewById(R.id.rd_n3)).setText(_sslist.get(childPos).comments);
+				((TextView)convertView.findViewById(R.id.rd_n1)).setText(_sslist.get(childPos).session_id);
+//				((TextView)convertView.findViewById(R.id.rd_n2)).setText(_sslist.get(childPos).session_id);
+//				((TextView)convertView.findViewById(R.id.rd_n3)).setText(_sslist.get(childPos).comments);
 				
 			}			
 			return convertView;

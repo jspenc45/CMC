@@ -14,8 +14,9 @@
         <requestFocus />
         
     </TextView>
+    <!--  
  <View
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="1dp"
         android:background="@android:color/black" />
     
@@ -27,7 +28,7 @@
         
         android:ems="10" />
     <View
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="1dp"
         android:background="@android:color/black" />
 
@@ -51,7 +52,7 @@
         <requestFocus />
     </TextView>
     <View
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="1dp"
         android:background="@android:color/black" />
 
@@ -62,7 +63,7 @@
         
         android:ems="10" />
  <View
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="1dp"
         android:background="@android:color/black" />
     
@@ -73,8 +74,9 @@
        
         android:ems="10" />
     <View
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="1dp"
         android:background="@android:color/black" />
+        -->
 
 </LinearLayout>
