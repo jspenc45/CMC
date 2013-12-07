@@ -228,6 +228,16 @@ public class Naturalist implements Serializable {
 		} catch (JSONException e) {
 			this.comments = "";
 		}
+		try {
+			this.group_id = json.getString(GROUP_ID_FIELD);
+		} catch (JSONException e) {
+			this.group_id = "";
+		}
+		try {
+			this.session_id = json.getString(SESSION_ID_FIELD);
+		} catch (JSONException e) {
+			this.session_id = "";
+		}
 	}
 
 	public String getComments() {

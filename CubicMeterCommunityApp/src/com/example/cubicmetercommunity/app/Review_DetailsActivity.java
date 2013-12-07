@@ -10,7 +10,7 @@ import android.widget.TextView;
 import android.app.Activity;
 
 public class Review_DetailsActivity extends Activity {
-	ReviewData data;
+	//ReviewData data;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
