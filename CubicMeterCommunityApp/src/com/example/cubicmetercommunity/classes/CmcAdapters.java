@@ -6,10 +6,15 @@ import java.util.List;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.BaseExpandableListAdapter;
+import android.widget.CheckedTextView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.cubicmetercommunity.dbutil.DatabaseManager;
 import com.example.cubicmetercommunityapp.R;
 
 public class CmcAdapters {
@@ -136,5 +141,135 @@ public class CmcAdapters {
 			return list;
 		}
 	}
+
+	public static class ExpandableViewAdapter extends BaseExpandableListAdapter{
+		
+		Context context;
+		List<String> list;	
+		LayoutInflater inflater;
+		
+		public ExpandableViewAdapter(Context context, List<String> list) {		
+			this.context = context;
+			this.list = list;			
+			inflater = (LayoutInflater) context
+					.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+		}
+
+		@Override
+		public Object getChild(int groupPos, int childPos) {
+			//String [] child = new String[]{"sub 1", "sub 2", "sub 3", "sub 4"};
+			
+			if(list.get(groupPos).equals(Role.METEOROLOGIST)){
+				List<Meteorologist> _list = DatabaseManager.getCollectedDataByRole(DatabaseManager.METEOROLOGIST_TABLE);
+				return _list;
+			}
+			if(list.get(groupPos).equals(Role.NATURALIST)){
+				List<Naturalist> _list = DatabaseManager.getCollectedDataByRole(DatabaseManager.NATURALIST_TABLE);
+				return _list;
+			}
+			if(list.get(groupPos).equals(Role.SOIL_SCIENTIST)){
+				List<SoilScientist> _list = DatabaseManager.getCollectedDataByRole(DatabaseManager.SOIL_SCIENTIST_TABLE);
+				return _list;
+			}
+			
+			
+			return null; 
+		}
+
+		@Override
+		public long getChildId(int arg0, int arg1) {
+			return 0;
+		}
+
+		@Override
+		public View getChildView(int groupPos, int childPos, boolean isLastChild, View convertView,
+				ViewGroup parent) {
+			
+		final String value = "vaaa"; // (String) getChild(groupPos, childPos);
+		List<Meteorologist> _list = null;
+		if(list.get(groupPos).equals(Role.METEOROLOGIST))
+			 _list = (List<Meteorologist>)getChild(groupPos, childPos);
+		
+		if(list.get(groupPos).equals(Role.NATURALIST)){
+		
+		}
+		if(list.get(groupPos).equals(Role.SOIL_SCIENTIST)){
+			
+		}
+			if (convertView == null) {
+			      convertView = inflater.inflate(R.layout.review_row_details, null);
+			    }
+			((TextView)convertView.findViewById(R.id.rd_n1)).setText(_list.get(childPos).canopy_cover);
+			((TextView)convertView.findViewById(R.id.rd_n2)).setText(_list.get(childPos).celsius);
+			((TextView)convertView.findViewById(R.id.rd_n3)).setText(_list.get(childPos).comments);
+			
+			convertView.setOnClickListener(new OnClickListener() {
+			      @Override
+			      public void onClick(View v) {
+			        Toast.makeText(context, value,
+			            Toast.LENGTH_SHORT).show();
+			      }
+			    });
+			return convertView;
+		}
+
+		@Override
+		public int getChildrenCount(int arg0) {
+			return 1;
+		}
+
+		@Override
+		public Object getGroup(int groupPos) {
+			return list.get(groupPos);
+		}
+
+		@Override
+		public int getGroupCount() {
+			return list.size();
+		}
+
+		@Override
+		public long getGroupId(int arg0) {
+			return 0;
+		}
+
+		@Override
+		public View getGroupView(int groupPos, boolean isExpanded, View convertView,
+				ViewGroup parent) {
+			
+			if (convertView == null) {
+			      convertView = inflater.inflate(R.layout.review_row_group, null);
+			    }
+
+			String group = (String) getGroup(groupPos);
+		    ((CheckedTextView) convertView).setText(group.toString());
+		    ((CheckedTextView) convertView).setChecked(isExpanded);
+			
+			return convertView;
+		}
+
+		  @Override
+		  public void onGroupCollapsed(int groupPos) {
+		    super.onGroupCollapsed(groupPos);
+		  }
+		
+		@Override
+		public void onGroupExpanded(int groupPos) {
+			super.onGroupExpanded(groupPos);
+		}
+
+		@Override
+		public boolean hasStableIds() {
+			return true;
+		}
+
+		@Override
+		public boolean isChildSelectable(int arg0, int arg1) {
+			return true;
+		}
+		
+		
+	}
+
 
 }

@@ -2,7 +2,63 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="horizontal" >
+
+    <TextView
+        android:id="@+id/rd_n1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        
+        android:ems="10" >
+
+        <requestFocus />
+        
+    </TextView>
+ <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/black" />
     
+    
+    <TextView
+        android:id="@+id/rd_n2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        
+        android:ems="10" />
+
+    <TextView
+        android:id="@+id/rd_n3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        
+        android:ems="10" />
+     <TextView
+        android:id="@+id/rd_n4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+       
+        android:ems="10" >
+
+        <requestFocus />
+    </TextView>
+
+    <TextView
+        android:id="@+id/rd_n5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        
+        android:ems="10" />
+ <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/black" />
+    
+    <TextView
+        android:id="@+id/rd_n6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+       
+        android:ems="10" />
 
 </LinearLayout>

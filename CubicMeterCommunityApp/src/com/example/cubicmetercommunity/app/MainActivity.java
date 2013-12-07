@@ -37,7 +37,8 @@ public class MainActivity extends Activity implements OnClickListener {
 			break;
 			
 		case R.id.btn_reviewData:
-			i = new Intent(getBaseContext(), ReviewdataActivity.class);
+			//i = new Intent(getBaseContext(), ReviewdataActivity.class);
+			i = new Intent(getBaseContext(), Review_2Activity.class);			
 			startActivity(i);
 			break;
 			
