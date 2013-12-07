@@ -150,8 +150,7 @@ public class DatabaseManager {
 	public static <E> List<E> getCollectedDataByRole(String role, String gid) {
 		String where = null;
 		if (gid != null)
-			where = "group_id__c=\'" + gid + "\'";
-		
+			where = "group_id__c=\'" + gid + "\'";		
 		 
 		DBUtil db = new DBUtil();
 		Map<String, Object> fields = new HashMap<String, Object>();

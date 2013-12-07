@@ -54,10 +54,6 @@ public class Review_2Activity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_review_2);
 		
-		pDialog = new ProgressDialog(this);
-		pDialog.setCancelable(false);
-		pDialog.setMessage("Loading ...");
-		
 		typespinner = (Spinner) findViewById(R.id.rd_typespinner);
 		subtypespinner = (Spinner) findViewById(R.id.rd_subtypespinner);
 		
@@ -66,41 +62,25 @@ public class Review_2Activity extends Activity {
 		roles.add(Role.NATURALIST);
 		roles.add(Role.SOIL_SCIENTIST);
 		
-		//xAdapter = new ExpandableViewAdapter(getBaseContext(), roles);
-		
 		xView = (ExpandableListView) findViewById(R.id.expandableview);
-		//xView.setAdapter(xAdapter);
-//		xView.setOnClickListener(new OnClickListener() {
-//			
-//			@Override
-//			public void onClick(View v) {
-//				Toast.makeText(getBaseContext(), "position: !!!",
-//			            Toast.LENGTH_SHORT).show();
-//				
-//			}
-//		});
 		xView.setOnChildClickListener(new OnChildClickListener() {
 			
 			@SuppressWarnings("unchecked")
 			@Override
 			public boolean onChildClick(ExpandableListView parent, View v,
 					int groupPosition, int childPosition, long id) {
-//				Toast.makeText(getBaseContext(), "position: " + childPosition,
-//	            Toast.LENGTH_SHORT).show();
+
 				Intent i = new Intent(getBaseContext(), Review_DetailsActivity.class);	
 				String role = (String) xAdapter.getGroup(groupPosition);
 				
 				if(role.equals(Role.METEOROLOGIST)){
-					Meteorologist mt = ((List<Meteorologist>)xAdapter.getChild(groupPosition, childPosition)).get(childPosition);
-					i.putExtra("DATA", mt);
+					i.putExtra("DATA", ((List<Meteorologist>)xAdapter.getChild(groupPosition, childPosition)).get(childPosition));
 				}
 				if(role.equals(Role.NATURALIST)){				
-					Naturalist nt =	((List<Naturalist>)xAdapter.getChild(groupPosition, childPosition)).get(childPosition);
-					i.putExtra("DATA", nt);
+					i.putExtra("DATA", ((List<Naturalist>)xAdapter.getChild(groupPosition, childPosition)).get(childPosition));
 				}
 				if(role.equals(Role.SOIL_SCIENTIST)){
-				SoilScientist ss =	((List<SoilScientist>)xAdapter.getChild(groupPosition, childPosition)).get(childPosition);
-				i.putExtra("DATA", ss);
+					i.putExtra("DATA", ((List<SoilScientist>)xAdapter.getChild(groupPosition, childPosition)).get(childPosition));
 				}
 				startActivity(i);
 				
@@ -108,6 +88,7 @@ public class Review_2Activity extends Activity {
 			}
 		});
 	    
+		//setup SortType selector (spinner)
 	    String[] sTypes = new String[]{"GROUP","ROLE"};		
 		
 		ArrayAdapter<String> sadapter = new ArrayAdapter<String>(getBaseContext(), android.R.layout.simple_spinner_item, sTypes);
@@ -121,6 +102,7 @@ public class Review_2Activity extends Activity {
 				
 				switch(intsortBy){
 				case 0:
+					//if sorting by group, populate groups
 					groups = DatabaseManager.getGroups();					
 					gadapter = new ArrayAdapter<Group>(getBaseContext(), android.R.layout.simple_spinner_item, groups);
 					gadapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -128,8 +110,7 @@ public class Review_2Activity extends Activity {
 					break;
 					
 				case 1:
-					//populate roles
-					//String[] roles = new String[]{"METEOROLOGIST","SOIL SCIENTIST", "NATURALIST"}; 	
+					//if sorting by role populate roles
 					ArrayAdapter<String> radapter = new ArrayAdapter<String>(getBaseContext(), android.R.layout.simple_spinner_item, roles);
 					radapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 					subtypespinner.setAdapter(radapter);
@@ -149,25 +130,21 @@ public class Review_2Activity extends Activity {
 				
 				switch(sortType){
 				
-				case 0: //sort  by Group					
+				case 0: //populated data based on the selected group					
 					
-					xAdapter = new ExpandableViewAdapter(getBaseContext(),
-					        roles, gadapter.getItem(pos).getId());
+					xAdapter = new ExpandableViewAdapter(getBaseContext(), roles, gadapter.getItem(pos).getId());
 					xView.setAdapter(xAdapter);
 					break;
 				
-				case 1:  // sort by role
+				case 1:  // populated data based on the selected role
 					
 					List<String> _roles = new ArrayList<String>();
-					_roles.add(subval);
-					xAdapter = new ExpandableViewAdapter(getBaseContext(),
-					        _roles, null);
+					_roles.add(subval); 
+					xAdapter = new ExpandableViewAdapter(getBaseContext(),_roles, null);
 					xView.setAdapter(xAdapter);
 					
 					break;
-			}
-				
-				
+			}				
 				
 			}
 			public void onNothingSelected(AdapterView<?> arg0) {}
@@ -176,32 +153,6 @@ public class Review_2Activity extends Activity {
 
 	}
 	
-	private class AsyncGetGroups extends AsyncTask<String, Void, List<Group>> {
-
-		Context context;
-		AsyncGetGroups(Context context){
-			this.context = context;
-			
-		}
-		
-		@Override
-		protected List<Group> doInBackground(String... params) {	
-			Log.d("dd", "before group");
-			return DatabaseManager.getGroups();
-		}
-
-		@Override
-		protected void onPostExecute(List<Group> result) {
-			if(result != null){
-				Log.d("dd", "in result");
-				ArrayAdapter<Group> gadapter = new ArrayAdapter<Group>(context, android.R.layout.simple_spinner_item, result);
-				gadapter.setNotifyOnChange(true);
-				gadapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-				subtypespinner.setAdapter(gadapter);
-				pDialog.dismiss();
-			}else Log.d("dd", "result is null");
-		}
-		
-	}
+	
 }
 

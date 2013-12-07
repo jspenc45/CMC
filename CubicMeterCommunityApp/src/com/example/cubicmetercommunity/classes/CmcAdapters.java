@@ -15,10 +15,8 @@ import android.widget.ArrayAdapter;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.CheckedTextView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.cubicmetercommunity.app.Review_2Activity;
-import com.example.cubicmetercommunity.app.Review_DetailsActivity;
 import com.example.cubicmetercommunity.dbutil.DatabaseManager;
 import com.example.cubicmetercommunityapp.R;
 
@@ -208,11 +206,9 @@ public class CmcAdapters {
 		@Override
 		public View getChildView(int groupPos, int childPos, boolean isLastChild, View convertView,
 				ViewGroup parent) {			
-		final String value = "vaaa"; 
 		List<Meteorologist> _mlist = null;
 		List<Naturalist> _nlist = null;
 		List<SoilScientist> _sslist = null;
-		final String role = "";
 		
 			if (convertView == null) {
 			      convertView = inflater.inflate(R.layout.review_row_details, null);
@@ -238,31 +234,8 @@ public class CmcAdapters {
 				((TextView)convertView.findViewById(R.id.rd_n3)).setText(_sslist.get(childPos).comments);
 				
 			}			
-			
-//			convertView.setOnClickListener(new OnClickListener() {
-//			      @Override
-//			      public void onClick(View v) {
-//			        Toast.makeText(context, value,
-//			            Toast.LENGTH_SHORT).show();
-//			     					
-//					if(role.equals(Role.METEOROLOGIST)){
-//						((List<Meteorologist>)getChild(groupPos, childPos)).get(childPos);
-//					}
-//					if(role.equals(Role.NATURALIST)){				
-//						((List<Naturalist>)xAdapter.getChild(groupPosition, childPosition)).get(childPosition);
-//					}
-//					if(role.equals(Role.SOIL_SCIENTIST)){
-//						((List<SoilScientist>)xAdapter.getChild(groupPosition, childPosition)).get(childPosition);
-//					}
-//					
-//					Intent i = new Intent(context, Review_DetailsActivity.class);				
-//					//i.putExtra("DATA", (Meteorologist)madapter.getList().get(position));
-//					startActivity(i);
-//			      
-//			    });
 			return convertView;
 		}
-
 		
 		@Override
 		public Object getGroup(int groupPos) {
