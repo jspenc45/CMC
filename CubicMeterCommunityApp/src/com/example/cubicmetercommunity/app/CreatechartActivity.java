@@ -1,13 +1,18 @@
 package com.example.cubicmetercommunity.app;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
 import com.example.cubicmetercommunity.classes.ChartInfo;
 import com.example.cubicmetercommunity.classes.Group;
+import com.example.cubicmetercommunity.classes.Meteorologist;
+import com.example.cubicmetercommunity.classes.Naturalist;
+import com.example.cubicmetercommunity.classes.SoilScientist;
 import com.example.cubicmetercommunity.dbutil.DatabaseManager;
 import com.example.cubicmetercommunityapp.R;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
@@ -24,7 +29,7 @@ import android.content.Intent;
 public class CreatechartActivity extends Activity implements OnClickListener{
 	List<Group> groups;
 	
-	String selectedGroup, selectedChartType;
+	String selectedGroup, selectedGroupID, selectedChartType;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -40,13 +45,14 @@ public class CreatechartActivity extends Activity implements OnClickListener{
 		gadapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		gspinner.setAdapter(gadapter);
 		
-		selectedGroup = groups.get(0).toString(); //select the first item to be default
+		selectedGroup = groups.get(0).toString(); //select the first item as the default
+		selectedGroupID = groups.get(0).getId();
 		
 		gspinner.setOnItemSelectedListener(new OnItemSelectedListener() {
 			public void onItemSelected(AdapterView<?> parent, View view,
 					int pos, long id) {
 				selectedGroup = parent.getItemAtPosition(pos).toString();
-				
+				selectedGroupID = groups.get(pos).getId();
 			}
 			public void onNothingSelected(AdapterView<?> arg0) {
 			}
@@ -89,14 +95,10 @@ public class CreatechartActivity extends Activity implements OnClickListener{
 					startActivity(i);
 					break;
 				case 1://generate pie chart
-					i = new Intent(getBaseContext(), PieChartActivity.class);
+					i = new Intent(getBaseContext(), PieChartActivity.class);					
 					
-					//using temp data
-					HashMap<String, Double> data = new HashMap<String, Double>();  
-			        data.put("Meteorologist", new Double(34.8));
-			        data.put("Naturalist", new Double(55.3));
-			        data.put("Soil Scientist", new Double(26.9));
-					i.putExtra("VAL", new ChartInfo(selectedGroup,data ));
+					//HashMap<String, Double> data = getPieData();  
+					i.putExtra("VAL", new ChartInfo(selectedGroup,getPieData() ));
 					startActivity(i);
 					break;
 			}			
@@ -104,8 +106,24 @@ public class CreatechartActivity extends Activity implements OnClickListener{
 			
 		case R.id.ccf_back:
 			finish();
-		}
+		}		
+	}
+	public HashMap<String, Double> getPieData(){
+		List<Meteorologist> mlist = DatabaseManager.getCollectedDataByRole(DatabaseManager.NATURALIST_TABLE, selectedGroupID);
+		List<Naturalist> nlist = DatabaseManager.getCollectedDataByRole(DatabaseManager.SOIL_SCIENTIST_TABLE, selectedGroupID);
+		List<SoilScientist> sslist = DatabaseManager.getCollectedDataByRole(DatabaseManager.METEOROLOGIST_TABLE, selectedGroupID);
+		HashMap<String, Double> data = new HashMap<String, Double>();
+		Double total = (double) (mlist.size() + nlist.size() + sslist.size());
 		
+		Double met = (mlist.size()/total) * 100.00;
+		Double nat = (nlist.size()/total) * 100.00;
+		Double ss = (sslist.size()/total) * 100.00;
+		
+		data.put("Meteorologist", met );
+        data.put("Naturalist",  nat);
+        data.put("Soil Scientist",ss);
+			
+		return data;
 	}
 
 }
