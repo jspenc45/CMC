@@ -57,7 +57,7 @@ public class Review_2Activity extends Activity {
 		List<String> roles = new ArrayList<String>();
 		roles.add(Role.METEOROLOGIST);
 		roles.add(Role.NATURALIST);
-		roles.add(Role.NATURALIST);
+		roles.add(Role.SOIL_SCIENTIST);
 		
 		final ExpandableViewAdapter xAdapter = new ExpandableViewAdapter(getBaseContext(),
 	        roles);

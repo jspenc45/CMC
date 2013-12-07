@@ -147,12 +147,20 @@ public class CmcAdapters {
 		Context context;
 		List<String> list;	
 		LayoutInflater inflater;
+		List<Meteorologist> mlist;
+		List<Naturalist> nlist;
+		List<SoilScientist> sslist;
+		int size = 0;
 		
 		public ExpandableViewAdapter(Context context, List<String> list) {		
 			this.context = context;
 			this.list = list;			
 			inflater = (LayoutInflater) context
 					.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+			
+			mlist = DatabaseManager.getCollectedDataByRole(DatabaseManager.METEOROLOGIST_TABLE);
+			nlist = DatabaseManager.getCollectedDataByRole(DatabaseManager.NATURALIST_TABLE);
+			sslist = DatabaseManager.getCollectedDataByRole(DatabaseManager.SOIL_SCIENTIST_TABLE);
 		}
 
 		@Override
@@ -160,16 +168,13 @@ public class CmcAdapters {
 			//String [] child = new String[]{"sub 1", "sub 2", "sub 3", "sub 4"};
 			
 			if(list.get(groupPos).equals(Role.METEOROLOGIST)){
-				List<Meteorologist> _list = DatabaseManager.getCollectedDataByRole(DatabaseManager.METEOROLOGIST_TABLE);
-				return _list;
+				return mlist;
 			}
-			if(list.get(groupPos).equals(Role.NATURALIST)){
-				List<Naturalist> _list = DatabaseManager.getCollectedDataByRole(DatabaseManager.NATURALIST_TABLE);
-				return _list;
+			if(list.get(groupPos).equals(Role.NATURALIST)){				
+				return nlist;
 			}
 			if(list.get(groupPos).equals(Role.SOIL_SCIENTIST)){
-				List<SoilScientist> _list = DatabaseManager.getCollectedDataByRole(DatabaseManager.SOIL_SCIENTIST_TABLE);
-				return _list;
+				return sslist;
 			}
 			
 			
@@ -180,28 +185,55 @@ public class CmcAdapters {
 		public long getChildId(int arg0, int arg1) {
 			return 0;
 		}
+		
+		@Override
+		public int getChildrenCount(int groupPos) {			
+			if(list.get(groupPos).equals(Role.METEOROLOGIST)){
+				return mlist.size();
+			}
+			if(list.get(groupPos).equals(Role.NATURALIST)){				
+				return nlist.size();
+			}
+			if(list.get(groupPos).equals(Role.SOIL_SCIENTIST)){
+				return sslist.size();
+			}
+			return 0;
+		}
 
+		@SuppressWarnings("unchecked")
 		@Override
 		public View getChildView(int groupPos, int childPos, boolean isLastChild, View convertView,
 				ViewGroup parent) {
 			
 		final String value = "vaaa"; // (String) getChild(groupPos, childPos);
-		List<Meteorologist> _list = null;
-		if(list.get(groupPos).equals(Role.METEOROLOGIST))
-			 _list = (List<Meteorologist>)getChild(groupPos, childPos);
+		List<Meteorologist> _mlist = null;
+		List<Naturalist> _nlist = null;
+		List<SoilScientist> _sslist = null;
 		
-		if(list.get(groupPos).equals(Role.NATURALIST)){
-		
-		}
-		if(list.get(groupPos).equals(Role.SOIL_SCIENTIST)){
-			
-		}
 			if (convertView == null) {
 			      convertView = inflater.inflate(R.layout.review_row_details, null);
 			    }
-			((TextView)convertView.findViewById(R.id.rd_n1)).setText(_list.get(childPos).canopy_cover);
-			((TextView)convertView.findViewById(R.id.rd_n2)).setText(_list.get(childPos).celsius);
-			((TextView)convertView.findViewById(R.id.rd_n3)).setText(_list.get(childPos).comments);
+			
+			if(list.get(groupPos).equals(Role.METEOROLOGIST))
+				 _mlist = (List<Meteorologist>)getChild(groupPos, childPos);
+			((TextView)convertView.findViewById(R.id.rd_n1)).setText(_mlist.get(childPos).canopy_cover);
+			((TextView)convertView.findViewById(R.id.rd_n2)).setText(_mlist.get(childPos).celsius);
+			((TextView)convertView.findViewById(R.id.rd_n3)).setText(_mlist.get(childPos).comments);
+			
+			if(list.get(groupPos).equals(Role.NATURALIST)){
+				_nlist = (List<Naturalist>)getChild(groupPos, childPos);
+				((TextView)convertView.findViewById(R.id.rd_n1)).setText(_nlist.get(childPos).ant);
+				((TextView)convertView.findViewById(R.id.rd_n2)).setText(_nlist.get(childPos).bee);
+				((TextView)convertView.findViewById(R.id.rd_n3)).setText(_nlist.get(childPos).comments);
+			}
+			if(list.get(groupPos).equals(Role.SOIL_SCIENTIST)){
+				_sslist = (List<SoilScientist>)getChild(groupPos, childPos);
+				((TextView)convertView.findViewById(R.id.rd_n1)).setText(_sslist.get(childPos).soil_color);
+				((TextView)convertView.findViewById(R.id.rd_n2)).setText(_sslist.get(childPos).soil_consistency);
+				((TextView)convertView.findViewById(R.id.rd_n3)).setText(_sslist.get(childPos).comments);
+			}
+			
+			
 			
 			convertView.setOnClickListener(new OnClickListener() {
 			      @Override
@@ -213,11 +245,7 @@ public class CmcAdapters {
 			return convertView;
 		}
 
-		@Override
-		public int getChildrenCount(int arg0) {
-			return 1;
-		}
-
+		
 		@Override
 		public Object getGroup(int groupPos) {
 			return list.get(groupPos);

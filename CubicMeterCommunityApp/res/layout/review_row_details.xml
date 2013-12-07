@@ -26,6 +26,10 @@
         android:layout_height="wrap_content"
         
         android:ems="10" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/black" />
 
     <TextView
         android:id="@+id/rd_n3"
@@ -33,6 +37,10 @@
         android:layout_height="wrap_content"
         
         android:ems="10" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/black" />
      <TextView
         android:id="@+id/rd_n4"
         android:layout_width="wrap_content"
@@ -42,6 +50,10 @@
 
         <requestFocus />
     </TextView>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/black" />
 
     <TextView
         android:id="@+id/rd_n5"
@@ -60,5 +72,9 @@
         android:layout_height="wrap_content"
        
         android:ems="10" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/black" />
 
 </LinearLayout>
