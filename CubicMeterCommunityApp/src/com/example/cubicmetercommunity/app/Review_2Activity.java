@@ -44,7 +44,7 @@ public class Review_2Activity extends Activity {
 	String sortBy;
 	List<Group> groups;
 	View mheader, nheader, ssheader, addedView;
-
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -129,7 +129,6 @@ public class Review_2Activity extends Activity {
 
 					break;
 				}
-
 			}
 
 			public void onNothingSelected(AdapterView<?> arg0) {

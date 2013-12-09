@@ -128,6 +128,7 @@ public class CmcAdapters {
 						R.layout.reviewdata_naturalist_layout, parent, false);
 			}
 
+	
 			((TextView) convertView.findViewById(R.id.nat1)).setText((((Naturalist) list.get(position)).snail.equals("null"))? notEntered :((Naturalist) list.get(position)).snail);
 			((TextView) convertView.findViewById(R.id.nat2)).setText((((Naturalist) list.get(position)).bristletail.equals("null"))? notEntered :((Naturalist) list.get(position)).bristletail);
 			((TextView) convertView.findViewById(R.id.nat3)).setText((((Naturalist) list.get(position)).lacewing.equals("null"))? "Not Entered" : ((Naturalist) list.get(position)).lacewing );
