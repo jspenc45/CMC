@@ -1,6 +1,7 @@
 package com.example.cubicmetercommunity.chart;
 
 import java.util.HashMap;
+import java.util.SortedMap;
 
 import org.afree.chart.AFreeChart;
 import org.afree.chart.ChartFactory;
@@ -15,19 +16,19 @@ import android.content.Context;
 public class PieChartView extends DemoView{
 		
 		
-	  public PieChartView(Context context, String title, HashMap<String, Double> data ) {
+	  public PieChartView(Context context, String title, SortedMap<String, Double> sortedMap ) {
 	        super(context);
-	        PieDataset dataset = createDataset(data);
+	        PieDataset dataset = createDataset(sortedMap);
 	        AFreeChart chart = createChart(dataset, title);
 
 	        setChart(chart);
 	    }
 	  
 	  @SuppressLint("UseValueOf")
-	private static PieDataset createDataset(HashMap<String, Double> data) {
+	private static PieDataset createDataset(SortedMap<String, Double> sortedMap) {
 		          DefaultPieDataset dataset = new DefaultPieDataset();
-		          for (String k : data.keySet()){
-		        	 dataset.setValue(k, data.get(k));		        	  
+		          for (String k : sortedMap.keySet()){
+		        	 dataset.setValue(k, sortedMap.get(k));		        	  
 		          }		       
 		      
 		          

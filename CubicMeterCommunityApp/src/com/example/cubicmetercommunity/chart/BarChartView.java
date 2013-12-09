@@ -42,7 +42,7 @@
 package com.example.cubicmetercommunity.chart;
 
 
-import java.util.HashMap;
+import java.util.SortedMap;
 
 import org.afree.chart.ChartFactory;
 import org.afree.chart.AFreeChart;
@@ -64,7 +64,7 @@ public class BarChartView extends DemoView {
      * constructor
      * @param context
      */
-    public BarChartView(Context context, String title, HashMap<String, Double> data) {
+    public BarChartView(Context context, String title, SortedMap<String, Double> data) {
         super(context);
 
         CategoryDataset dataset = createDataset(data);
@@ -79,13 +79,13 @@ public class BarChartView extends DemoView {
      *
      * @return The dataset.
      */
-    private static CategoryDataset createDataset(HashMap<String, Double> data) {
+    private static CategoryDataset createDataset(SortedMap<String, Double> data) {
 
        // create the dataset...
         DefaultCategoryDataset dataset = new DefaultCategoryDataset();
      
         for (String k : data.keySet()){
-       	  dataset.addValue(data.get(k), k, k);		        	  
+       	  dataset.addValue(data.get(k), k, k);		
          }	
 
         return dataset;

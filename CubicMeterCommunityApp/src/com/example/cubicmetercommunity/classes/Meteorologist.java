@@ -2,6 +2,7 @@ package com.example.cubicmetercommunity.classes;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -10,7 +11,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class Meteorologist implements Serializable {
+public class Meteorologist implements Serializable, Comparable {
 	/**
 	 * 
 	 */
@@ -28,7 +29,14 @@ public class Meteorologist implements Serializable {
 	private final static String WIND_FIELD = "wind__c";
 	
 	String celsius, canopy_cover, cloud, comments, fahrenheit, group_id,humidity, pressure,rainfall,session_id,wind;
+	Date date;
 	
+	public Date getDate() {
+		return date;
+	}
+	public void setDate(Date date) {
+		this.date = date;
+	}
 	public static Map<String,Object> generateFieldsAll() {
 		Map<String,Object> fields = new HashMap<String,Object>();
 		fields.put(CELSIUS_FIELD, null);
@@ -204,6 +212,10 @@ public class Meteorologist implements Serializable {
 				+ ", humidity=" + humidity + ", pressure=" + pressure
 				+ ", rainfall=" + rainfall + ", session_id=" + session_id
 				+ ", wind=" + wind + "]";
+	}
+	@Override
+	public int compareTo(Object arg0) {
+		return this.getDate().compareTo(((Meteorologist)arg0).getDate());
 	}
 	
 	

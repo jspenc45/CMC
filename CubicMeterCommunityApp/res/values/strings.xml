@@ -44,8 +44,18 @@
         <item>Soil Texture</item>
         <item>Soil Consistence</item>
         <item>Soil Moisture</item>
-        <item>Soul Odor</item>
+        <item>Soil Odor</item>
         <item>Additional Comments</item>
+    </string-array>
+    <string-array name="dataTypes">
+        <item>Temperature</item>
+        <item>Air Pressure</item>
+        <item>Humidity</item>
+        <item>Wind</item>
+        <item>Average Rainfall</item>
+        <item>Biodiversity</item>
+        <item>Soil pH Levels</item>
+        <item>Soil Moisture</item>
     </string-array>
     <string-array name="meteorologistFragments">
         <item>canopy_cover_activity</item>

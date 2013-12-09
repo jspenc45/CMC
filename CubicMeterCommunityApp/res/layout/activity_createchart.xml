@@ -1,8 +1,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-   
+    android:layout_height="match_parent" >
+
     <ImageView
         android:id="@+id/imageView1"
         android:layout_width="wrap_content"
@@ -12,15 +12,16 @@
         android:layout_alignParentTop="true"
         android:adjustViewBounds="true"
         android:src="@drawable/cmc_label_small" />
-       
-         <Spinner
+
+    <Spinner
         android:id="@+id/chartSpinner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/textView2" />
 
-           <LinearLayout
+    <LinearLayout
+        android:id="@+id/linearLayout1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -42,32 +43,48 @@
             android:text="@string/label_generate" />
     </LinearLayout>
 
-           <Spinner
-               android:id="@+id/groupSpinner"
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:layout_alignParentLeft="true"
-               android:gravity="center"
-               android:layout_below="@+id/textView1" />
+    <Spinner
+        android:id="@+id/groupSpinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textView1"
+        android:gravity="center" />
 
-           <TextView
-               android:id="@+id/textView2"
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:layout_below="@+id/groupSpinner"
-               android:layout_centerHorizontal="true"
-               android:layout_marginTop="18dp"
-               android:text="@string/label_cc2"
-               android:textAppearance="?android:attr/textAppearanceMedium" />
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageView1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:text="@string/label_cc2"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
 
-           <TextView
-               android:id="@+id/textView1"
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:layout_below="@+id/imageView1"
-               android:layout_centerHorizontal="true"
-               android:layout_marginTop="30dp"
-               android:text="@string/label_cc1"
-               android:textAppearance="?android:attr/textAppearanceMedium" />
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/chartSpinner"
+        android:layout_centerHorizontal="true"
+        android:text="@string/label_cc1"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/TextView01"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/groupSpinner"
+        android:text="Select Data Type"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <Spinner
+        android:id="@+id/dataTypes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/TextView01" />
 
 </RelativeLayout>
