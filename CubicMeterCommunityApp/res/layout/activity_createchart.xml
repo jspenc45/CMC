@@ -107,4 +107,13 @@ android:layout_centerHorizontal="true"
         android:text="Select Session:"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageView1"
+        android:layout_centerHorizontal="true"
+        android:text="Charts"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
 </RelativeLayout>

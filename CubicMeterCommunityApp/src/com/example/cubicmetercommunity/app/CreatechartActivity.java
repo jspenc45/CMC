@@ -21,6 +21,7 @@ import com.example.cubicmetercommunity.dbutil.DatabaseManager;
 import com.example.cubicmetercommunityapp.R;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
@@ -175,10 +176,10 @@ public class CreatechartActivity extends Activity implements OnClickListener {
 
 		switch (v.getId()) {
 		case R.id.ccf_generate:
+			SortedMap<String, Double> data;
 			switch (chartType) {
 			case 0: // generate bar chart
 				i = new Intent(getBaseContext(), BarChartActivity.class);
-				SortedMap<String, Double> data;
 				if (selectedDataType.equals("Soil pH Levels")
 						|| selectedDataType.equals("Soil Moisture"))
 					data = generateSSBarData();
@@ -195,8 +196,16 @@ public class CreatechartActivity extends Activity implements OnClickListener {
 				break;
 			case 1:// generate pie chart
 				i = new Intent(getBaseContext(), PieChartActivity.class);
-				i.putExtra("VAL", new ChartInfo("Biodiversity", getPieData()));
-				startActivity(i);
+				data = getPieData();
+				Log.d("debug", data.size() + "");
+
+				if (data == null || data.size() == 0)
+					Toast.makeText(this, "No data for selected item!",
+							Toast.LENGTH_LONG).show();
+				else {
+					i.putExtra("VAL", new ChartInfo("Biodiversity", data));
+					startActivity(i);
+				}
 				break;
 			}
 			break;
@@ -484,61 +493,60 @@ public class CreatechartActivity extends Activity implements OnClickListener {
 		ant = ant / total * 100;
 
 		DecimalFormat df = new DecimalFormat("#.#");
-
-		if (snail != 0)
+		if (snail != 0 && !Double.isNaN(snail))
 			data.put("Snail - " + df.format(snail) + "%", snail);
-		if (bristletail != 0)
+		if (bristletail != 0 && !Double.isNaN(bristletail))
 			data.put("Bristletail - " + df.format(bristletail) + "%",
 					bristletail);
-		if (lacewing != 0)
+		if (lacewing != 0 && !Double.isNaN(lacewing))
 			data.put("Lacewing - " + df.format(lacewing) + "%", lacewing);
-		if (mayfly != 0)
+		if (mayfly != 0 && !Double.isNaN(mayfly))
 			data.put("Mayfly - " + df.format(mayfly) + "%", mayfly);
-		if (thrip != 0)
+		if (thrip != 0 && !Double.isNaN(thrip))
 			data.put("Thrip - " + df.format(thrip) + "%", thrip);
-		if (pillbug != 0)
+		if (pillbug != 0 && !Double.isNaN(pillbug))
 			data.put("Pillbug - " + df.format(pillbug) + "%", pillbug);
-		if (beetle != 0)
+		if (beetle != 0 && !Double.isNaN(beetle))
 			data.put("Beetle - " + df.format(beetle) + "%", beetle);
-		if (spider != 0)
+		if (spider != 0 && !Double.isNaN(spider))
 			data.put("Spider - " + df.format(spider) + "%", spider);
-		if (butterfly != 0)
+		if (butterfly != 0 && !Double.isNaN(butterfly))
 			data.put("Butterfly - " + df.format(butterfly) + "%", butterfly);
-		if (grasshopper != 0)
+		if (grasshopper != 0 && !Double.isNaN(grasshopper))
 			data.put("Grasshopper - " + df.format(grasshopper) + "%",
 					grasshopper);
-		if (worm != 0)
+		if (worm != 0 && !Double.isNaN(worm))
 			data.put("Worm - " + df.format(worm) + "%", worm);
-		if (springtail != 0)
+		if (springtail != 0 && !Double.isNaN(springtail))
 			data.put("Springtail - " + df.format(springtail) + "%", springtail);
-		if (larvae != 0)
+		if (larvae != 0 && !Double.isNaN(larvae))
 			data.put("Larvae - " + df.format(larvae) + "%", larvae);
-		if (woodroach != 0)
+		if (woodroach != 0 && !Double.isNaN(woodroach))
 			data.put("Woodroach - " + df.format(woodroach) + "%", woodroach);
-		if (cadisfly != 0)
+		if (cadisfly != 0 && !Double.isNaN(cadisfly))
 			data.put("Cadisfly - " + df.format(cadisfly) + "%", cadisfly);
-		if (scorpion != 0)
+		if (scorpion != 0 && !Double.isNaN(scorpion))
 			data.put("Scorpion - " + df.format(scorpion) + "%", scorpion);
-		if (tick != 0)
+		if (tick != 0 && !Double.isNaN(tick))
 			data.put("Tick - " + df.format(tick) + "%", tick);
-		if (earwig != 0)
+		if (earwig != 0 && !Double.isNaN(earwig))
 			data.put("Earwig - " + df.format(earwig) + "%", earwig);
-		if (stonefly != 0)
+		if (stonefly != 0 && !Double.isNaN(stonefly))
 			data.put("Stonefly - " + df.format(stonefly) + "%", stonefly);
-		if (caterpillar != 0)
+		if (caterpillar != 0 && !Double.isNaN(caterpillar))
 			data.put("Caterpillar - " + df.format(caterpillar) + "%",
 					caterpillar);
-		if (centipede != 0)
+		if (centipede != 0 && !Double.isNaN(centipede))
 			data.put("Centipede - " + df.format(centipede) + "%", centipede);
-		if (aphid != 0)
+		if (aphid != 0 && !Double.isNaN(aphid))
 			data.put("Aphid - " + df.format(aphid) + "%", aphid);
-		if (booklice != 0)
+		if (booklice != 0 && !Double.isNaN(booklice))
 			data.put("Booklice - " + df.format(booklice) + "%", booklice);
-		if (fly != 0)
+		if (fly != 0 && !Double.isNaN(fly))
 			data.put("Fly - " + df.format(fly) + "%", fly);
-		if (bee != 0)
+		if (bee != 0 && !Double.isNaN(bee))
 			data.put("Bee - " + df.format(bee) + "%", bee);
-		if (ant != 0)
+		if (ant != 0 && !Double.isNaN(ant))
 			data.put("Ant - " + df.format(ant) + "%", ant);
 
 		return data;
