@@ -231,5 +231,6 @@
     <string name="act_finishCanopyCover">Finish</string>
     <string name="title_activity_review_2">Review_2Activity</string>
     <string name="hello_world">Hello world!</string>
+    <string name="textView_cloudInstructions">"Which of these clouds are in the sky? "</string>
 
 </resources>
