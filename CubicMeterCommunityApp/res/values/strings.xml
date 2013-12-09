@@ -232,5 +232,7 @@
     <string name="title_activity_review_2">Review_2Activity</string>
     <string name="hello_world">Hello world!</string>
     <string name="textView_cloudInstructions">"Which of these clouds are in the sky? "</string>
+    <string name="textview_windInstructions">Enter the number from your wind meter:</string>
+    <string name="textview_soilmoistureinstructions2">Enter the number from your soil moisture device:</string>
 
 </resources>

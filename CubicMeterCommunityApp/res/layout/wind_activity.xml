@@ -5,30 +5,6 @@
     android:background="@drawable/wind" >
 
     <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="20dp"
-        android:text="@string/windinstructions"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-
-    <EditText
-        android:id="@+id/text_wind"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/textView1"
-        android:layout_marginRight="99dp"
-        android:layout_marginTop="16dp"
-        android:ems="10"
-        android:inputType="number" >
-
-        <requestFocus />
-    </EditText>
-
-    <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -46,5 +22,25 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="24dp"
         android:text="@string/finishwindactivity" />
+
+    <EditText
+        android:id="@+id/text_wind"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="85dp"
+        android:ems="10"
+        android:inputType="number" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="18dp"
+        android:text="@string/textview_windInstructions"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
 
 </RelativeLayout>
