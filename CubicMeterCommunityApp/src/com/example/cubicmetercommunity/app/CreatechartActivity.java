@@ -10,7 +10,9 @@ import com.example.cubicmetercommunity.classes.Naturalist;
 import com.example.cubicmetercommunity.classes.SoilScientist;
 import com.example.cubicmetercommunity.dbutil.DatabaseManager;
 import com.example.cubicmetercommunityapp.R;
+
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
@@ -26,8 +28,8 @@ import android.content.Intent;
 
 public class CreatechartActivity extends Activity implements OnClickListener{
 	List<Group> groups;
-	
 	String selectedGroup, selectedGroupID, selectedChartType;
+	HashMap<String, Double> barCharData, pieChartData;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +38,8 @@ public class CreatechartActivity extends Activity implements OnClickListener{
 			
 		groups = DatabaseManager.getGroups();
 		
-		String[] chartTypes = new String[]{"Bar Chart","Pie Chart"};	
+		String[] chartTypes = new String[]{"Bar Chart","Pie Chart"};		
+		
 		
 		Spinner gspinner = (Spinner) findViewById(R.id.groupSpinner);
 		ArrayAdapter<Group> gadapter = new ArrayAdapter<Group>(getBaseContext(), android.R.layout.simple_spinner_item, groups);
@@ -85,6 +88,7 @@ public class CreatechartActivity extends Activity implements OnClickListener{
 	public void onClick(View v) {
 		int chartType = (selectedChartType.equals("Bar Chart"))?0:1; //set 0 if bar chart else 1 for pie chart
 		Intent i;
+		
 		switch(v.getId()){
 		case R.id.ccf_generate:			
 			switch(chartType) {
@@ -95,7 +99,6 @@ public class CreatechartActivity extends Activity implements OnClickListener{
 					break;
 				case 1://generate pie chart
 					i = new Intent(getBaseContext(), PieChartActivity.class);					
-					
 					i.putExtra("VAL", new ChartInfo(selectedGroup,getPieData() ));
 					startActivity(i);
 					break;
@@ -140,5 +143,4 @@ public class CreatechartActivity extends Activity implements OnClickListener{
 			
 		return data;
 	}
-
 }
