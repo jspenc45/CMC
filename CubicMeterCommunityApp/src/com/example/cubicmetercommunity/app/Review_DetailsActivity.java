@@ -44,29 +44,19 @@ public class Review_DetailsActivity extends Activity {
 							mlist.add((Meteorologist) obj);
 							mAdapter = new MeteoAdapter(getBaseContext(), mlist);
 							listView.setAdapter(mAdapter);
-//							((TextView) findViewById(R.id.rd_ID)).setText(((Meteorologist) obj).getCanopy_cover());
-//							((TextView) findViewById(R.id.rd_groupID)).setText(((Meteorologist) obj).getCelsius()); 
-//							((TextView) findViewById(R.id.rd_sessionID)).setText(((Meteorologist) obj).getCloud());
 						}
 						if(obj instanceof Naturalist){
 							nlist = new ArrayList<Naturalist>();
 							nlist.add((Naturalist) obj);
 							nAdapter = new NaturalistAdapter(getBaseContext(), nlist);
 							listView.setAdapter(nAdapter);
-//							((TextView) findViewById(R.id.rd_ID)).setText(((Naturalist) obj).getCentipede());
-//							((TextView) findViewById(R.id.rd_groupID)).setText(((Naturalist) obj).getBee()); 
-//							((TextView) findViewById(R.id.rd_sessionID)).setText(((Naturalist) obj).getComments());
 						}
 						if(obj instanceof SoilScientist){
 							slist = new ArrayList<SoilScientist>();
 							slist.add((SoilScientist) obj);
 							sAdapter = new SScientistAdapter(getBaseContext(), slist);
 							listView.setAdapter(sAdapter);
-//							((TextView) findViewById(R.id.rd_ID)).setText(((SoilScientist) obj).getSoil_ph());
-//							((TextView) findViewById(R.id.rd_groupID)).setText(((SoilScientist) obj).getSoil_consistency()); 
-//							((TextView) findViewById(R.id.rd_sessionID)).setText(((SoilScientist) obj).getSoil_texture());
-						}
-				
+						}			
 						
 					} 
 					catch (NullPointerException e) {									

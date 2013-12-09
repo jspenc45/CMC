@@ -157,7 +157,6 @@ public class CmcAdapters {
 			((TextView) convertView.findViewById(R.id.nat26)).setText((((Naturalist) list.get(position)).ant.equals("null"))?  notEntered : ((Naturalist) list.get(position)).ant);
 			((TextView) convertView.findViewById(R.id.nat27)).setText((((Naturalist) list.get(position)).comments.equals("null"))? notEntered : ((Naturalist) list.get(position)).comments);
 			
-
 			return convertView;
 		}
 
