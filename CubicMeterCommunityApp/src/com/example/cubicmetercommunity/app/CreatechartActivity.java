@@ -29,7 +29,6 @@ import android.content.Intent;
 public class CreatechartActivity extends Activity implements OnClickListener{
 	List<Group> groups;
 	String selectedGroup, selectedGroupID, selectedChartType;
-	HashMap<String, Double> barCharData, pieChartData;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
