@@ -236,5 +236,6 @@
     <string name="textview_soilmoistureinstructions2">Enter the number from your soil moisture device:</string>
     <string name="textview_airpressureinstructions">Enter the barometric pressure below:</string>
     <string name="textview_soilphinstructions">Enter the number from your pH device below:</string>
+    <string name="textview_soilconsistencyinstructions">What does your soil look like?</string>
 
 </resources>
