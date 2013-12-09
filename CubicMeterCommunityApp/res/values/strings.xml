@@ -44,7 +44,7 @@
         <item>Soil Texture</item>
         <item>Soil Consistence</item>
         <item>Soil Moisture</item>
-        <item>Soul Odor</item>
+        <item>Soil Odor</item>
         <item>Additional Comments</item>
     </string-array>
     <string-array name="meteorologistFragments">
