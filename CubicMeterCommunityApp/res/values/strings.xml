@@ -47,16 +47,6 @@
         <item>Soil Odor</item>
         <item>Additional Comments</item>
     </string-array>
-    <string-array name="dataTypes">
-        <item>Temperature</item>
-        <item>Air Pressure</item>
-        <item>Humidity</item>
-        <item>Wind</item>
-        <item>Average Rainfall</item>
-        <item>Biodiversity</item>
-        <item>Soil pH Levels</item>
-        <item>Soil Moisture</item>
-    </string-array>
     <string-array name="meteorologistFragments">
         <item>canopy_cover_activity</item>
         <item>temperature_activity</item>
@@ -79,6 +69,16 @@
         <item>soil_moisture</item>
         <item>soil_odor</item>
         <item>comments_soil_scientist</item>
+    </string-array>
+    <string-array name="dataTypes">
+        <item>Temperature</item>
+        <item>Air Pressure</item>
+        <item>Humidity</item>
+        <item>Wind</item>
+        <item>Average Rainfall</item>
+        <item>Biodiversity</item>
+        <item>Soil pH Levels</item>
+        <item>Soil Moisture</item>
     </string-array>
     <string-array name="BugNames">
         <item>Snails</item>
@@ -241,5 +241,11 @@
     <string name="act_finishCanopyCover">Finish</string>
     <string name="title_activity_review_2">Review_2Activity</string>
     <string name="hello_world">Hello world!</string>
+    <string name="textView_cloudInstructions">"Which of these clouds are in the sky? "</string>
+    <string name="textview_windInstructions">Enter the number from your wind meter:</string>
+    <string name="textview_soilmoistureinstructions2">Enter the number from your soil moisture device:</string>
+    <string name="textview_airpressureinstructions">Enter the barometric pressure below:</string>
+    <string name="textview_soilphinstructions">Enter the number from your pH device below:</string>
+    <string name="textview_soilconsistencyinstructions">What does your soil look like?</string>
 
 </resources>
