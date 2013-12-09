@@ -5,30 +5,6 @@
     android:background="@drawable/soil_ph_background" >
 
     <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="18dp"
-        android:text="@string/textview_soilPHInstructions"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-
-    <EditText
-        android:id="@+id/text_soilPH"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/textView1"
-        android:layout_marginRight="75dp"
-        android:layout_marginTop="24dp"
-        android:ems="10"
-        android:inputType="number" >
-
-        <requestFocus android:layout_height="wrap_content" />
-    </EditText>
-
-    <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -65,13 +41,35 @@
             android:text="@string/radiobutton_neutral" />
     </RadioGroup>
 
+    <EditText
+        android:id="@+id/text_soilPH"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView2"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="22dp"
+        android:layout_marginTop="90dp"
+        android:ems="10"
+        android:inputType="number" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="16dp"
+        android:text="@string/textview_soilphinstructions"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
     <Button
         android:id="@+id/act_finish"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_below="@+id/selectSoilType"
-        android:layout_marginRight="46dp"
+        android:layout_marginRight="44dp"
+        android:layout_marginTop="22dp"
         android:text="@string/act_finishSoilpH" />
 
 </RelativeLayout>

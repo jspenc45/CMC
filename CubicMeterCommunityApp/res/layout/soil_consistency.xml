@@ -4,21 +4,22 @@
     android:layout_height="match_parent"
     android:background="@drawable/consistencybackground" >
 
-    <TextView
-        android:id="@+id/textView1"
+    <Button
+        android:id="@+id/act_finish"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:text="@string/textview_soilconsistency_instructions"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="34dp"
+        android:layout_marginRight="38dp"
+        android:text="@string/act_finishSoilConsistency" />
 
     <RadioGroup
         android:id="@+id/selectSoilConsistency"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/textView1" >
+        android:layout_centerVertical="true" >
 
         <RadioButton
             android:id="@+id/radioButton1"
@@ -63,13 +64,14 @@
             android:textAppearance="?android:attr/textAppearanceSmall" />
     </RadioGroup>
 
-    <Button
-        android:id="@+id/act_finish"
+    <TextView
+        android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/selectSoilConsistency"
-        android:layout_marginRight="46dp"
-        android:text="@string/act_finishSoilConsistency" />
+        android:layout_above="@+id/selectSoilConsistency"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="14dp"
+        android:text="@string/textview_soilconsistencyinstructions"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
 
 </RelativeLayout>
