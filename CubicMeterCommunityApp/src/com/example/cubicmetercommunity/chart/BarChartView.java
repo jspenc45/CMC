@@ -53,17 +53,21 @@ import org.afree.chart.plot.CategoryPlot;
 import org.afree.chart.plot.PlotOrientation;
 import org.afree.data.category.CategoryDataset;
 import org.afree.data.category.DefaultCategoryDataset;
+
+import android.annotation.SuppressLint;
 import android.content.Context;
 
 /**
  * BarChartDemo01View
  */
+@SuppressLint("ViewConstructor")
 public class BarChartView extends DemoView {
 
     /**
      * constructor
      * @param context
      */
+	
     public BarChartView(Context context, String title, SortedMap<String, Double> data) {
         super(context);
 
@@ -103,8 +107,8 @@ public class BarChartView extends DemoView {
 
         // create the chart...
         AFreeChart chart = ChartFactory.createBarChart(
-        		 title + " Chart",      // chart title
-            "Role",               // domain axis label
+        		 title,      // chart title
+            "Collection Times",               // domain axis label
             "Total Collected Data",                  // range axis label
             dataset,                  // data
             PlotOrientation.VERTICAL, // orientation

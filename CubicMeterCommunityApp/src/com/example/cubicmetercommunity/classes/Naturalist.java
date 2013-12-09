@@ -17,6 +17,13 @@ public class Naturalist implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	public String getSession_id() {
+		return session_id;
+	}
+
+	public void setSession_id(String session_id) {
+		this.session_id = session_id;
+	}
 	public final static String GROUP_ID_FIELD = "group_id__c";
 	public final static String COMMENTS_FIELD = "comments__c";
 	public final static String SESSION_ID_FIELD = "session_id__c";

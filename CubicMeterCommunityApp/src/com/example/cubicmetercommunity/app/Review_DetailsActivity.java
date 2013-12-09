@@ -12,7 +12,6 @@ import com.example.cubicmetercommunity.classes.SoilScientist;
 import com.example.cubicmetercommunityapp.R;
 import android.os.Bundle;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.app.Activity;
 
 public class Review_DetailsActivity extends Activity {

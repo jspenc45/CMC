@@ -39,10 +39,6 @@
             android:theme="@android:style/Theme.Holo.Light.NoActionBar" >
         </activity>
         <activity
-            android:name="com.example.cubicmetercommunity.app.ReviewdataActivity"
-            android:theme="@android:style/Theme.Holo.Light.NoActionBar" >
-        </activity>
-        <activity
             android:name="com.example.cubicmetercommunity.app.CreatechartActivity"
             android:theme="@android:style/Theme.Holo.Light.NoActionBar" >
         </activity>

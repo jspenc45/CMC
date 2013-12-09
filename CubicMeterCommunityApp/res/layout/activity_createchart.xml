@@ -74,17 +74,37 @@
         android:id="@+id/TextView01"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
         android:layout_below="@+id/groupSpinner"
-        android:text="Select Data Type"
+        android:layout_centerHorizontal="true"
+        android:text="Select Data Type:"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <Spinner
         android:id="@+id/dataTypes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/TextView01" />
+        android:layout_below="@+id/TextView01"
+        android:gravity="center" />
+
+    <Spinner
+        android:id="@+id/sessions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        
+        android:visibility="gone"
+        android:layout_below="@+id/TextView02"
+        android:gravity="center" />
+
+    <TextView
+        android:id="@+id/TextView02"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+android:layout_centerHorizontal="true"
+        android:layout_below="@+id/dataTypes"
+        android:visibility="gone"
+        android:text="Select Session:"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
 
 </RelativeLayout>

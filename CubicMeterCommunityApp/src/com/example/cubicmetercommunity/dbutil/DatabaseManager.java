@@ -191,15 +191,4 @@ public class DatabaseManager {
 		
 		return null;
 	}
-	public static <E> List<E> getCollectedDataByGroup(String groupId) {
-		String where = "group_id__c=\'" + groupId + "\'"; 
-		
-		List<Meteorologist> met = getCollectedDataByRole(METEOROLOGIST_TABLE, where);
-		List<Naturalist> nat = getCollectedDataByRole(NATURALIST_TABLE, where);
-		List<SoilScientist> sci = getCollectedDataByRole(SOIL_SCIENTIST_TABLE, where);
-		
-		//TODO: DO MERGE ON SESSION ID
-		
-		return null;
-	}
 }

@@ -1,7 +1,6 @@
 package com.example.cubicmetercommunity.classes;
 
 import java.io.Serializable;
-import java.util.HashMap;
 import java.util.SortedMap;
 
 public class ChartInfo implements Serializable  {

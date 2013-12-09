@@ -1,6 +1,5 @@
 package com.example.cubicmetercommunity.chart;
 
-import java.util.HashMap;
 import java.util.SortedMap;
 
 import org.afree.chart.AFreeChart;

@@ -2,6 +2,7 @@ package com.example.cubicmetercommunity.classes;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -10,7 +11,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class SoilScientist implements Serializable {
+public class SoilScientist implements Serializable, Comparable<Object> {
 
 	/**
 	 * 
@@ -29,7 +30,9 @@ public class SoilScientist implements Serializable {
 	private final static String SOIL_TYPE_FIELD = "soil_type__c";
 	
 	String comments ,group_id,session_id,soil_color, soil_consistency,soil_moisture,soil_odor,soil_ph,
-	soil_texture,soil_type;	
+	soil_texture,soil_type;
+
+	private Date date;	
 	
 	public static Map<String,Object> generateFieldsAll() {
 		Map<String,Object> fields = new HashMap<String,Object>();
@@ -194,6 +197,17 @@ public class SoilScientist implements Serializable {
 				+ soil_moisture + ", soil_odor=" + soil_odor + ", soil_ph="
 				+ soil_ph + ", soil_texture=" + soil_texture + ", soil_type="
 				+ soil_type + "]";
+	}
+	public void setDate(Date d) {
+		this.date = d;
+		
+	}
+	@Override
+	public int compareTo(Object arg0) {
+		return this.date.compareTo(((SoilScientist)arg0).getDate());
+	}
+	public Date getDate() {
+		return date;
 	}
 	
 }

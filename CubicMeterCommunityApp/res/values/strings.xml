@@ -53,7 +53,6 @@
         <item>Humidity</item>
         <item>Wind</item>
         <item>Average Rainfall</item>
-        <item>Biodiversity</item>
         <item>Soil pH Levels</item>
         <item>Soil Moisture</item>
     </string-array>
