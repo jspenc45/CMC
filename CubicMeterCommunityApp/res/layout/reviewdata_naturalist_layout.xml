@@ -3,52 +3,639 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal" >
-
-    <TextView
-        android:id="@+id/rd_n1"
+    
+    <LinearLayout
+        android:id="@+id/ll_headers"
+        android:layout_width="152dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="left"
+        android:orientation="vertical" >     
+    <TextView        
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
+        android:text="Snail:"
+        
         android:ems="10" >
-
-        <requestFocus />
+        <requestFocus />        
     </TextView>
-
-    <TextView
-        android:id="@+id/rd_n2"
+     <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:background="@android:color/black" />
+    <TextView        
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:ems="10" />
-
+        android:text="Bristletail:"
+        
+        android:ems="10" >
+        <requestFocus />        
+    </TextView>
+     <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:background="@android:color/black" />
     <TextView
-        android:id="@+id/rd_n3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:ems="10" />
+        android:text="Lacewing:"        
+        android:ems="10" >
+        <requestFocus />        
+    </TextView>     
+ <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:background="@android:color/black" />
+ <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mayfly:"        
+        android:ems="10" >
+        <requestFocus />        
+    </TextView>     
+ <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:background="@android:color/black" />
+
+  <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Thrip:"        
+        android:ems="10" >
+        <requestFocus />        
+    </TextView>     
+ <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:background="@android:color/black" />
+  <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="PillBug:"        
+        android:ems="10" >
+        <requestFocus />        
+    </TextView>     
+ <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:background="@android:color/black" />
+ 
+  <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Beetle:"        
+        android:ems="10" >
+        <requestFocus />        
+    </TextView>     
+ <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:background="@android:color/black" />
+ 
+  <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Spider:"        
+        android:ems="10" >
+        <requestFocus />        
+    </TextView>     
+ <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:background="@android:color/black" />
+ <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Butterfly"        
+        android:ems="10" >
+        <requestFocus />        
+    </TextView>     
+ <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:background="@android:color/black" />
+ 
+ <TextView        
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Grass Hopper"
+        
+        android:ems="10" >
+        <requestFocus />        
+    </TextView>
+     <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:background="@android:color/black" />
+    <TextView        
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Worm"
+        
+        android:ems="10" >
+        <requestFocus />        
+    </TextView>
+     <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:background="@android:color/black" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Springtail:"        
+        android:ems="10" >
+        <requestFocus />        
+    </TextView>     
+ <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:background="@android:color/black" />
+ <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Larvae:"        
+        android:ems="10" >
+        <requestFocus />        
+    </TextView>     
+ <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:background="@android:color/black" />
+
+  <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Woodroach:"        
+        android:ems="10" >
+        <requestFocus />        
+    </TextView>     
+ <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:background="@android:color/black" />
+  <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cadisfly:"        
+        android:ems="10" >
+        <requestFocus />        
+    </TextView>     
+ <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:background="@android:color/black" />
+ 
+  <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Scorpion:"        
+        android:ems="10" >
+        <requestFocus />        
+    </TextView>     
+ <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:background="@android:color/black" />
+ 
+  <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tick:"        
+        android:ems="10" >
+        <requestFocus />        
+    </TextView>     
+ <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:background="@android:color/black" />
+ <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Earwig: "        
+        android:ems="10" >
+        <requestFocus />        
+    </TextView>     
+ <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:background="@android:color/black" />
+ <TextView        
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Stonefly:"
+        
+        android:ems="10" >
+        <requestFocus />        
+    </TextView>
+     <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:background="@android:color/black" />
+    <TextView        
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Carterpillar"
+        
+        android:ems="10" >
+        <requestFocus />        
+    </TextView>
+     <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:background="@android:color/black" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Centipede:"        
+        android:ems="10" >
+        <requestFocus />        
+    </TextView>     
+ <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:background="@android:color/black" />
+ <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Aphid"        
+        android:ems="10" >
+        <requestFocus />        
+    </TextView>     
+ <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:background="@android:color/black" />
+
+  <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Booklice:"        
+        android:ems="10" >
+        <requestFocus />        
+    </TextView>     
+ <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:background="@android:color/black" />
+  <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Fly:"        
+        android:ems="10" >
+        <requestFocus />        
+    </TextView>     
+ <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:background="@android:color/black" />
+ 
+  <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Bee: "        
+        android:ems="10" >
+        <requestFocus />        
+    </TextView>     
+ <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:background="@android:color/black" />
+ 
+  <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ant:"        
+        android:ems="10" >
+        <requestFocus />        
+    </TextView>     
+ <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:background="@android:color/black" />
+ <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Comments:"        
+        android:ems="10" >
+        <requestFocus />        
+    </TextView>     
+ <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:background="@android:color/black" />
+ 
+ 
+</LinearLayout>
+    
+ 
+<LinearLayout
+    android:layout_gravity="right"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >  
+    
+
+    <TextView
+        android:id="@+id/nat1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ta"        
+        android:ems="10" >    
+    </TextView>
+     <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:background="@android:color/black" />
+
+    <TextView
+        android:id="@+id/nat2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ta"        
+        android:ems="10" >      
+</TextView>
+<View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:background="@android:color/black" />
      <TextView
-        android:id="@+id/rd_n4"
+        android:id="@+id/nat3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:ems="10" >
-
-        <requestFocus />
+        android:text="ta"        
+        android:ems="10" >  
+        </TextView>
+ <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:background="@android:color/black" />
+ <TextView
+        android:id="@+id/nat4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ta"        
+        android:ems="10" >    
     </TextView>
-
-    <TextView
-        android:id="@+id/rd_n5"
+     <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:background="@android:color/black" />
+     <TextView
+        android:id="@+id/nat5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:ems="10" />
-
-    <TextView
-        android:id="@+id/rd_n6"
+        android:text="ta"        
+        android:ems="10" >    
+    </TextView>
+     <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:background="@android:color/black" />
+     <TextView
+        android:id="@+id/nat6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:ems="10" />
+        android:text="ta"        
+        android:ems="10" >    
+    </TextView>
+     <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:background="@android:color/black" />
+     <TextView
+        android:id="@+id/nat7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ta"        
+        android:ems="10" >    
+    </TextView>
+     <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:background="@android:color/black" />
+     <TextView
+        android:id="@+id/nat8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ta"        
+        android:ems="10" >    
+    </TextView>
+     <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:background="@android:color/black" />
+     <TextView
+        android:id="@+id/nat9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ta"        
+        android:ems="10" >    
+    </TextView>
+     <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:background="@android:color/black" />
+     <TextView
+        android:id="@+id/nat10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ta"        
+        android:ems="10" >    
+    </TextView>
+     <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:background="@android:color/black" />
+
+    <TextView
+        android:id="@+id/nat11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ta"        
+        android:ems="10" >      
+</TextView>
+<View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:background="@android:color/black" />
+     <TextView
+        android:id="@+id/nat12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ta"        
+        android:ems="10" >  
+        </TextView>
+ <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:background="@android:color/black" />
+ <TextView
+        android:id="@+id/nat13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ta"        
+        android:ems="10" >    
+    </TextView>
+     <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:background="@android:color/black" />
+     <TextView
+        android:id="@+id/nat14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ta"        
+        android:ems="10" >    
+    </TextView>
+     <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:background="@android:color/black" />
+     <TextView
+        android:id="@+id/nat15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ta"        
+        android:ems="10" >    
+    </TextView>
+     <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:background="@android:color/black" />
+     <TextView
+        android:id="@+id/nat16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ta"        
+        android:ems="10" >    
+    </TextView>
+     <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:background="@android:color/black" />
+     <TextView
+        android:id="@+id/nat17"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ta"        
+        android:ems="10" >    
+    </TextView>
+     <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:background="@android:color/black" />
+     <TextView
+        android:id="@+id/nat18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ta"        
+        android:ems="10" >    
+    </TextView>
+     <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:background="@android:color/black" />
+     <TextView
+        android:id="@+id/nat19"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ta"        
+        android:ems="10" >    
+    </TextView>
+     <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:background="@android:color/black" />
+
+    <TextView
+        android:id="@+id/nat20"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ta"        
+        android:ems="10" >      
+</TextView>
+<View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:background="@android:color/black" />
+     <TextView
+        android:id="@+id/nat21"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ta"        
+        android:ems="10" >  
+        </TextView>
+ <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:background="@android:color/black" />
+ <TextView
+        android:id="@+id/nat22"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ta"        
+        android:ems="10" >    
+    </TextView>
+     <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:background="@android:color/black" />
+     <TextView
+        android:id="@+id/nat23"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ta"        
+        android:ems="10" >    
+    </TextView>
+     <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:background="@android:color/black" />
+     <TextView
+        android:id="@+id/nat24"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ta"        
+        android:ems="10" >    
+    </TextView>
+     <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:background="@android:color/black" />
+     <TextView
+        android:id="@+id/nat25"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ta"        
+        android:ems="10" >    
+    </TextView>
+     <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:background="@android:color/black" />
+     <TextView
+        android:id="@+id/nat26"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ta"        
+        android:ems="10" >    
+    </TextView>
+     <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:background="@android:color/black" />
+     <TextView
+        android:id="@+id/nat27"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ta"        
+        android:ems="10" >    
+    </TextView>
+     <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:background="@android:color/black" />
+
+</LinearLayout>
 
 </LinearLayout>

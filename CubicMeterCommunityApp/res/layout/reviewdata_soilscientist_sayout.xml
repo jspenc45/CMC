@@ -3,52 +3,209 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal" >
+    
+    <LinearLayout
+        android:id="@+id/ll_headers"
+        android:layout_width="152dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="left"
+        android:orientation="vertical" >
 
-    <TextView
-        android:id="@+id/rd_ss1"
+    <TextView        
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
+        android:text="Soil Color:"        
         android:ems="10" >
-
-        <requestFocus />
+        <requestFocus />        
     </TextView>
-
-    <TextView
-        android:id="@+id/rd_ss2"
+     <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:background="@android:color/black" />
+    <TextView        
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:ems="10" />
-
+        android:text="Soil Consistency:"
+        
+        android:ems="10" >
+        <requestFocus />        
+    </TextView>
+     <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:background="@android:color/black" />
     <TextView
-        android:id="@+id/rd_ss3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:ems="10" />
+        android:text="Soil Moisture:"        
+        android:ems="10" >
+        <requestFocus />        
+    </TextView>     
+ <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:background="@android:color/black" />
+ <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Soil Odor:"        
+        android:ems="10" >
+        <requestFocus />        
+    </TextView>     
+ <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:background="@android:color/black" />
+
+  <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Soil Ph:"        
+        android:ems="10" >
+        <requestFocus />        
+    </TextView>     
+ <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:background="@android:color/black" />
+  <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Soil Texture:"        
+        android:ems="10" >
+        <requestFocus />        
+    </TextView>     
+ <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:background="@android:color/black" />
+ 
+  <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Soil Type:"        
+        android:ems="10" >
+        <requestFocus />        
+    </TextView>     
+ <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:background="@android:color/black" />
+   
+ <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Comments:"        
+        android:ems="10" >
+        <requestFocus />        
+    </TextView>     
+ <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:background="@android:color/black" />
+ 
+ 
+ 
+</LinearLayout>
+    
+ 
+<LinearLayout
+    android:layout_gravity="right"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >  
+    
+
+    <TextView
+        android:id="@+id/ss1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ta"        
+        android:ems="10" >    
+    </TextView>
+     <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:background="@android:color/black" />
+
+    <TextView
+        android:id="@+id/ss2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ta"        
+        android:ems="10" >      
+</TextView>
+<View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:background="@android:color/black" />
      <TextView
-        android:id="@+id/rd_ss4"
+        android:id="@+id/ss3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:ems="10" >
-
-        <requestFocus />
+        android:text="ta"        
+        android:ems="10" >  
+        </TextView>
+ <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:background="@android:color/black" />
+ <TextView
+        android:id="@+id/ss4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ta"        
+        android:ems="10" >    
     </TextView>
-
-    <TextView
-        android:id="@+id/rd_ss5"
+     <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:background="@android:color/black" />
+     <TextView
+        android:id="@+id/ss5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:ems="10" />
-
-    <TextView
-        android:id="@+id/rd_ss6"
+        android:text="ta"        
+        android:ems="10" >    
+    </TextView>
+     <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:background="@android:color/black" />
+     <TextView
+        android:id="@+id/ss6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:ems="10" />
+        android:text="ta"        
+        android:ems="10" >    
+    </TextView>
+     <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:background="@android:color/black" />
+     <TextView
+        android:id="@+id/ss7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ta"        
+        android:ems="10" >    
+    </TextView>
+     <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:background="@android:color/black" />
+         <TextView
+        android:id="@+id/ss9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ta"        
+        android:ems="10" >    
+    </TextView>
+     <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:background="@android:color/black" />
+
+</LinearLayout>
 
 </LinearLayout>

@@ -47,6 +47,16 @@
         <item>Soil Odor</item>
         <item>Additional Comments</item>
     </string-array>
+    <string-array name="dataTypes">
+        <item>Temperature</item>
+        <item>Air Pressure</item>
+        <item>Humidity</item>
+        <item>Wind</item>
+        <item>Average Rainfall</item>
+        <item>Biodiversity</item>
+        <item>Soil pH Levels</item>
+        <item>Soil Moisture</item>
+    </string-array>
     <string-array name="meteorologistFragments">
         <item>canopy_cover_activity</item>
         <item>temperature_activity</item>
@@ -69,16 +79,6 @@
         <item>soil_moisture</item>
         <item>soil_odor</item>
         <item>comments_soil_scientist</item>
-    </string-array>
-    <string-array name="dataTypes">
-        <item>Temperature</item>
-        <item>Air Pressure</item>
-        <item>Humidity</item>
-        <item>Wind</item>
-        <item>Average Rainfall</item>
-        <item>Biodiversity</item>
-        <item>Soil pH Levels</item>
-        <item>Soil Moisture</item>
     </string-array>
     <string-array name="BugNames">
         <item>Snails</item>
