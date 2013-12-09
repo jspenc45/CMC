@@ -246,5 +246,6 @@
     <string name="textview_airpressureinstructions">Enter the barometric pressure below:</string>
     <string name="textview_soilphinstructions">Enter the number from your pH device below:</string>
     <string name="textview_soilconsistencyinstructions">What does your soil look like?</string>
+    <string name="textlabel_soilpH_hint">HINT: above 7 is alkaline, 7 is neutral, below 7 is acidic.</string>
 
 </resources>
