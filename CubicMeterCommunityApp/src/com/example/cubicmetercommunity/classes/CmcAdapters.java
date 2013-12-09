@@ -26,11 +26,12 @@ public class CmcAdapters {
 
 		Context context;
 		List<Meteorologist> list;
-
+		String notEntered;
 		public MeteoAdapter(Context context, List<Meteorologist> list) {
 			super(context, R.layout.reviewdata_meteorologist_layout, list);
 			this.context = context;
 			this.list = list;
+			notEntered = "Not Entered";
 		}
 
 		@Override
@@ -43,19 +44,17 @@ public class CmcAdapters {
 						.inflate(R.layout.reviewdata_meteorologist_layout,
 								parent, false);
 			}
-
-			TextView txt1 = (TextView) convertView.findViewById(R.id.rd_meteo1);
-			TextView txt2 = (TextView) convertView.findViewById(R.id.rd_meteo2);
-			TextView txt3 = (TextView) convertView.findViewById(R.id.rd_meteo3);
-			TextView txt4 = (TextView) convertView.findViewById(R.id.rd_meteo4);
-			TextView txt5 = (TextView) convertView.findViewById(R.id.rd_meteo5);
-
-			txt1.setText(((Meteorologist) list.get(position)).canopy_cover);
-			txt2.setText(((Meteorologist) list.get(position)).celsius);
-			txt3.setText(((Meteorologist) list.get(position)).fahrenheit);
-			txt4.setText(((Meteorologist) list.get(position)).humidity);
-			txt5.setText(((Meteorologist) list.get(position)).cloud);
-
+	
+			((TextView) convertView.findViewById(R.id.met1)).setText((((Meteorologist) list.get(position)).celsius.equals("null"))? notEntered :((Meteorologist) list.get(position)).celsius);
+			((TextView) convertView.findViewById(R.id.met2)).setText((((Meteorologist) list.get(position)).canopy_cover.equals("null"))? notEntered :((Meteorologist) list.get(position)).canopy_cover);
+			((TextView) convertView.findViewById(R.id.met3)).setText((((Meteorologist) list.get(position)).cloud.equals("null"))? "Not Entered" : ((Meteorologist) list.get(position)).cloud );
+			((TextView) convertView.findViewById(R.id.met4)).setText((((Meteorologist) list.get(position)).fahrenheit.equals("null"))? notEntered : ((Meteorologist) list.get(position)).fahrenheit );
+			((TextView) convertView.findViewById(R.id.met5)).setText((((Meteorologist) list.get(position)).humidity.equals("null"))? notEntered : ((Meteorologist) list.get(position)).humidity);
+			((TextView) convertView.findViewById(R.id.met6)).setText((((Meteorologist) list.get(position)).pressure.equals("null"))?  notEntered : ((Meteorologist) list.get(position)).pressure );
+			((TextView) convertView.findViewById(R.id.met7)).setText((((Meteorologist) list.get(position)).rainfall.equals("null"))?  notEntered : ((Meteorologist) list.get(position)).rainfall);
+			((TextView) convertView.findViewById(R.id.met8)).setText((((Meteorologist) list.get(position)).wind.equals("null"))?  notEntered : ((Meteorologist) list.get(position)).wind);
+			((TextView) convertView.findViewById(R.id.met9)).setText((((Meteorologist) list.get(position)).comments.equals("null"))? notEntered : ((Meteorologist) list.get(position)).comments);
+			
 			return convertView;
 		}
 
@@ -68,11 +67,13 @@ public class CmcAdapters {
 
 		Context context;
 		List<SoilScientist> list;
+		String notEntered;
 
 		public SScientistAdapter(Context context, List<SoilScientist> list) {
 			super(context, R.layout.reviewdata_meteorologist_layout, list);
 			this.context = context;
 			this.list = list;
+			notEntered = "Not Entered";
 		}
 
 		@Override
@@ -86,17 +87,15 @@ public class CmcAdapters {
 								parent, false);
 			}
 
-			TextView txt1 = (TextView) convertView.findViewById(R.id.rd_ss1);
-			TextView txt2 = (TextView) convertView.findViewById(R.id.rd_ss2);
-			TextView txt3 = (TextView) convertView.findViewById(R.id.rd_ss3);
-			TextView txt4 = (TextView) convertView.findViewById(R.id.rd_ss4);
-			TextView txt5 = (TextView) convertView.findViewById(R.id.rd_ss5);
-
-			txt1.setText((list.get(position)).soil_color);
-			txt2.setText((list.get(position)).soil_moisture);
-			txt3.setText((list.get(position)).soil_odor);
-			txt4.setText((list.get(position)).soil_ph);
-			txt5.setText((list.get(position)).soil_type);
+			((TextView) convertView.findViewById(R.id.ss1)).setText((((SoilScientist) list.get(position)).soil_color.equals("null"))? notEntered :((SoilScientist) list.get(position)).soil_color);
+			((TextView) convertView.findViewById(R.id.ss2)).setText((((SoilScientist) list.get(position)).soil_consistency.equals("null"))? notEntered :((SoilScientist) list.get(position)).soil_consistency);
+			((TextView) convertView.findViewById(R.id.ss3)).setText((((SoilScientist) list.get(position)).soil_moisture.equals("null"))? "Not Entered" : ((SoilScientist) list.get(position)).soil_moisture );
+			((TextView) convertView.findViewById(R.id.ss4)).setText((((SoilScientist) list.get(position)).soil_odor.equals("null"))? notEntered : ((SoilScientist) list.get(position)).soil_odor );
+			((TextView) convertView.findViewById(R.id.ss5)).setText((((SoilScientist) list.get(position)).soil_ph.equals("null"))? notEntered : ((SoilScientist) list.get(position)).soil_ph);
+			((TextView) convertView.findViewById(R.id.ss6)).setText((((SoilScientist) list.get(position)).soil_texture.equals("null"))?  notEntered : ((SoilScientist) list.get(position)).soil_texture );
+			((TextView) convertView.findViewById(R.id.ss7)).setText((((SoilScientist) list.get(position)).soil_type.equals("null"))?  notEntered : ((SoilScientist) list.get(position)).soil_type);
+			((TextView) convertView.findViewById(R.id.ss9)).setText((((SoilScientist) list.get(position)).comments.equals("null"))? notEntered : ((SoilScientist) list.get(position)).comments);
+			
 
 			return convertView;
 		}
@@ -110,11 +109,13 @@ public class CmcAdapters {
 
 		Context context;
 		List<Naturalist> list;
+		String notEntered;
 
 		public NaturalistAdapter(Context context, List<Naturalist> list) {
 			super(context, R.layout.reviewdata_naturalist_layout, list);
 			this.context = context;
 			this.list = list;
+			notEntered = "Not Entered";
 		}
 
 		@Override
@@ -127,17 +128,34 @@ public class CmcAdapters {
 						R.layout.reviewdata_naturalist_layout, parent, false);
 			}
 
-			TextView txt1 = (TextView) convertView.findViewById(R.id.rd_n1);
-			TextView txt2 = (TextView) convertView.findViewById(R.id.rd_n2);
-			TextView txt3 = (TextView) convertView.findViewById(R.id.rd_n3);
-			TextView txt4 = (TextView) convertView.findViewById(R.id.rd_n4);
-			TextView txt5 = (TextView) convertView.findViewById(R.id.rd_n5);
-
-			txt1.setText((list.get(position)).comments);
-			txt2.setText((list.get(position)).comments);
-			txt3.setText((list.get(position)).comments);
-			// txt4.setText((list.get(position)).humidity);
-			// txt5.setText((list.get(position)).cloud);
+			((TextView) convertView.findViewById(R.id.nat1)).setText((((Naturalist) list.get(position)).snail.equals("null"))? notEntered :((Naturalist) list.get(position)).snail);
+			((TextView) convertView.findViewById(R.id.nat2)).setText((((Naturalist) list.get(position)).bristletail.equals("null"))? notEntered :((Naturalist) list.get(position)).bristletail);
+			((TextView) convertView.findViewById(R.id.nat3)).setText((((Naturalist) list.get(position)).lacewing.equals("null"))? "Not Entered" : ((Naturalist) list.get(position)).lacewing );
+			((TextView) convertView.findViewById(R.id.nat4)).setText((((Naturalist) list.get(position)).mayfly.equals("null"))? notEntered : ((Naturalist) list.get(position)).mayfly );
+			((TextView) convertView.findViewById(R.id.nat5)).setText((((Naturalist) list.get(position)).thrip.equals("null"))? notEntered : ((Naturalist) list.get(position)).thrip);
+			((TextView) convertView.findViewById(R.id.nat6)).setText((((Naturalist) list.get(position)).pillbug.equals("null"))?  notEntered : ((Naturalist) list.get(position)).pillbug );
+			((TextView) convertView.findViewById(R.id.nat7)).setText((((Naturalist) list.get(position)).beetle.equals("null"))?  notEntered : ((Naturalist) list.get(position)).beetle);
+			((TextView) convertView.findViewById(R.id.nat8)).setText((((Naturalist) list.get(position)).spider.equals("null"))?  notEntered : ((Naturalist) list.get(position)).spider);
+			((TextView) convertView.findViewById(R.id.nat9)).setText((((Naturalist) list.get(position)).butterfly.equals("null"))? notEntered : ((Naturalist) list.get(position)).butterfly);
+			((TextView) convertView.findViewById(R.id.nat10)).setText((((Naturalist) list.get(position)).grasshopper.equals("null"))? notEntered :((Naturalist) list.get(position)).grasshopper);
+			((TextView) convertView.findViewById(R.id.nat11)).setText((((Naturalist) list.get(position)).worm.equals("null"))? notEntered :((Naturalist) list.get(position)).worm);
+			((TextView) convertView.findViewById(R.id.nat12)).setText((((Naturalist) list.get(position)).springtail.equals("null"))? "Not Entered" : ((Naturalist) list.get(position)).springtail );
+			((TextView) convertView.findViewById(R.id.nat13)).setText((((Naturalist) list.get(position)).larvae.equals("null"))? notEntered : ((Naturalist) list.get(position)).larvae );
+			((TextView) convertView.findViewById(R.id.nat14)).setText((((Naturalist) list.get(position)).woodroach.equals("null"))? notEntered : ((Naturalist) list.get(position)).woodroach);
+			((TextView) convertView.findViewById(R.id.nat15)).setText((((Naturalist) list.get(position)).cadisfly.equals("null"))?  notEntered : ((Naturalist) list.get(position)).cadisfly );
+			((TextView) convertView.findViewById(R.id.nat16)).setText((((Naturalist) list.get(position)).scorpion.equals("null"))?  notEntered : ((Naturalist) list.get(position)).scorpion);
+			((TextView) convertView.findViewById(R.id.nat17)).setText((((Naturalist) list.get(position)).tick.equals("null"))?  notEntered : ((Naturalist) list.get(position)).tick);
+			((TextView) convertView.findViewById(R.id.nat18)).setText((((Naturalist) list.get(position)).earwig.equals("null"))? notEntered : ((Naturalist) list.get(position)).earwig);
+			((TextView) convertView.findViewById(R.id.nat19)).setText((((Naturalist) list.get(position)).stonefly.equals("null"))? notEntered :((Naturalist) list.get(position)).stonefly);
+			((TextView) convertView.findViewById(R.id.nat20)).setText((((Naturalist) list.get(position)).caterpillar.equals("null"))? notEntered :((Naturalist) list.get(position)).caterpillar);
+			((TextView) convertView.findViewById(R.id.nat21)).setText((((Naturalist) list.get(position)).centipede.equals("null"))? "Not Entered" : ((Naturalist) list.get(position)).centipede );
+			((TextView) convertView.findViewById(R.id.nat22)).setText((((Naturalist) list.get(position)).aphid.equals("null"))? notEntered : ((Naturalist) list.get(position)).aphid );
+			((TextView) convertView.findViewById(R.id.nat23)).setText((((Naturalist) list.get(position)).booklice.equals("null"))? notEntered : ((Naturalist) list.get(position)).booklice);
+			((TextView) convertView.findViewById(R.id.nat24)).setText((((Naturalist) list.get(position)).fly.equals("null"))?  notEntered : ((Naturalist) list.get(position)).fly );
+			((TextView) convertView.findViewById(R.id.nat25)).setText((((Naturalist) list.get(position)).bee.equals("null"))?  notEntered : ((Naturalist) list.get(position)).bee);
+			((TextView) convertView.findViewById(R.id.nat26)).setText((((Naturalist) list.get(position)).ant.equals("null"))?  notEntered : ((Naturalist) list.get(position)).ant);
+			((TextView) convertView.findViewById(R.id.nat27)).setText((((Naturalist) list.get(position)).comments.equals("null"))? notEntered : ((Naturalist) list.get(position)).comments);
+			
 
 			return convertView;
 		}
